@@ -31,22 +31,27 @@ const Header = ({ children }: { children: React.ReactNode }) => {
               <Image src="/Assets/home.svg" height={50} width={50} alt="" />
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/friends">
             <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
               <Image src="/Assets/friends.svg" height={50} width={50} alt="" />
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/watch">
             <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
               <Image src="/Assets/watch.svg" height={50} width={50} alt="" />
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/marketplace">
             <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex  transition-all  ">
-              <Image src="/Assets/marketplace.svg" height={50} width={50} alt="" />
+              <Image
+                src="/Assets/marketplace.svg"
+                height={50}
+                width={50}
+                alt=""
+              />
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/groups">
             <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all   ">
               <Image src="/Assets/groups.svg" height={50} width={50} alt="" />
             </a>
