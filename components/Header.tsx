@@ -33,22 +33,22 @@ const Header = ({ children }: { children: React.ReactNode }) => {
           </Link>
           <Link href="/">
             <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
-              <Image src="/Assets/home.svg" height={50} width={50} alt="" />
+              <Image src="/Assets/friends.svg" height={50} width={50} alt="" />
             </a>
           </Link>
           <Link href="/">
             <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
-              <Image src="/Assets/home.svg" height={50} width={50} alt="" />
+              <Image src="/Assets/watch.svg" height={50} width={50} alt="" />
             </a>
           </Link>
           <Link href="/">
             <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex  transition-all  ">
-              <Image src="/Assets/home.svg" height={50} width={50} alt="" />
+              <Image src="/Assets/marketplace.svg" height={50} width={50} alt="" />
             </a>
           </Link>
           <Link href="/">
             <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all   ">
-              <Image src="/Assets/home.svg" height={50} width={50} alt="" />
+              <Image src="/Assets/groups.svg" height={50} width={50} alt="" />
             </a>
           </Link>
         </div>
