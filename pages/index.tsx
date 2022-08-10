@@ -100,7 +100,38 @@ const Home: NextPage = () => {
             </Link>
           ))}
         </nav>
-        <main></main>
+        <main className="mx-auto w-[500px]">
+          <div className="bg-white p-4 rounded-lg flex flex-col items-stretch justify-center gap-2">
+            <div className="flex items-center justify-center gap-2 pb-2">
+              <Link href="/user/id">
+                <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
+                  <div className="w-10 h-10 relative rounded-full overflow-hidden">
+                    <Image
+                      src="https://picsum.photos/700"
+                      alt=""
+                      layout="fill"
+                    />
+                  </div>
+                </a>
+              </Link>
+              <p className="bg-gray-100 text-gray-500 px-4 p-2 rounded-full w-full hover:bg-gray-200 cursor-pointer transition-all">
+                What&#39;s on your mind, Username ?
+              </p>
+            </div>
+            <hr className="w-full" />
+            <div className="p-2 flex items-center justify-evenly font-medium">
+              <button className="hover:bg-gray-200 transition-all p-2 px-6 rounded-lg">
+                Live video
+              </button>
+              <button className="hover:bg-gray-200 transition-all p-2 px-6 rounded-lg">
+                Photo/video
+              </button>
+              <button className="hover:bg-gray-200 transition-all p-2 px-6 rounded-lg">
+                Feeling/Activity
+              </button>
+            </div>
+          </div>
+        </main>
         <div className="h-full w-[280px] overflow-y-scroll m-0 fixed right-4 top-16 pb-24">
           {/* <div>
             <h3>Birthdays</h3>
