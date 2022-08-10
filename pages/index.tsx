@@ -158,7 +158,7 @@ const Home: NextPage = () => {
             </Link>
           ))}
         </nav>
-        <main className="mx-auto w-[500px] flex flex-col justify-start items-stretch gap-4">
+        <main className="mx-auto w-[500px] flex flex-col justify-start items-stretch gap-4 pb-64">
           <div className="bg-white p-4 rounded-lg flex flex-col items-stretch justify-center gap-2">
             <div className="flex items-center justify-center gap-2 pb-2">
               <Link href="/user/id">
@@ -256,6 +256,21 @@ const Home: NextPage = () => {
                   </div>
                 </a>
               </Link>
+              <div className="px-4">
+                <div></div>
+                <hr />{" "}
+                <div className="p-2 flex items-center justify-evenly font-medium">
+                  <button className="hover:bg-gray-100 transition-all p-2 px-12 rounded-lg">
+                    Like
+                  </button>
+                  <button className="hover:bg-gray-100 transition-all p-2 px-12 rounded-lg">
+                    Comment
+                  </button>
+                  <button className="hover:bg-gray-100 transition-all p-2 px-12 rounded-lg">
+                    Share
+                  </button>
+                </div>
+              </div>
             </div>
             {posts.map((p, i) => (
               <div key={i}></div>
