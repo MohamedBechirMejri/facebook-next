@@ -66,11 +66,26 @@ const navlinks = [
   },
 ];
 
+const friends = [
+  {
+    name: "test",
+    image: "https://picsum.photos/600",
+    birthday: "2020-01-01",
+    latestConnection: "2020-01-01-00-00-00",
+  },
+  {
+    name: "test2",
+    image: "https://picsum.photos/600",
+    birthday: "2020-01-12",
+    latestConnection: "2022-08-10-04-36-55",
+  }
+];
+
 const Home: NextPage = () => {
   return (
     <Header>
-      <div className="min-h-screen w-screen p-2 py-4">
-        <nav className="max-w-[320px] overflow-y-scroll m-0">
+      <div className="min-h-screen w-screen p-2 py-4 flex text-black relative">
+        <nav className="h-full w-[320px] overflow-y-scroll m-0 fixed left-4 top-16 pb-24">
           {navlinks.map((navlink, index) => (
             <Link href={navlink.href} key={index}>
               <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all">
@@ -83,7 +98,14 @@ const Home: NextPage = () => {
           ))}
         </nav>
         <main></main>
-        <div></div>
+        <div className="h-full w-[320px] overflow-y-scroll m-0 fixed right-4 top-16 pb-24">
+          <div>
+            <h3>Birthdays</h3>
+          </div>
+          <div>
+            <h3>Contacts</h3>
+          </div>
+        </div>
       </div>
     </Header>
   );
