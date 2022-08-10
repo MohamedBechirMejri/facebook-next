@@ -5,7 +5,7 @@ import React from "react";
 const Header = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <header className="fixed w-screen bg-white h-14 p-2 flex items-center justify-between shadow-sm">
+      <header className="fixed w-screen bg-white h-14 p-2 flex items-center justify-between shadow-sm z-50">
         <div className="h-full flex">
           <Link href="/">
             <a>
