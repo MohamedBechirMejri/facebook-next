@@ -6,7 +6,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <header className="fixed z-50 flex items-center justify-between w-screen p-2 bg-white shadow-sm h-14">
-        <div className="flex h-full">
+        <div className="absolute top-0 left-0 flex h-full p-2">
           <Link href="/">
             <a>
               <div className="relative w-8 h-full px-7">
@@ -25,7 +25,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
             />
           </div>
         </div>
-        <div className="h-full grid grid-cols-5 grid-rows-1 w-[500px]">
+        <div className="h-full grid grid-cols-5 grid-rows-1 w-[590px] mx-auto">
           <Link href="/">
             <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all justify-center">
               <Image src="/Assets/home.svg" height={50} width={50} alt="" />
@@ -57,7 +57,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
             </a>
           </Link>
         </div>
-        <div className="flex items-center justify-center gap-2 px-4">
+        <div className="absolute top-0 right-0 flex items-center justify-center h-full gap-2 p-2 px-4">
           <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
             <Image src="/Assets/menu.svg" height={20} width={20} alt="" />
           </button>

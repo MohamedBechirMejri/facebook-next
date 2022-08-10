@@ -158,7 +158,7 @@ const Home: NextPage = () => {
             </Link>
           ))}
         </nav>
-        <main className="mx-auto w-[500px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5]">
+        <main className="mx-auto w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5]">
           <div className="flex flex-col items-stretch justify-center gap-2 p-4 bg-white rounded-lg">
             <div className="flex items-center justify-center gap-2 pb-2">
               <Link href="/user/id">
@@ -246,7 +246,7 @@ const Home: NextPage = () => {
               </p>
               <Link href="/posts/id">
                 <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
-                  <div className="w-[500px] ">
+                  <div className="w-[590px] ">
                     <Image
                       src="https://picsum.photos/700"
                       alt=""
@@ -288,13 +288,13 @@ const Home: NextPage = () => {
                 </div>
                 <hr />{" "}
                 <div className="flex items-center p-2 font-medium justify-evenly">
-                  <button className="p-2 px-12 transition-all rounded-lg hover:bg-gray-100">
+                  <button className="p-2 px-16 transition-all rounded-lg hover:bg-gray-100">
                     Like
                   </button>
-                  <button className="p-2 px-12 transition-all rounded-lg hover:bg-gray-100">
+                  <button className="p-2 px-16 transition-all rounded-lg hover:bg-gray-100">
                     Comment
                   </button>
-                  <button className="p-2 px-12 transition-all rounded-lg hover:bg-gray-100">
+                  <button className="p-2 px-16 transition-all rounded-lg hover:bg-gray-100">
                     Share
                   </button>
                 </div>
