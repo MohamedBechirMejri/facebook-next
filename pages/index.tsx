@@ -13,71 +13,71 @@ const navlinks = [
   {
     href: "/friends",
     label: "Find Friends",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/friends-colored.png",
   },
   {
     href: "/groups",
     label: "Groups",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/groups-colored.png",
   },
   {
     href: "/marketplace",
     label: "Marketplace",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/marketplace-colored.png",
   },
   {
     href: "/watch",
     label: "Watch",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/watch-colored.png",
   },
   {
     href: "/onthisday",
     label: "Memories",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/memories-colored.png",
   },
   {
     href: "/saved",
     label: "Saved",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/saved-colored.png",
   },
   {
     href: "/pages",
     label: "Pages",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/pages-colored.png",
   },
   {
     href: "/events",
     label: "Events",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/events-colored.png",
   },
   {
     href: "/",
     label: "Most Recent",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/most-recent-colored.png",
   },
   {
     href: "/favorites",
     label: "Favorites",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/favorites-colored.png",
   },
   {
     href: "/messenger",
     label: "Messenger",
-    icon: "https://picsum.photos/600",
+    icon: "/Assets/messenger-colored.png",
   },
 ];
 
 const friends = [
   {
     name: "test",
-    image: "https://picsum.photos/600",
+    image: "https://picsum.photos/500",
     birthday: "2020-01-01",
     latestConnection: "2020-01-01-00-00-00",
     href: "/user/id",
   },
   {
     name: "test2",
-    image: "https://picsum.photos/600",
+    image: "https://picsum.photos/700",
     birthday: "2020-01-12",
     latestConnection: "2022-08-10-04-36-55",
     href: "/user/id",
