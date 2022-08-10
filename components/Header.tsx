@@ -5,7 +5,7 @@ import React from "react";
 const Header = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <header className="fixed w-screen bg-white h-14 p-2">
+      <header className="fixed w-screen bg-white h-14 p-2 flex items-center justify-between">
         <div className="h-full flex">
           <Link href="/">
             <a>
@@ -25,6 +25,34 @@ const Header = ({ children }: { children: React.ReactNode }) => {
             />
           </div>
         </div>
+        <div className="h-full grid grid-cols-5 grid-rows-1">
+          <Link href="/">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
+              <Image src="/Assets/home.svg" height={50} width={50} alt="" />
+            </a>
+          </Link>
+          <Link href="/">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
+              <Image src="/Assets/home.svg" height={50} width={50} alt="" />
+            </a>
+          </Link>
+          <Link href="/">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
+              <Image src="/Assets/home.svg" height={50} width={50} alt="" />
+            </a>
+          </Link>
+          <Link href="/">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex  transition-all  ">
+              <Image src="/Assets/home.svg" height={50} width={50} alt="" />
+            </a>
+          </Link>
+          <Link href="/">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all   ">
+              <Image src="/Assets/home.svg" height={50} width={50} alt="" />
+            </a>
+          </Link>
+        </div>
+        <div></div>
       </header>
       <div className="pt-14">{children}</div>
     </>
