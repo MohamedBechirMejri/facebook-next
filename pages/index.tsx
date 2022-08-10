@@ -190,8 +190,8 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div>
-            <div className="bg-white p-4 rounded-lg flex flex-col items-stretch justify-center gap-2">
-              <div className="flex justify-between items-center">
+            <div className="bg-white py-4 rounded-lg flex flex-col items-stretch justify-center gap-2">
+              <div className="flex justify-between items-center px-4">
                 <div className="flex items-center gap-2">
                   <Link href="/user/id">
                     <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
@@ -238,12 +238,24 @@ const Home: NextPage = () => {
                 </div>
                 <div className="text-xl font-medium">•••</div>
               </div>
-              <p className="p-2 py-4 text-justify">
+              <p className="p-6 py-4 text-justify">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
                 quibusdam excepturi ratione. Recusandae ex amet temporibus
                 corrupti reprehenderit magnam eaque tenetur consequuntur nam?
                 Alias beatae, ullam iure vitae minima assumenda?
               </p>
+              <Link href="/posts/id">
+                <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
+                  <div className="w-[500px] ">
+                    <Image
+                      src="https://picsum.photos/700"
+                      alt=""
+                      height={700}
+                      width={700}
+                    />
+                  </div>
+                </a>
+              </Link>
             </div>
             {posts.map((p, i) => (
               <div key={i}></div>
