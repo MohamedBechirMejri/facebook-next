@@ -24,6 +24,14 @@ const Home: NextPage = () => {
               <h2>Find Friends</h2>
             </a>
           </Link>
+          <Link href="/groups">
+            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
+              <div className="w-10 h-10 relative rounded-full overflow-hidden">
+                <Image src="https://picsum.photos/600" alt="" layout="fill" />
+              </div>
+              <h2>Groups</h2>
+            </a>
+          </Link>
         </nav>
         <main></main>
         <div></div>
