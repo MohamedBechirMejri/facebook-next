@@ -191,7 +191,7 @@ const Home: NextPage = () => {
           </div>
           <div>
             <div className="bg-white p-4 rounded-lg flex flex-col items-stretch justify-center gap-2">
-              <div>
+              <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                   <Link href="/user/id">
                     <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
@@ -236,7 +236,7 @@ const Home: NextPage = () => {
                     </p>
                   </div>
                 </div>
-                <div></div>
+                <div className="text-xl font-medium">•••</div>
               </div>
             </div>
             {posts.map((p, i) => (
