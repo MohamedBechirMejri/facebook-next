@@ -146,7 +146,7 @@ const Home: NextPage = () => {
   return (
     <Header>
       <div className="relative flex w-screen min-h-screen p-2 py-4 text-black">
-        <nav className="h-full w-[320px] overflow-y-scroll m-0 fixed left-4 top-16 pb-24">
+        <nav className="h-full w-[320px] overflow-y-scroll m-0 fixed left-4 top-16 pb-24 noscroll">
           {navlinks.map((navlink, index) => (
             <Link href={navlink.href} key={index}>
               <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all">
