@@ -238,6 +238,12 @@ const Home: NextPage = () => {
                 </div>
                 <div className="text-xl font-medium">•••</div>
               </div>
+              <p className="p-2 py-4 text-justify">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
+                quibusdam excepturi ratione. Recusandae ex amet temporibus
+                corrupti reprehenderit magnam eaque tenetur consequuntur nam?
+                Alias beatae, ullam iure vitae minima assumenda?
+              </p>
             </div>
             {posts.map((p, i) => (
               <div key={i}></div>
