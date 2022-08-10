@@ -257,7 +257,35 @@ const Home: NextPage = () => {
                 </a>
               </Link>
               <div className="px-4">
-                <div></div>
+                <div className="text-gray-500 flex items-center justify-between pb-2">
+                  <div className="flex gap-1">
+                    <div>
+                      <Image
+                        src="/Assets/like.svg"
+                        alt=""
+                        height={20}
+                        width={20}
+                      />
+                      <Image
+                        src="/Assets/love.svg"
+                        alt=""
+                        height={20}
+                        width={20}
+                      />
+                      <Image
+                        src="/Assets/wow.svg"
+                        alt=""
+                        height={20}
+                        width={20}
+                      />
+                    </div>
+                    <p>1.3M</p>
+                  </div>
+                  <div className="flex gap-2 items-center">
+                    <p>71K Comments</p>
+                    <p>472K Shares</p>
+                  </div>
+                </div>
                 <hr />{" "}
                 <div className="p-2 flex items-center justify-evenly font-medium">
                   <button className="hover:bg-gray-100 transition-all p-2 px-12 rounded-lg">
