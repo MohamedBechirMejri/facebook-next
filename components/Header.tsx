@@ -73,7 +73,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
             />
           </button>
           <button className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden">
-            <Image src="https://picsum.photos/500" alt="" layout="fill" />
+            <Image src="https://picsum.photos/600" alt="" layout="fill" />
           </button>
         </div>
       </header>
