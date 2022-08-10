@@ -3,91 +3,84 @@ import Header from "../components/Header";
 import Link from "next/link";
 import Image from "next/image";
 
+const navlinks = [
+  {
+    href: "/user/id",
+    label: "Username",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/friends",
+    label: "Find Friends",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/groups",
+    label: "Groups",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/marketplace",
+    label: "Marketplace",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/watch",
+    label: "Watch",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/onthisday",
+    label: "Memories",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/saved",
+    label: "Saved",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/pages",
+    label: "Pages",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/events",
+    label: "Events",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/",
+    label: "Most Recent",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/favorites",
+    label: "Favorites",
+    icon: "https://picsum.photos/600",
+  },
+  {
+    href: "/messenger",
+    label: "Messenger",
+    icon: "https://picsum.photos/600",
+  },
+];
+
 const Home: NextPage = () => {
   return (
     <Header>
-      <div className="min-h-screen w-screen p-2 py-6">
-        <nav className="max-w-[320px]">
-          <Link href="/user/id">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Username</h2>
-            </a>
-          </Link>
-          <Link href="/friends">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Find Friends</h2>
-            </a>
-          </Link>
-          <Link href="/groups">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Groups</h2>
-            </a>
-          </Link>
-          <Link href="/marketplace">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Marketplace</h2>
-            </a>
-          </Link>
-          <Link href="/watch">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Watch</h2>
-            </a>
-          </Link>
-          <Link href="/onthisday">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Memories</h2>
-            </a>
-          </Link>
-          <Link href="/saved">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Saved</h2>
-            </a>
-          </Link>
-          <Link href="/pages">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Pages</h2>
-            </a>
-          </Link>
-          <Link href="/events">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Events</h2>
-            </a>
-          </Link>
-          <Link href="/">
-            <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image src="https://picsum.photos/600" alt="" layout="fill" />
-              </div>
-              <h2>Most Recent</h2>
-            </a>
-          </Link>
+      <div className="min-h-screen w-screen p-2 py-4">
+        <nav className="max-w-[320px] overflow-y-scroll m-0">
+          {navlinks.map((navlink, index) => (
+            <Link href={navlink.href} key={index}>
+              <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all">
+                <div className="w-10 h-10 relative rounded-full overflow-hidden">
+                  <Image src={navlink.icon} alt="" layout="fill" />
+                </div>
+                <h2>{navlink.label}</h2>
+              </a>
+            </Link>
+          ))}
         </nav>
         <main></main>
         <div></div>
