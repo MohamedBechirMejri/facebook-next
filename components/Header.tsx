@@ -5,17 +5,17 @@ import React from "react";
 const Header = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <header className="fixed w-screen bg-white h-14 p-2 flex items-center justify-between shadow-sm z-50">
-        <div className="h-full flex">
+      <header className="fixed z-50 flex items-center justify-between w-screen p-2 bg-white shadow-sm h-14">
+        <div className="flex h-full">
           <Link href="/">
             <a>
-              <div className="h-full w-8 px-7 relative">
+              <div className="relative w-8 h-full px-7">
                 <Image src="/Assets/logo.svg" alt="" layout="fill" />
               </div>
             </a>
           </Link>
           <div className="rounded-full bg-[#f0f2f5] flex items-center justify-center p-1 px-2 transition-all">
-            <div className="h-1/2 w-8 relative">
+            <div className="relative w-8 h-1/2">
               <Image src="/Assets/search.svg" layout="fill" alt="" />
             </div>
             <input
@@ -25,24 +25,24 @@ const Header = ({ children }: { children: React.ReactNode }) => {
             />
           </div>
         </div>
-        <div className="h-full grid grid-cols-5 grid-rows-1">
+        <div className="h-full grid grid-cols-5 grid-rows-1 w-[500px]">
           <Link href="/">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all justify-center">
               <Image src="/Assets/home.svg" height={50} width={50} alt="" />
             </a>
           </Link>
           <Link href="/friends">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all justify-center">
               <Image src="/Assets/friends.svg" height={50} width={50} alt="" />
             </a>
           </Link>
           <Link href="/watch">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all ">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all justify-center">
               <Image src="/Assets/watch.svg" height={50} width={50} alt="" />
             </a>
           </Link>
           <Link href="/marketplace">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex  transition-all  ">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex  transition-all  justify-center">
               <Image
                 src="/Assets/marketplace.svg"
                 height={50}
@@ -52,7 +52,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
             </a>
           </Link>
           <Link href="/groups">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all   ">
+            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all   justify-center">
               <Image src="/Assets/groups.svg" height={50} width={50} alt="" />
             </a>
           </Link>
