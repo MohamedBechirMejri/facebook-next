@@ -58,9 +58,20 @@ const Header = ({ children }: { children: React.ReactNode }) => {
           </Link>
         </div>
         <div className="flex items-center justify-center gap-2 px-4">
-          <button className="bg-[#d8dadf] rounded-full w-10 h-10"></button>
-          <button className="bg-[#d8dadf] rounded-full w-10 h-10"></button>
-          <button className="bg-[#d8dadf] rounded-full w-10 h-10"></button>
+          <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
+            <Image src="/Assets/menu.svg" height={20} width={20} alt="" />
+          </button>
+          <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
+            <Image src="/Assets/messenger.svg" height={20} width={20} alt="" />
+          </button>
+          <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
+            <Image
+              src="/Assets/notifications.svg"
+              height={20}
+              width={20}
+              alt=""
+            />
+          </button>
           <button className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden">
             <Image src="https://picsum.photos/500" alt="" layout="fill" />
           </button>
