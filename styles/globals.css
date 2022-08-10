@@ -28,3 +28,73 @@ a {
     background: #f0f2f5;
   }
 }
+
+* {
+  scroll-behavior: smooth;
+}
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* * {
+  cursor: none !important;
+} */
+
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: rgb(63 63 70);
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+.animated-underline:hover::before {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+/* beautiful scrollbars */
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 100%;
+}
+
+*::-webkit-scrollbar-track {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 1rem;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+.noscroll::-webkit-scrollbar,
+.noscroll::-webkit-scrollbar-track,
+.noscroll::-webkit-scrollbar-thumb {
+  width: 0;
+  height: 0;
+  display: none;
+}
+/* *::-webkit-scrollbar {
+  display: none;
+} */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
