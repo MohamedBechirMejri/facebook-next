@@ -72,16 +72,19 @@ const friends = [
     image: "https://picsum.photos/600",
     birthday: "2020-01-01",
     latestConnection: "2020-01-01-00-00-00",
+    href: "/user/id",
   },
   {
     name: "test2",
     image: "https://picsum.photos/600",
     birthday: "2020-01-12",
     latestConnection: "2022-08-10-04-36-55",
-  }
+    href: "/user/id",
+  },
 ];
 
 const Home: NextPage = () => {
+  const birthdays = friends.filter(friend => friend.birthday === "2020-08-10");
   return (
     <Header>
       <div className="min-h-screen w-screen p-2 py-4 flex text-black relative">
@@ -98,12 +101,24 @@ const Home: NextPage = () => {
           ))}
         </nav>
         <main></main>
-        <div className="h-full w-[320px] overflow-y-scroll m-0 fixed right-4 top-16 pb-24">
-          <div>
+        <div className="h-full w-[280px] overflow-y-scroll m-0 fixed right-4 top-16 pb-24">
+          {/* <div>
             <h3>Birthdays</h3>
-          </div>
+          </div>  */}{" "}
+          <h3 className="font-bold text-lg p-1">Contacts</h3>
           <div>
-            <h3>Contacts</h3>
+            {friends.map((friend, i) => {
+              return (
+                <Link href={"/messages/" + friend.href} key={i}>
+                  <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-1 px-2 rounded-lg transition-all">
+                    <div className="w-8 h-8 relative rounded-full overflow-hidden">
+                      <Image src={friend.image} alt="" layout="fill" />
+                    </div>
+                    <h2>{friend.name}</h2>
+                  </a>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
