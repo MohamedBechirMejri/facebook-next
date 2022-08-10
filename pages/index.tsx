@@ -145,12 +145,12 @@ const Home: NextPage = () => {
   const birthdays = friends.filter(friend => friend.birthday === "2020-08-10");
   return (
     <Header>
-      <div className="min-h-screen w-screen p-2 py-4 flex text-black relative">
+      <div className="relative flex w-screen min-h-screen p-2 py-4 text-black">
         <nav className="h-full w-[320px] overflow-y-scroll m-0 fixed left-4 top-16 pb-24">
           {navlinks.map((navlink, index) => (
             <Link href={navlink.href} key={index}>
               <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all">
-                <div className="w-10 h-10 relative rounded-full overflow-hidden">
+                <div className="relative w-10 h-10 overflow-hidden rounded-full">
                   <Image src={navlink.icon} alt="" layout="fill" />
                 </div>
                 <h2>{navlink.label}</h2>
@@ -158,12 +158,12 @@ const Home: NextPage = () => {
             </Link>
           ))}
         </nav>
-        <main className="mx-auto w-[500px] flex flex-col justify-start items-stretch gap-4 pb-64">
-          <div className="bg-white p-4 rounded-lg flex flex-col items-stretch justify-center gap-2">
+        <main className="mx-auto w-[500px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5]">
+          <div className="flex flex-col items-stretch justify-center gap-2 p-4 bg-white rounded-lg">
             <div className="flex items-center justify-center gap-2 pb-2">
               <Link href="/user/id">
                 <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
-                  <div className="w-10 h-10 relative rounded-full overflow-hidden">
+                  <div className="relative w-10 h-10 overflow-hidden rounded-full">
                     <Image
                       src="https://picsum.photos/700"
                       alt=""
@@ -172,30 +172,30 @@ const Home: NextPage = () => {
                   </div>
                 </a>
               </Link>
-              <p className="bg-gray-100 text-gray-500 px-4 p-2 rounded-full w-full hover:bg-gray-200 cursor-pointer transition-all">
+              <p className="w-full p-2 px-4 text-gray-500 transition-all bg-gray-100 rounded-full cursor-pointer hover:bg-gray-200">
                 What&#39;s on your mind, Username ?
               </p>
             </div>
             <hr className="w-full" />
-            <div className="p-2 flex items-center justify-evenly font-medium">
-              <button className="hover:bg-gray-200 transition-all p-2 px-6 rounded-lg">
+            <div className="flex items-center p-2 font-medium justify-evenly">
+              <button className="p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
                 Live video
               </button>
-              <button className="hover:bg-gray-200 transition-all p-2 px-6 rounded-lg">
+              <button className="p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
                 Photo/video
               </button>
-              <button className="hover:bg-gray-200 transition-all p-2 px-6 rounded-lg">
+              <button className="p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
                 Feeling/Activity
               </button>
             </div>
           </div>
           <div>
-            <div className="bg-white py-4 rounded-lg flex flex-col items-stretch justify-center gap-2">
-              <div className="flex justify-between items-center px-4">
+            <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
+              <div className="flex items-center justify-between px-4">
                 <div className="flex items-center gap-2">
                   <Link href="/user/id">
                     <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
-                      <div className="w-10 h-10 relative rounded-full overflow-hidden">
+                      <div className="relative w-10 h-10 overflow-hidden rounded-full">
                         <Image
                           src="https://picsum.photos/700"
                           alt=""
@@ -206,7 +206,7 @@ const Home: NextPage = () => {
                   </Link>
                   <div>
                     <h1 className="font-bold">Author Name</h1>
-                    <p className="text-xs flex items-center gap-1">
+                    <p className="flex items-center gap-1 text-xs">
                       <span>8h</span> ·{" "}
                       <span>
                         <svg
@@ -257,7 +257,7 @@ const Home: NextPage = () => {
                 </a>
               </Link>
               <div className="px-4">
-                <div className="text-gray-500 flex items-center justify-between pb-2">
+                <div className="flex items-center justify-between pb-2 text-gray-500">
                   <div className="flex gap-1">
                     <div>
                       <Image
@@ -281,20 +281,20 @@ const Home: NextPage = () => {
                     </div>
                     <p>1.3M</p>
                   </div>
-                  <div className="flex gap-2 items-center">
+                  <div className="flex items-center gap-2">
                     <p>71K Comments</p>
                     <p>472K Shares</p>
                   </div>
                 </div>
                 <hr />{" "}
-                <div className="p-2 flex items-center justify-evenly font-medium">
-                  <button className="hover:bg-gray-100 transition-all p-2 px-12 rounded-lg">
+                <div className="flex items-center p-2 font-medium justify-evenly">
+                  <button className="p-2 px-12 transition-all rounded-lg hover:bg-gray-100">
                     Like
                   </button>
-                  <button className="hover:bg-gray-100 transition-all p-2 px-12 rounded-lg">
+                  <button className="p-2 px-12 transition-all rounded-lg hover:bg-gray-100">
                     Comment
                   </button>
-                  <button className="hover:bg-gray-100 transition-all p-2 px-12 rounded-lg">
+                  <button className="p-2 px-12 transition-all rounded-lg hover:bg-gray-100">
                     Share
                   </button>
                 </div>
@@ -309,13 +309,13 @@ const Home: NextPage = () => {
           {/* <div>
             <h3>Birthdays</h3>
           </div>  */}{" "}
-          <h3 className="font-bold text-lg p-1">Contacts</h3>
+          <h3 className="p-1 text-lg font-bold">Contacts</h3>
           <div>
             {friends.map((friend, i) => {
               return (
                 <Link href={"/messages/" + friend.href} key={i}>
                   <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-1 px-2 rounded-lg transition-all">
-                    <div className="w-8 h-8 relative rounded-full overflow-hidden">
+                    <div className="relative w-8 h-8 overflow-hidden rounded-full">
                       <Image src={friend.image} alt="" layout="fill" />
                     </div>
                     <h2>{friend.name}</h2>
