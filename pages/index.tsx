@@ -83,6 +83,64 @@ const friends = [
   },
 ];
 
+const posts = [
+  {
+    text: "odjnflgdkjnfglkdjnv",
+    image: "https://picsum.photos/600",
+    href: "/posts/id",
+    time: "2020-01-01-00-00-00",
+    group: null,
+    page: null,
+    author: {
+      name: "test",
+      image: "https://picsum.photos/600",
+      href: "/users/id",
+    },
+    audience: "public",
+    likes: ["id1", "id2", "id3"],
+    loves: ["id4", "id5", "id6"],
+    wows: ["id7", "id8", "id9"],
+    hahas: ["id10", "id11", "id12"],
+    sads: ["id13", "id14", "id15"],
+    angrys: ["id16", "id17", "id18"],
+    comments: [
+      {
+        text: "odjnflgdkjnfglkdjnv",
+        time: "2020-01-01-00-00-00",
+        image: "https://picsum.photos/600",
+        author: {
+          name: "test",
+          image: "https://picsum.photos/600",
+          href: "/users/id",
+        },
+        likes: ["id1", "id2", "id3"],
+        loves: ["id4", "id5", "id6"],
+        wows: ["id7", "id8", "id9"],
+        hahas: ["id10", "id11", "id12"],
+        sads: ["id13", "id14", "id15"],
+        angrys: ["id16", "id17", "id18"],
+        replies: [
+          {
+            text: "kuygikuyhkiuhyb",
+            time: "2020-01-01-00-00-00",
+            author: {
+              name: "test",
+              image: "https://picsum.photos/600",
+              href: "/users/id",
+            },
+            likes: ["id1", "id2", "id3"],
+            loves: ["id4", "id5", "id6"],
+            wows: ["id7", "id8", "id9"],
+            hahas: ["id10", "id11", "id12"],
+            sads: ["id13", "id14", "id15"],
+            angrys: ["id16", "id17", "id18"],
+          },
+        ],
+      },
+    ],
+  },
+];
+
 const Home: NextPage = () => {
   const birthdays = friends.filter(friend => friend.birthday === "2020-08-10");
   return (
