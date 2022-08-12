@@ -205,7 +205,7 @@ const Home: NextPage = () => {
           <div>
             {friends.map((friend, i) => {
               return (
-                <Link href={"/messages/" + friend.href} key={i}>
+                <Link href={"/messages" + friend.href} key={i}>
                   <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-1 px-2 rounded-lg transition-all">
                     <div className="relative w-8 h-8 overflow-hidden rounded-full">
                       <Image src={friend.image} alt="" layout="fill" />
