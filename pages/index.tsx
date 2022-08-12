@@ -191,9 +191,9 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="flex flex-col items-stretch gap-4">
-            <Post />
+            <Post post={p} />
             {posts.map((p, i) => (
-              <Post key={i}></Post>
+              <Post key={i} post={p} />
             ))}
           </div>
         </main>
