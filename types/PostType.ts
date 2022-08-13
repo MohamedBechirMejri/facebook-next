@@ -4,7 +4,7 @@ import ReactsType from "./ReactsType";
 type PostType = {
   text: string;
   image?: string;
-  href: string;
+  id: string;
   date: string;
   group?: string;
   page?: string;
