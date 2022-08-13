@@ -49,24 +49,16 @@ const Post = ({ post }: { post: PostType }) => {
         </div>
         <div className="text-xl font-medium">•••</div>
       </div>
-      <p className="p-6 py-4 text-justify">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta
-        quibusdam excepturi ratione. Recusandae ex amet temporibus corrupti
-        reprehenderit magnam eaque tenetur consequuntur nam? Alias beatae, ullam
-        iure vitae minima assumenda?
-      </p>
-      <Link href="/posts/id">
-        <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
-          <div className="w-[590px] ">
-            <Image
-              src="https://picsum.photos/700"
-              alt=""
-              height={700}
-              width={700}
-            />
-          </div>
-        </a>
-      </Link>
+      <p className="p-6 py-4 text-justify">{post.text}</p>
+      {post.image && (
+        <Link href="/posts/id">
+          <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
+            <div className="w-[590px] ">
+              <Image src={post.image} alt="" height={700} width={700} />
+            </div>
+          </a>
+        </Link>
+      )}
       <div className="px-4">
         <div className="flex items-center justify-between pb-2 text-gray-500">
           <div className="flex gap-1">
@@ -75,11 +67,24 @@ const Post = ({ post }: { post: PostType }) => {
               <Image src="/Assets/love.svg" alt="" height={20} width={20} />
               <Image src="/Assets/wow.svg" alt="" height={20} width={20} />
             </div>
-            <p>1.3M</p>
+            <p>
+              {post.reacts.likes.length +
+                post.reacts.loves.length +
+                post.reacts.wows.length +
+                post.reacts.hahas.length +
+                post.reacts.sads.length +
+                post.reacts.angrys.length}
+            </p>
           </div>
           <div className="flex items-center gap-2">
-            <p>71K Comments</p>
-            <p>472K Shares</p>
+            <p>
+              {post.comments.length}{" "}
+              {post.comments.length === 1 ? "Comment" : "Comments"}
+            </p>
+            <p>
+              {post.shares.length}{" "}
+              {post.shares.length === 1 ? "Share" : "Shares"}
+            </p>
           </div>
         </div>
         <hr />
