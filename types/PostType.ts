@@ -1,57 +1,21 @@
+import CommentType from "./CommentType";
+import ReactsType from "./ReactsType";
+
 type PostType = {
   text: string;
-  image: string;
+  image?: string;
   href: string;
-  time: string;
-  group: null;
-  page: null;
+  date: string;
+  group?: string;
+  page?: string;
   author: {
     name: string;
     image: string;
-    href: string;
+    id: string;
   };
   audience: string;
-  likes: string[];
-  loves: string[];
-  wows: string[];
-  hahas: string[];
-  sads: string[];
-  angrys: string[];
-  comments: [
-    {
-      text: string;
-      time: string;
-      image: string;
-      author: {
-        name: string;
-        image: string;
-        href: string;
-      };
-      likes: string[];
-      loves: string[];
-      wows: string[];
-      hahas: string[];
-      sads: string[];
-      angrys: string[];
-      replies: [
-        {
-          text: string;
-          time: string;
-          author: {
-            name: string;
-            image: string;
-            href: string;
-          };
-          likes: string[];
-          loves: string[];
-          wows: string[];
-          hahas: string[];
-          sads: string[];
-          angrys: string[];
-        }
-      ];
-    }
-  ];
+  reacts: ReactsType;
+  comments: CommentType[];
 };
 
 export default PostType;
