@@ -10,17 +10,16 @@ type CommentType = {
     id: string;
   };
   reacts: ReactsType;
-  replies: [
-    {
-      text: string;
-      time: string;
-      author: {
-        name: string;
-        image: string;
-        id: string;
-      };
-    }
-  ];
+  replies: {
+    text: string;
+    time: string;
+    user: {
+      name: string;
+      image: string;
+      id: string;
+    };
+    reacts: ReactsType;
+  }[];
 };
 
 export default CommentType;
