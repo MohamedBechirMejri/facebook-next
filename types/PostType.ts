@@ -6,15 +6,24 @@ type PostType = {
   image?: string;
   id: string;
   date: string;
-  group?: string;
-  page?: string;
+  group?: {
+    name: string;
+    image: string;
+    id: string;
+  };
+  page?: {
+    name: string;
+    image: string;
+    id: string;
+  };
   author: {
     name: string;
     image: string;
     id: string;
   };
   audience: string;
-  reacts: ReactsType;
+    reacts: ReactsType;
+  shares: string[];
   comments: CommentType[];
 };
 
