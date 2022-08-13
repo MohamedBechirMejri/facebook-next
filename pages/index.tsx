@@ -88,53 +88,59 @@ const posts = [
   {
     text: "odjnflgdkjnfglkdjnv",
     image: "https://picsum.photos/600",
-    href: "/posts/id",
-    time: "2020-01-01-00-00-00",
-    group: null,
-    page: null,
+    id: "/posts/id",
+    date: "2020-01-01-00-00-00",
+    group: undefined,
+    page: undefined,
     author: {
       name: "test",
       image: "https://picsum.photos/600",
-      href: "/users/id",
+      id: "/users/id",
     },
     audience: "public",
-    likes: ["id1", "id2", "id3"],
-    loves: ["id4", "id5", "id6"],
-    wows: ["id7", "id8", "id9"],
-    hahas: ["id10", "id11", "id12"],
-    sads: ["id13", "id14", "id15"],
-    angrys: ["id16", "id17", "id18"],
+    reacts: {
+      likes: ["id1", "id2", "id3"],
+      loves: ["id4", "id5", "id6"],
+      wows: ["id7", "id8", "id9"],
+      hahas: ["id10", "id11", "id12"],
+      sads: ["id13", "id14", "id15"],
+      angrys: ["id16", "id17", "id18"],
+    },
     comments: [
       {
         text: "odjnflgdkjnfglkdjnv",
         time: "2020-01-01-00-00-00",
         image: "https://picsum.photos/600",
-        author: {
+        user: {
           name: "test",
           image: "https://picsum.photos/600",
-          href: "/users/id",
+          id: "/users/id",
         },
-        likes: ["id1", "id2", "id3"],
-        loves: ["id4", "id5", "id6"],
-        wows: ["id7", "id8", "id9"],
-        hahas: ["id10", "id11", "id12"],
-        sads: ["id13", "id14", "id15"],
-        angrys: ["id16", "id17", "id18"],
+        reacts: {
+          likes: ["id1", "id2", "id3"],
+          loves: ["id4", "id5", "id6"],
+          wows: ["id7", "id8", "id9"],
+          hahas: ["id10", "id11", "id12"],
+          sads: ["id13", "id14", "id15"],
+          angrys: ["id16", "id17", "id18"],
+        },
         replies: [
           {
             text: "kuygikuyhkiuhyb",
             time: "2020-01-01-00-00-00",
-            author: {
+            user: {
               name: "test",
               image: "https://picsum.photos/600",
-              href: "/users/id",
+              id: "/users/id",
             },
-            likes: ["id1", "id2", "id3"],
-            loves: ["id4", "id5", "id6"],
-            wows: ["id7", "id8", "id9"],
-            hahas: ["id10", "id11", "id12"],
-            sads: ["id13", "id14", "id15"],
-            angrys: ["id16", "id17", "id18"],
+            reacts: {
+              likes: ["id1", "id2", "id3"],
+              loves: ["id4", "id5", "id6"],
+              wows: ["id7", "id8", "id9"],
+              hahas: ["id10", "id11", "id12"],
+              sads: ["id13", "id14", "id15"],
+              angrys: ["id16", "id17", "id18"],
+            },
           },
         ],
       },
@@ -191,7 +197,6 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="flex flex-col items-stretch gap-4">
-            <Post post={p} />
             {posts.map((p, i) => (
               <Post key={i} post={p} />
             ))}
