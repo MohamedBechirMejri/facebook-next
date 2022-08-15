@@ -8,7 +8,7 @@ const Post = ({ post }: { post: PostType }) => {
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <Link href={post.author.nickname || '/users/' + post.author.id}>
+          <Link href={post.author.nickname || "/users/" + post.author.id}>
             <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
               <div className="relative w-10 h-10 overflow-hidden rounded-full">
                 <Image
@@ -24,15 +24,20 @@ const Post = ({ post }: { post: PostType }) => {
           </Link>
           <div>
             <h1 className="font-bold">
-              {post.group && post.group.name} {post.page && post.page.name}{" "}
-              {!post.group &&
-                !post.page &&
+              {post.group?.name ||
+                post.page?.name ||
                 post.author.firstName + " " + post.author.lastName}
             </h1>
             <p className="flex items-center gap-1 text-xs">
               {post.group && (
                 <span>
-                  {post.author.firstName + " " + post.author.lastName} ·
+                  <Link
+                    href={post.author.nickname || "/users/" + post.author.id}
+                  >
+                    {" "}
+                    <a>{post.author.firstName + " " + post.author.lastName}</a>
+                  </Link>{" "}
+                  ·
                 </span>
               )}
               <span>8h</span> ·{" "}
