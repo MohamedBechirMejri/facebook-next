@@ -5,6 +5,7 @@ import Image from "next/image";
 import Post from "../components/Post";
 import PostType from "../types/PostType";
 import getPosts from "../lib/getPosts";
+import { L49 } from "react-isloading";
 
 const navlinks = [
   {
@@ -328,7 +329,20 @@ const Home = ({ posts }: { posts: PostType[] }) => {
             </div>
           </div>
           <div className="flex flex-col items-stretch gap-4">
-            {posts && posts.map((p, i) => <Post key={i} post={p} />)}
+            {posts && posts.length > 0 ? (
+              posts.map((p, i) => <Post key={i} post={p} />)
+            ) : (
+              <L49
+                style={{
+                  height: "7rem",
+                  width: "7rem",
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              />
+            )}
           </div>
         </main>
         <div className="h-full w-[280px] overflow-y-scroll m-0 fixed right-4 top-16 pb-24">
