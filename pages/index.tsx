@@ -1,8 +1,10 @@
-import type { NextPage } from "next";
+import type { GetStaticProps } from "next";
 import Header from "../components/Header";
 import Link from "next/link";
 import Image from "next/image";
 import Post from "../components/Post";
+import PostType from "../types/PostType";
+import getPosts from "../lib/getPosts";
 
 const navlinks = [
   {
@@ -84,200 +86,200 @@ const friends = [
   },
 ];
 
-const posts = [
-  {
-    text: "odjnflgdkjnfglkdjnv",
-    image: undefined,
-    id: "/posts/id",
-    date: "2020-01-01-00-00-00",
-    group: undefined,
-    page: undefined,
-    author: {
-      name: "test",
-      image: "https://picsum.photos/600",
-      id: "/users/id",
-    },
-    audience: "public",
-    reacts: {
-      likes: ["id1", "id2", "id3"],
-      loves: ["id4", "id5", "id6"],
-      wows: ["id7", "id8", "id9"],
-      hahas: ["id10", "id11", "id12"],
-      sads: ["id13", "id14", "id15"],
-      angrys: ["id16", "id17", "id18"],
-    },
-    shares: ["id1"],
-    comments: [
-      {
-        text: "odjnflgdkjnfglkdjnv",
-        time: "2020-01-01-00-00-00",
-        image: "https://picsum.photos/600",
-        user: {
-          name: "test",
-          image: "https://picsum.photos/600",
-          id: "/users/id",
-        },
-        reacts: {
-          likes: ["id1", "id2", "id3"],
-          loves: ["id4", "id5", "id6"],
-          wows: ["id7", "id8", "id9"],
-          hahas: ["id10", "id11", "id12"],
-          sads: ["id13", "id14", "id15"],
-          angrys: ["id16", "id17", "id18"],
-        },
-        replies: [
-          {
-            text: "kuygikuyhkiuhyb",
-            time: "2020-01-01-00-00-00",
-            user: {
-              name: "test",
-              image: "https://picsum.photos/600",
-              id: "/users/id",
-            },
-            reacts: {
-              likes: ["id1", "id2", "id3"],
-              loves: ["id4", "id5", "id6"],
-              wows: ["id7", "id8", "id9"],
-              hahas: ["id10", "id11", "id12"],
-              sads: ["id13", "id14", "id15"],
-              angrys: ["id16", "id17", "id18"],
-            },
-          },
-        ],
-      },
-    ],
-  },
-  {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
-    image: "https://picsum.photos/500",
-    id: "/posts/2",
-    date: "2020-01-01-00-00-00",
-    group: {
-      name: "testgroupo",
-      image: "https://picsum.photos/600",
-      id: "/groups/id",
-    },
-    page: undefined,
-    author: {
-      name: "test",
-      image: "https://picsum.photos/600",
-      id: "/users/id",
-    },
-    audience: "public",
-    reacts: {
-      likes: ["id1", "id2", "id3"],
-      loves: ["id4", "id5", "id6"],
-      wows: ["id7", "id8", "id9"],
-      hahas: ["id10", "id11", "id12"],
-      sads: ["id13", "id14", "id15"],
-      angrys: ["id16", "id17", "id18"],
-    },
-    shares: ["id1"],
-    comments: [
-      {
-        text: "odjnflgdkjnfglkdjnv",
-        time: "2020-01-01-00-00-00",
-        image: "https://picsum.photos/600",
-        user: {
-          name: "test",
-          image: "https://picsum.photos/600",
-          id: "/users/id",
-        },
-        reacts: {
-          likes: ["id1", "id2", "id3"],
-          loves: ["id4", "id5", "id6"],
-          wows: ["id7", "id8", "id9"],
-          hahas: ["id10", "id11", "id12"],
-          sads: ["id13", "id14", "id15"],
-          angrys: ["id16", "id17", "id18"],
-        },
-        replies: [
-          {
-            text: "kuygikuyhkiuhyb",
-            time: "2020-01-01-00-00-00",
-            user: {
-              name: "test",
-              image: "https://picsum.photos/600",
-              id: "/users/id",
-            },
-            reacts: {
-              likes: ["id1", "id2", "id3"],
-              loves: ["id4", "id5", "id6"],
-              wows: ["id7", "id8", "id9"],
-              hahas: ["id10", "id11", "id12"],
-              sads: ["id13", "id14", "id15"],
-              angrys: ["id16", "id17", "id18"],
-            },
-          },
-        ],
-      },
-    ],
-  },
-  {
-    text: "odjnflgdkjnfglkdjnv",
-    image: "https://picsum.photos/600",
-    id: "/posts/id",
-    date: "2020-01-01-00-00-00",
-    group: undefined,
-    page: undefined,
-    author: {
-      name: "test",
-      image: "https://picsum.photos/600",
-      id: "/users/id",
-    },
-    audience: "public",
-    reacts: {
-      likes: ["id1", "id2", "id3"],
-      loves: ["id4", "id5", "id6"],
-      wows: ["id7", "id8", "id9"],
-      hahas: ["id10", "id11", "id12"],
-      sads: ["id13", "id14", "id15"],
-      angrys: ["id16", "id17", "id18"],
-    },
-    shares: ["id1"],
-    comments: [
-      {
-        text: "odjnflgdkjnfglkdjnv",
-        time: "2020-01-01-00-00-00",
-        image: "https://picsum.photos/600",
-        user: {
-          name: "test",
-          image: "https://picsum.photos/600",
-          id: "/users/id",
-        },
-        reacts: {
-          likes: ["id1", "id2", "id3"],
-          loves: ["id4", "id5", "id6"],
-          wows: ["id7", "id8", "id9"],
-          hahas: ["id10", "id11", "id12"],
-          sads: ["id13", "id14", "id15"],
-          angrys: ["id16", "id17", "id18"],
-        },
-        replies: [
-          {
-            text: "kuygikuyhkiuhyb",
-            time: "2020-01-01-00-00-00",
-            user: {
-              name: "test",
-              image: "https://picsum.photos/600",
-              id: "/users/id",
-            },
-            reacts: {
-              likes: ["id1", "id2", "id3"],
-              loves: ["id4", "id5", "id6"],
-              wows: ["id7", "id8", "id9"],
-              hahas: ["id10", "id11", "id12"],
-              sads: ["id13", "id14", "id15"],
-              angrys: ["id16", "id17", "id18"],
-            },
-          },
-        ],
-      },
-    ],
-  },
-];
+// const posts = [
+//   {
+//     text: "odjnflgdkjnfglkdjnv",
+//     image: undefined,
+//     id: "/posts/id",
+//     date: "2020-01-01-00-00-00",
+//     group: undefined,
+//     page: undefined,
+//     author: {
+//       name: "test",
+//       image: "https://picsum.photos/600",
+//       id: "/users/id",
+//     },
+//     audience: "public",
+//     reacts: {
+//       likes: ["id1", "id2", "id3"],
+//       loves: ["id4", "id5", "id6"],
+//       wows: ["id7", "id8", "id9"],
+//       hahas: ["id10", "id11", "id12"],
+//       sads: ["id13", "id14", "id15"],
+//       angrys: ["id16", "id17", "id18"],
+//     },
+//     shares: ["id1"],
+//     comments: [
+//       {
+//         text: "odjnflgdkjnfglkdjnv",
+//         time: "2020-01-01-00-00-00",
+//         image: "https://picsum.photos/600",
+//         user: {
+//           name: "test",
+//           image: "https://picsum.photos/600",
+//           id: "/users/id",
+//         },
+//         reacts: {
+//           likes: ["id1", "id2", "id3"],
+//           loves: ["id4", "id5", "id6"],
+//           wows: ["id7", "id8", "id9"],
+//           hahas: ["id10", "id11", "id12"],
+//           sads: ["id13", "id14", "id15"],
+//           angrys: ["id16", "id17", "id18"],
+//         },
+//         replies: [
+//           {
+//             text: "kuygikuyhkiuhyb",
+//             time: "2020-01-01-00-00-00",
+//             user: {
+//               name: "test",
+//               image: "https://picsum.photos/600",
+//               id: "/users/id",
+//             },
+//             reacts: {
+//               likes: ["id1", "id2", "id3"],
+//               loves: ["id4", "id5", "id6"],
+//               wows: ["id7", "id8", "id9"],
+//               hahas: ["id10", "id11", "id12"],
+//               sads: ["id13", "id14", "id15"],
+//               angrys: ["id16", "id17", "id18"],
+//             },
+//           },
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
+//     image: "https://picsum.photos/500",
+//     id: "/posts/2",
+//     date: "2020-01-01-00-00-00",
+//     group: {
+//       name: "testgroupo",
+//       image: "https://picsum.photos/600",
+//       id: "/groups/id",
+//     },
+//     page: undefined,
+//     author: {
+//       name: "test",
+//       image: "https://picsum.photos/600",
+//       id: "/users/id",
+//     },
+//     audience: "public",
+//     reacts: {
+//       likes: ["id1", "id2", "id3"],
+//       loves: ["id4", "id5", "id6"],
+//       wows: ["id7", "id8", "id9"],
+//       hahas: ["id10", "id11", "id12"],
+//       sads: ["id13", "id14", "id15"],
+//       angrys: ["id16", "id17", "id18"],
+//     },
+//     shares: ["id1"],
+//     comments: [
+//       {
+//         text: "odjnflgdkjnfglkdjnv",
+//         time: "2020-01-01-00-00-00",
+//         image: "https://picsum.photos/600",
+//         user: {
+//           name: "test",
+//           image: "https://picsum.photos/600",
+//           id: "/users/id",
+//         },
+//         reacts: {
+//           likes: ["id1", "id2", "id3"],
+//           loves: ["id4", "id5", "id6"],
+//           wows: ["id7", "id8", "id9"],
+//           hahas: ["id10", "id11", "id12"],
+//           sads: ["id13", "id14", "id15"],
+//           angrys: ["id16", "id17", "id18"],
+//         },
+//         replies: [
+//           {
+//             text: "kuygikuyhkiuhyb",
+//             time: "2020-01-01-00-00-00",
+//             user: {
+//               name: "test",
+//               image: "https://picsum.photos/600",
+//               id: "/users/id",
+//             },
+//             reacts: {
+//               likes: ["id1", "id2", "id3"],
+//               loves: ["id4", "id5", "id6"],
+//               wows: ["id7", "id8", "id9"],
+//               hahas: ["id10", "id11", "id12"],
+//               sads: ["id13", "id14", "id15"],
+//               angrys: ["id16", "id17", "id18"],
+//             },
+//           },
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     text: "odjnflgdkjnfglkdjnv",
+//     image: "https://picsum.photos/600",
+//     id: "/posts/id",
+//     date: "2020-01-01-00-00-00",
+//     group: undefined,
+//     page: undefined,
+//     author: {
+//       name: "test",
+//       image: "https://picsum.photos/600",
+//       id: "/users/id",
+//     },
+//     audience: "public",
+//     reacts: {
+//       likes: ["id1", "id2", "id3"],
+//       loves: ["id4", "id5", "id6"],
+//       wows: ["id7", "id8", "id9"],
+//       hahas: ["id10", "id11", "id12"],
+//       sads: ["id13", "id14", "id15"],
+//       angrys: ["id16", "id17", "id18"],
+//     },
+//     shares: ["id1"],
+//     comments: [
+//       {
+//         text: "odjnflgdkjnfglkdjnv",
+//         time: "2020-01-01-00-00-00",
+//         image: "https://picsum.photos/600",
+//         user: {
+//           name: "test",
+//           image: "https://picsum.photos/600",
+//           id: "/users/id",
+//         },
+//         reacts: {
+//           likes: ["id1", "id2", "id3"],
+//           loves: ["id4", "id5", "id6"],
+//           wows: ["id7", "id8", "id9"],
+//           hahas: ["id10", "id11", "id12"],
+//           sads: ["id13", "id14", "id15"],
+//           angrys: ["id16", "id17", "id18"],
+//         },
+//         replies: [
+//           {
+//             text: "kuygikuyhkiuhyb",
+//             time: "2020-01-01-00-00-00",
+//             user: {
+//               name: "test",
+//               image: "https://picsum.photos/600",
+//               id: "/users/id",
+//             },
+//             reacts: {
+//               likes: ["id1", "id2", "id3"],
+//               loves: ["id4", "id5", "id6"],
+//               wows: ["id7", "id8", "id9"],
+//               hahas: ["id10", "id11", "id12"],
+//               sads: ["id13", "id14", "id15"],
+//               angrys: ["id16", "id17", "id18"],
+//             },
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// ];
 
-const Home: NextPage = () => {
+const Home = ({ posts }: { posts: PostType[] }) => {
   const birthdays = friends.filter(friend => friend.birthday === "2020-08-10");
   return (
     <Header>
@@ -326,9 +328,7 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div className="flex flex-col items-stretch gap-4">
-            {posts.map((p, i) => (
-              <Post key={i} post={p} />
-            ))}
+            {posts && posts.map((p, i) => <Post key={i} post={p} />)}
           </div>
         </main>
         <div className="h-full w-[280px] overflow-y-scroll m-0 fixed right-4 top-16 pb-24">
@@ -354,6 +354,16 @@ const Home: NextPage = () => {
       </div>
     </Header>
   );
+};
+
+export const getServerSideProps: GetStaticProps = async () => {
+  const posts: PostType[] = await getPosts();
+
+  return {
+    props: {
+      posts,
+    },
+  };
 };
 
 export default Home;
