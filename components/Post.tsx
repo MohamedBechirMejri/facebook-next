@@ -16,8 +16,12 @@ const Post = ({ post }: { post: PostType }) => {
             </a>
           </Link>
           <div>
-            <h1 className="font-bold">Author Name</h1>
+            <h1 className="font-bold">
+              {post.group && post.group.name} {post.page && post.page.name}{" "}
+              {!post.group && !post.page && post.author.name}
+            </h1>
             <p className="flex items-center gap-1 text-xs">
+              {post.group && <span>{post.author.name} ·</span>}
               <span>8h</span> ·{" "}
               <span>
                 <svg
