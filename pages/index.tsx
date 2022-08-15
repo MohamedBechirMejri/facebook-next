@@ -275,68 +275,6 @@ const posts = [
       },
     ],
   },
-  {
-    text: "odjnflgdkjnfglkdjnv",
-    image: "https://picsum.photos/600",
-    id: "/posts/id",
-    date: "2020-01-01-00-00-00",
-    group: undefined,
-    page: undefined,
-    author: {
-      name: "test",
-      image: "https://picsum.photos/600",
-      id: "/users/id",
-    },
-    audience: "public",
-    reacts: {
-      likes: ["id1", "id2", "id3"],
-      loves: ["id4", "id5", "id6"],
-      wows: ["id7", "id8", "id9"],
-      hahas: ["id10", "id11", "id12"],
-      sads: ["id13", "id14", "id15"],
-      angrys: ["id16", "id17", "id18"],
-    },
-    shares: ["id1"],
-    comments: [
-      {
-        text: "odjnflgdkjnfglkdjnv",
-        time: "2020-01-01-00-00-00",
-        image: "https://picsum.photos/600",
-        user: {
-          name: "test",
-          image: "https://picsum.photos/600",
-          id: "/users/id",
-        },
-        reacts: {
-          likes: ["id1", "id2", "id3"],
-          loves: ["id4", "id5", "id6"],
-          wows: ["id7", "id8", "id9"],
-          hahas: ["id10", "id11", "id12"],
-          sads: ["id13", "id14", "id15"],
-          angrys: ["id16", "id17", "id18"],
-        },
-        replies: [
-          {
-            text: "kuygikuyhkiuhyb",
-            time: "2020-01-01-00-00-00",
-            user: {
-              name: "test",
-              image: "https://picsum.photos/600",
-              id: "/users/id",
-            },
-            reacts: {
-              likes: ["id1", "id2", "id3"],
-              loves: ["id4", "id5", "id6"],
-              wows: ["id7", "id8", "id9"],
-              hahas: ["id10", "id11", "id12"],
-              sads: ["id13", "id14", "id15"],
-              angrys: ["id16", "id17", "id18"],
-            },
-          },
-        ],
-      },
-    ],
-  },
 ];
 
 const Home: NextPage = () => {
