@@ -311,7 +311,18 @@ const Home = ({ posts }: { posts: PostType[] }) => {
                   </div>
                 </a>
               </Link>
-              <p className="w-full p-2 px-4 text-gray-500 transition-all bg-gray-100 rounded-full cursor-pointer hover:bg-gray-200">
+              <p
+                className="w-full p-2 px-4 text-gray-500 transition-all bg-gray-100 rounded-full cursor-pointer hover:bg-gray-200"
+                onClick={() => {
+                  fetch("/api/posts/add")
+                    .then(res => {
+                      return res.json();
+                    })
+                    .then(data => {
+                      console.log(data);
+                    });
+                }}
+              >
                 What&#39;s on your mind, Username ?
               </p>
             </div>
@@ -371,11 +382,12 @@ const Home = ({ posts }: { posts: PostType[] }) => {
 };
 
 export const getServerSideProps: GetStaticProps = async () => {
-  const posts: PostType[] = await getPosts();
+  const posts = (await getPosts()) as PostType[];
 
   return {
     props: {
-      posts,
+      posts:
+        posts ? posts : [],
     },
   };
 };
