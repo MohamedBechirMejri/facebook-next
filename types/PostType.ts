@@ -17,12 +17,13 @@ type PostType = {
     id: string;
   };
   author: {
-    name: string;
+    firstName: string;
+    lastName: string;
     image: string;
     id: string;
   };
   audience: string;
-    reacts: ReactsType;
+  reacts: ReactsType;
   shares: string[];
   comments: CommentType[];
 };
