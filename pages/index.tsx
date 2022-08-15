@@ -386,8 +386,7 @@ export const getServerSideProps: GetStaticProps = async () => {
 
   return {
     props: {
-      posts:
-        posts ? posts : [],
+      posts: posts || [],
     },
   };
 };
