@@ -11,7 +11,14 @@ const Post = ({ post }: { post: PostType }) => {
           <Link href="/user/id">
             <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
               <div className="relative w-10 h-10 overflow-hidden rounded-full">
-                <Image src="https://picsum.photos/700" alt="" layout="fill" />
+                <Image
+                  src={
+                    post.author.picture ||
+                    "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
+                  }
+                  alt=""
+                  layout="fill"
+                />
               </div>
             </a>
           </Link>
