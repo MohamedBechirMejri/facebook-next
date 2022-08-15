@@ -19,7 +19,7 @@ type PostType = {
   author: {
     firstName: string;
     lastName: string;
-    image: string;
+    picture: string;
     id: string;
   };
   audience: string;
