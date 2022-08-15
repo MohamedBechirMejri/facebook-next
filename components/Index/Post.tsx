@@ -4,6 +4,10 @@ import React from "react";
 import PostType from "../../types/PostType";
 
 const Post = ({ post }: { post: PostType }) => {
+  const reacts = Object.entries(post.reacts).sort(
+    (a, b) => b[1].length - a[1].length
+  );
+
   return (
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
       <div className="flex items-center justify-between px-4">
@@ -103,17 +107,51 @@ const Post = ({ post }: { post: PostType }) => {
         <div className="flex items-center justify-between pb-2 text-gray-500">
           <div className="flex gap-1">
             <div>
-              <Image src="/Assets/like.svg" alt="" height={20} width={20} />
-              <Image src="/Assets/love.svg" alt="" height={20} width={20} />
-              <Image src="/Assets/wow.svg" alt="" height={20} width={20} />
+              {reacts[1][1].length > 0 && (
+                <Image
+                  src={
+                    "/Assets/" +
+                    reacts[1][0].substring(0, reacts[1][0].length - 1) +
+                    ".svg"
+                  }
+                  alt=""
+                  height={20}
+                  width={20}
+                />
+              )}
+              {reacts[2][1].length > 0 && (
+                <Image
+                  src={
+                    "/Assets/" +
+                    reacts[1][0].substring(0, reacts[1][0].length - 1) +
+                    ".svg"
+                  }
+                  alt=""
+                  height={20}
+                  width={20}
+                />
+              )}
+              {reacts[3][1].length > 0 && (
+                <Image
+                  src={
+                    "/Assets/" +
+                    reacts[1][0].substring(0, reacts[1][0].length - 1) +
+                    ".svg"
+                  }
+                  alt=""
+                  height={20}
+                  width={20}
+                />
+              )}
             </div>
             <p>
-              {post.reacts.likes.length +
-                post.reacts.loves.length +
-                post.reacts.wows.length +
-                post.reacts.hahas.length +
-                post.reacts.sads.length +
-                post.reacts.angrys.length}
+              {reacts[1][1].length > 0 &&
+                reacts[1][1].length +
+                  reacts[2][1].length +
+                  reacts[3][1].length +
+                  reacts[4][1].length +
+                  reacts[5][1].length +
+                  reacts[6][1].length}
             </p>
           </div>
           <div className="flex items-center gap-2">
