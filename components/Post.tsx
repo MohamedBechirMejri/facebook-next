@@ -8,7 +8,7 @@ const Post = ({ post }: { post: PostType }) => {
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <Link href="/user/id">
+          <Link href={post.author.nickname || '/users/' + post.author.id}>
             <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
               <div className="relative w-10 h-10 overflow-hidden rounded-full">
                 <Image
