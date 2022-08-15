@@ -4,7 +4,7 @@ import ReactsType from "./ReactsType";
 type PostType = {
   text: string;
   image?: string;
-  id: string;
+  _id: string;
   date: string;
   group?: {
     name: string;
@@ -27,6 +27,8 @@ type PostType = {
   reacts: ReactsType;
   shares: string[];
   comments: CommentType[];
+  createdAt: string;
+  updatedAt: string;
 };
 
 export default PostType;
