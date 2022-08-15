@@ -171,14 +171,37 @@ const Post = ({ post }: { post: PostType }) => {
         </div>
         <hr />
         <div className="flex items-center p-2 font-medium justify-evenly">
-          <button className="p-2 px-16 transition-all rounded-lg hover:bg-gray-100">
-            Like
+          <button className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100">
+            <div
+              style={{
+                backgroundImage: `url(${"/Assets/buttons.png"})`,
+                backgroundPosition: "0px -297px",
+              }}
+              className="w-[18px] h-[18px] bg-no-repeat inline-block bg-auto"
+            />
+            <span>Like</span>
           </button>
-          <button className="p-2 px-16 transition-all rounded-lg hover:bg-gray-100">
-            Comment
+          <button className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100">
+            {" "}
+            <div
+              style={{
+                backgroundImage: `url(${"/Assets/buttons.png"})`,
+                backgroundPosition: "0px -259px",
+              }}
+              className="w-[18px] h-[18px] bg-no-repeat inline-block bg-auto"
+            />
+            <span>Comment</span>
           </button>
-          <button className="p-2 px-16 transition-all rounded-lg hover:bg-gray-100">
-            Share
+          <button className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100">
+            {" "}
+            <div
+              style={{
+                backgroundImage: `url(${"/Assets/buttons.png"})`,
+                backgroundPosition: "0px -316px",
+              }}
+              className="w-[18px] h-[18px] bg-no-repeat inline-block bg-auto"
+            />
+            <span>Share</span>
           </button>
         </div>
       </div>
