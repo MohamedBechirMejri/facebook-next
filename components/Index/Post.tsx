@@ -161,10 +161,12 @@ const Post = ({ post }: { post: PostType }) => {
                 {post.comments.length === 1 ? "Comment" : "Comments"}
               </p>
             )}
-            <p>
-              {post.shares.length}{" "}
-              {post.shares.length === 1 ? "Share" : "Shares"}
-            </p>
+            {post.shares.length > 0 && (
+              <p>
+                {post.shares.length}{" "}
+                {post.shares.length === 1 ? "Share" : "Shares"}
+              </p>
+            )}
           </div>
         </div>
         <hr />
