@@ -155,10 +155,12 @@ const Post = ({ post }: { post: PostType }) => {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <p>
-              {post.comments.length}{" "}
-              {post.comments.length === 1 ? "Comment" : "Comments"}
-            </p>
+            {post.comments.length > 0 && (
+              <p>
+                {post.comments.length}{" "}
+                {post.comments.length === 1 ? "Comment" : "Comments"}
+              </p>
+            )}
             <p>
               {post.shares.length}{" "}
               {post.shares.length === 1 ? "Share" : "Shares"}
