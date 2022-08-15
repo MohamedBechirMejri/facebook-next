@@ -20,6 +20,7 @@ type PostType = {
     firstName: string;
     lastName: string;
     picture: string;
+    nickname?: string;
     id: string;
   };
   audience: string;
