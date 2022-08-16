@@ -10,6 +10,69 @@ const Post = ({ post }: { post: PostType }) => {
 
   const [showComments, setShowComments] = React.useState(false);
 
+  post.comments = [
+    {
+      _id: "1",
+      text: "This is a comment",
+      user: {
+        firstName: "test",
+        lastName: "test",
+        picture: "https://picsum.photos/700",
+        nickname: "test",
+        id: "test",
+      },
+      reacts: {
+        likes: [],
+        loves: ["1", "2", "3", "4", "5"],
+        hahas: [],
+        wows: [],
+        sads: [],
+        angrys: [],
+      },
+      createdAt: "2020-01-01-00-00-00",
+    },
+    {
+      _id: "2",
+      text: "This is a comment 2",
+      user: {
+        firstName: "test 2",
+        lastName: "test",
+        picture: "https://picsum.photos/800",
+        nickname: "test",
+        id: "test",
+      },
+      reacts: {
+        likes: ["1", "2"],
+        loves: ["3", "4"],
+        hahas: ["5", "6", "7"],
+        wows: [],
+        sads: [],
+        angrys: [],
+      },
+      createdAt: "2020-01-02-00-00-00",
+    },
+    {
+      _id: "3",
+      text: "This is a comment 3",
+      user: {
+        firstName: "test 3",
+        lastName: "test",
+        picture: "https://picsum.photos/900",
+        nickname: "test",
+        id: "test",
+      },
+      reacts: {
+        likes: [],
+        loves: [],
+        hahas: [],
+        wows: [],
+        sads: [],
+        angrys: [],
+      },
+      createdAt: "2020-01-03-00-00-00",
+    },
+  ];
+
   return (
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
       <div className="flex items-center justify-between px-4">
@@ -233,6 +296,36 @@ const Post = ({ post }: { post: PostType }) => {
             </div>
           </div>
         </form>
+        <div className="flex flex-col gap-4 pt-4">
+          {post.comments.map(comment => (
+            <div key={comment._id}>
+              <div className="flex items-start gap-2">
+                <div className="flex items-center overflow-hidden rounded-full">
+                  <Image
+                    src={comment.user.picture || "https://picsum.photos/700"}
+                    alt=""
+                    height={35}
+                    width={35}
+                  />
+                </div>
+                <div>
+                  <div className="w-max px-4 p-2 rounded-[18px] bg-[#f0f2f5]  ">
+                    <h1 className="font-bold">
+                      {comment.user.firstName + " " + comment.user.lastName}
+                    </h1>
+                    <p>{comment.text}</p>
+                  </div>{" "}
+                  <div className="flex items-center gap-4 pt-2 pl-4 text-xs font-bold">
+                    <button className="hover:underline">Like</button>
+                    <button className="hover:underline">Reply</button>
+                    <p>1d</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}{" "}
+          <p className="pt-2 text-sm font-bold cursor-pointer hover:underline">Write a Comment</p>
+        </div>
       </div>
     </div>
   );
