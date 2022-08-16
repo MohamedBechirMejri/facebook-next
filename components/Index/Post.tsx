@@ -91,7 +91,9 @@ const Post = ({ post }: { post: PostType }) => {
             </p>
           </div>
         </div>
-        <div className="pr-2 text-xl font-medium">•••</div>
+        <div className="py-1 px-2 text-xl font-medium hover:bg-[#f2f2f2] rounded-full transition-all cursor-pointer">
+          •••
+        </div>
       </div>
       <p className="p-6 py-4 text-justify">{post.text}</p>
       {post.image && (
