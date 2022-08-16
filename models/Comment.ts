@@ -45,35 +45,32 @@ const CommentSchema = new Schema(
       type: String,
       required: true,
     },
-    time: {
-      type: String,
-      required: true,
-    },
     image: String,
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
     reacts: ReactsSchema,
-    replies: [
-      {
-        text: {
-          type: String,
-          required: true,
-        },
-        time: {
-          type: String,
-          required: true,
-        },
-        image: String,
-        user: {
-          type: Schema.Types.ObjectId,
-          ref: "User",
-          required: true,
-        },
-        reacts: ReactsSchema,
-      },
-    ],
+    // TODO: implement replies
+    // replies: [
+    //   {
+    //     text: {
+    //       type: String,
+    //       required: true,
+    //     },
+    //     time: {
+    //       type: String,
+    //       required: true,
+    //     },
+    //     image: String,
+    //     user: {
+    //       type: Schema.Types.ObjectId,
+    //       ref: "User",
+    //       required: true,
+    //     },
+    //     reacts: ReactsSchema,
+    //   },
+    // ],
   },
   {
     timestamps: true,
