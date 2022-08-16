@@ -8,6 +8,8 @@ const Post = ({ post }: { post: PostType }) => {
     (a, b) => b[1].length - a[1].length
   );
 
+  const [showComments, setShowComments] = React.useState(false);
+
   return (
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
       <div className="flex items-center justify-between px-4">
@@ -206,6 +208,31 @@ const Post = ({ post }: { post: PostType }) => {
             <span>Share</span>
           </button>
         </div>
+      </div>
+      <div className="px-4">
+        <hr />
+        <p className="w-full py-2 text-sm font-semibold text-right">
+          All Comments
+        </p>
+        <form>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center overflow-hidden rounded-full">
+              <Image
+                src={"https://picsum.photos/700"}
+                alt=""
+                height={35}
+                width={35}
+              />
+            </div>
+            <div className="w-full">
+              <input
+                type="text"
+                className="w-full px-4 p-2 rounded-full bg-[#f0f2f5] outline-none"
+                placeholder="Write a comment..."
+              />
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
