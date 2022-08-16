@@ -248,7 +248,12 @@ const Post = ({ post }: { post: PostType }) => {
             />
             <span>Like</span>
           </button>
-          <button className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100">
+          <button
+            className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100"
+            onClick={() => {
+              setShowComments(!showComments);
+            }}
+          >
             {" "}
             <div
               style={{
@@ -272,61 +277,65 @@ const Post = ({ post }: { post: PostType }) => {
           </button>
         </div>
       </div>
-      <div className="px-4">
-        <hr />
-        <p className="w-full py-2 text-sm font-semibold text-right">
-          All Comments
-        </p>
-        <form>
-          <div className="flex items-center gap-2">
-            <div className="flex items-center overflow-hidden rounded-full">
-              <Image
-                src={"https://picsum.photos/700"}
-                alt=""
-                height={35}
-                width={35}
-              />
+      {showComments && (
+        <div className="px-4">
+          <hr />
+          <p className="w-full py-2 text-sm font-semibold text-right">
+            All Comments
+          </p>
+          <form>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center overflow-hidden rounded-full">
+                <Image
+                  src={"https://picsum.photos/700"}
+                  alt=""
+                  height={35}
+                  width={35}
+                />
+              </div>
+              <div className="w-full">
+                <input
+                  type="text"
+                  className="w-full px-4 p-2 rounded-full bg-[#f0f2f5] outline-none"
+                  placeholder="Write a comment..."
+                />
+              </div>
             </div>
-            <div className="w-full">
-              <input
-                type="text"
-                className="w-full px-4 p-2 rounded-full bg-[#f0f2f5] outline-none"
-                placeholder="Write a comment..."
-              />
-            </div>
-          </div>
-        </form>
-        <div className="flex flex-col gap-4 pt-4">
-          {post.comments.map(comment => (
-            <div key={comment._id}>
-              <div className="flex items-start gap-2">
-                <div className="flex items-center overflow-hidden rounded-full">
-                  <Image
-                    src={comment.user.picture || "https://picsum.photos/700"}
-                    alt=""
-                    height={35}
-                    width={35}
-                  />
-                </div>
-                <div>
-                  <div className="w-max px-4 p-2 rounded-[18px] bg-[#f0f2f5]  ">
-                    <h1 className="font-bold">
-                      {comment.user.firstName + " " + comment.user.lastName}
-                    </h1>
-                    <p>{comment.text}</p>
-                  </div>{" "}
-                  <div className="flex items-center gap-4 pt-2 pl-4 text-xs font-bold">
-                    <button className="hover:underline">Like</button>
-                    <button className="hover:underline">Reply</button>
-                    <p>1d</p>
+          </form>
+          <div className="flex flex-col gap-4 pt-4">
+            {post.comments.map(comment => (
+              <div key={comment._id}>
+                <div className="flex items-start gap-2">
+                  <div className="flex items-center overflow-hidden rounded-full">
+                    <Image
+                      src={comment.user.picture || "https://picsum.photos/700"}
+                      alt=""
+                      height={35}
+                      width={35}
+                    />
+                  </div>
+                  <div>
+                    <div className="w-max px-4 p-2 rounded-[18px] bg-[#f0f2f5]  ">
+                      <h1 className="font-bold">
+                        {comment.user.firstName + " " + comment.user.lastName}
+                      </h1>
+                      <p>{comment.text}</p>
+                    </div>{" "}
+                    <div className="flex items-center gap-4 pt-2 pl-4 text-xs font-bold">
+                      <button className="hover:underline">Like</button>
+                      <button className="hover:underline">Reply</button>
+                      <p>1d</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}{" "}
-          <p className="pt-2 text-sm font-bold cursor-pointer hover:underline">Write a Comment</p>
+            ))}{" "}
+            <p className="pt-2 text-sm font-bold cursor-pointer hover:underline">
+              Write a Comment
+            </p>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
