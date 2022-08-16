@@ -62,7 +62,16 @@ const Home = ({ posts }: { posts: PostType[] }) => {
             </div>
             <hr className="w-full" />
             <div className="flex items-center p-2 font-medium justify-evenly">
-              <button className="p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
+              <button className="flex items-center gap-2 p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
+                <Image
+                  src="/Assets/live.svg"
+                  height={24}
+                  width={24}
+                  alt=""
+                  style={{
+                    filter: " ",
+                  }}
+                />
                 Live video
               </button>
               <button className="p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
