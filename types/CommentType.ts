@@ -1,25 +1,31 @@
 import ReactsType from "./ReactsType";
 
 type CommentType = {
+  _id: string;
   text: string;
-  time: string;
   image?: string;
   user: {
-    name: string;
-    image: string;
+    firstName: string;
+    lastName: string;
+    picture: string;
+    nickname?: string;
     id: string;
   };
   reacts: ReactsType;
-  replies: {
-    text: string;
-    time: string;
-    user: {
-      name: string;
-      image: string;
-      id: string;
-    };
-    reacts: ReactsType;
-  }[];
+  createdAt: string;
+  updatedAt?: string;
+  // replies: {
+  //   text: string;
+  //   time: string;
+  //   user: {
+  //     firstName: string;
+  //     lastName: string;
+  //     picture: string;
+  //     nickname?: string;
+  //     id: string;
+  //   };
+  //   reacts: ReactsType;
+  // }[];
 };
 
 export default CommentType;
