@@ -39,41 +39,39 @@ const ReactsSchema = new Schema({
   ],
 });
 
-const PostSchema = new Schema(
+const CommentSchema = new Schema(
   {
     text: {
       type: String,
       required: true,
     },
+    time: {
+      type: String,
+      required: true,
+    },
     image: String,
-    group: {
-      type: Schema.Types.ObjectId,
-      ref: "Group",
-    },
-    page: {
-      type: Schema.Types.ObjectId,
-      ref: "Page",
-    },
-    author: {
+    user: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    audience: {
-      type: String,
-      enum: ["public", "friends", "only me"],
-      default: "public",
-    },
     reacts: ReactsSchema,
-    shares: [
+    replies: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
-    comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Comment",
+        text: {
+          type: String,
+          required: true,
+        },
+        time: {
+          type: String,
+          required: true,
+        },
+        image: String,
+        user: {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+          required: true,
+        },
+        reacts: ReactsSchema,
       },
     ],
   },
@@ -82,4 +80,4 @@ const PostSchema = new Schema(
   }
 );
 
-export default mongoose.models.Post || model("Post", PostSchema);
+export default mongoose.models.Comment || model("Comment", CommentSchema);
