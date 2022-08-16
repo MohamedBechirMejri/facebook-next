@@ -31,7 +31,7 @@ const Home = ({ posts }: { posts: PostType[] }) => {
     <Header>
       <div className="relative flex w-screen min-h-screen p-2 py-4 text-black">
         <LeftNav />
-        <main className="mx-auto w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5]">
+        <main className="mx-auto w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5] text-[#606266]">
           <div className="flex flex-col items-stretch justify-center gap-2 p-4 bg-white rounded-lg">
             <div className="flex items-center justify-center gap-2 pb-2">
               <Link href="/user/id">
