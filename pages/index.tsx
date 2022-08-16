@@ -73,11 +73,29 @@ const Home = ({ posts }: { posts: PostType[] }) => {
                   }}
                 />
                 Live video
-              </button>
-              <button className="p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
+              </button>{" "}
+              <button className="flex items-center gap-2 p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
+                <Image
+                  src="/Assets/photovideo.svg"
+                  height={24}
+                  width={24}
+                  alt=""
+                  style={{
+                    filter: " ",
+                  }}
+                />
                 Photo/video
-              </button>
-              <button className="p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
+              </button>{" "}
+              <button className="flex items-center gap-2 p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
+                <Image
+                  src="/Assets/feelingactivity.svg"
+                  height={24}
+                  width={24}
+                  alt=""
+                  style={{
+                    filter: " ",
+                  }}
+                />
                 Feeling/Activity
               </button>
             </div>
