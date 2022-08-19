@@ -6,11 +6,8 @@ import passport from "../../../lib/Auth/passport";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   passport.authenticate("facebook", {
-    assignProperty: "user",
+    assignProperty: "fbUser",
     failureRedirect: "/login",
   }),
-    //@ts-ignore
-    console.log(req);
-
-  res.status(200).json("req.user");
+    res.status(200).json("req.user");
 }
