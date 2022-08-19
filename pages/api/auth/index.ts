@@ -2,6 +2,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import passport from "../../../lib/Auth/passport";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  passport.authenticate("facebook")(req, res);
-}
+export default passport.authenticate("facebook");
