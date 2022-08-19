@@ -1,14 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PostType from "../../types/PostType";
 
 const Post = ({ post }: { post: PostType }) => {
-  const reacts = Object.entries(post.reacts).sort(
-    (a, b) => b[1].length - a[1].length
+  const [reacts, setReacts] = useState(
+    Object.entries(post.reacts).sort((a, b) => b[1].length - a[1].length)
   );
-
+  const [token, setToken] = React.useState("");
   const [showComments, setShowComments] = React.useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setToken(token);
+    }
+  }, []);
 
   post.comments = [
     {
@@ -238,7 +245,33 @@ const Post = ({ post }: { post: PostType }) => {
         </div>
         <hr />
         <div className="flex items-center p-2 font-medium justify-evenly">
-          <button className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100">
+          <button
+            className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
+            onClick={() => {
+              fetch("/api/posts/" + post._id + "/like", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+              })
+                .then(res => res.json())
+                .then(data => {
+                  if (data) {
+                    setReacts(
+                      // @ts-ignore
+                      Object.entries(data.reacts).sort(
+                        // @ts-ignore
+                        (a, b) => b[1].length - a[1].length
+                      )
+                    );
+                  }
+                })
+                .catch(err => {
+                  console.log(err);
+                });
+            }}
+          >
             <div
               style={{
                 backgroundImage: `url(${"/Assets/buttons.png"})`,
@@ -249,7 +282,7 @@ const Post = ({ post }: { post: PostType }) => {
             <span>Like</span>
           </button>
           <button
-            className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100"
+            className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
             onClick={() => {
               setShowComments(!showComments);
             }}
@@ -264,7 +297,7 @@ const Post = ({ post }: { post: PostType }) => {
             />
             <span>Comment</span>
           </button>
-          <button className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100">
+          <button className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95">
             {" "}
             <div
               style={{
