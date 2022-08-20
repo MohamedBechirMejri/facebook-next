@@ -1952,7 +1952,7 @@ react-is@^16.13.1:
 
 react-isloading@^1.0.6:
   version "1.0.6"
-  resolved "https://registry.npmjs.org/react-isloading/-/react-isloading-1.0.6.tgz"
+  resolved "https://registry.yarnpkg.com/react-isloading/-/react-isloading-1.0.6.tgz#0934e38143e063e72497b08c482a4ab985e61e9b"
   integrity sha512-fSCnfWQ8sF+xkW1EM/tRo5y56LyugG9NhZN6xyXoUXmQtsEu6iUtkPmlkBtSwIOJqEfiuFC+1FVpKKO6TvFpsQ==
   dependencies:
     "@lottiefiles/react-lottie-player" "^3.4.7"
