@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import passport from "../../../lib/Auth/passport";
 import nc from "next-connect";
+const jwt = require("jsonwebtoken");
 
 const handler = nc({
   onError: (err, req: NextApiRequest, res: NextApiResponse, next) => {
@@ -16,8 +17,16 @@ const handler = nc({
     failureRedirect: "/login",
   }),
   (req, res) => {
-    // @ts-ignore
-    res.json(req.user);
+    jwt.sign(
+      // @ts-ignore
+      { user: req.user },
+      process.env.JWT_SECRET,
+      { expiresIn: "15d" },
+      (err: any, token: any) => {
+        if (err) return res.status(500).json(err);
+        else res.redirect("/auth/" + token);
+      }
+    );
   }
 );
 
