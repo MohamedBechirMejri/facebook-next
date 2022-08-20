@@ -1,13 +1,24 @@
-//  passport.authenticate('facebook', { assignProperty: 'federatedUser', failureRedirect: '/login' }),
-
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import passport from "../../../lib/Auth/passport";
+import nc from "next-connect";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+const handler = nc({
+  onError: (err, req: NextApiRequest, res: NextApiResponse, next) => {
+    console.error(err.stack);
+    res.status(500).end("Something broke!");
+  },
+  onNoMatch: (req, res) => {
+    res.status(404).end("Page is not found");
+  },
+}).get(
   passport.authenticate("facebook", {
-    assignProperty: "fbUser",
+    assignProperty: "user",
     failureRedirect: "/login",
   }),
-    res.status(200).json("req.user");
-}
+  (req, res) => {
+    // @ts-ignore
+    res.json(req.user);
+  }
+);
+
+export default handler;
