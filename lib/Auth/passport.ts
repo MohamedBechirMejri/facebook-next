@@ -9,7 +9,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: "/auth/callback",
+      callbackURL: "/api/auth/callback",
       profileFields: [
         "id",
         "first_name",
