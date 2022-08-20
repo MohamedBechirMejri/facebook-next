@@ -1,4 +1,4 @@
-import type { GetServerSideProps } from "next";
+import type { GetServerSideProps, NextApiRequest, NextApiResponse } from "next";
 import Header from "../components/Header";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +9,8 @@ import { L49 } from "react-isloading";
 import LeftNav from "../components/Index/LeftNav";
 import AddPost from "../components/Index/AddPost";
 import { useState } from "react";
+import { getUser } from "../lib/Auth/getUser";
+import { getCookie } from "cookies-next";
 
 const friends = [
   {
@@ -27,8 +29,10 @@ const friends = [
   },
 ];
 
-const Home = ({ posts }: { posts: PostType[] }) => {
+const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
   const birthdays = friends.filter(friend => friend.birthday === "2020-08-10");
+
+  user = user.user;
 
   const [isAddingPost, setIsAddingPost] = useState(false);
   return (
@@ -51,11 +55,7 @@ const Home = ({ posts }: { posts: PostType[] }) => {
                 <Link href="/user/id">
                   <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
                     <div className="relative w-10 h-10 overflow-hidden rounded-full">
-                      <Image
-                        src="https://picsum.photos/700"
-                        alt=""
-                        layout="fill"
-                      />
+                      <Image src={user.picture} alt="" layout="fill" />
                     </div>
                   </a>
                 </Link>
@@ -151,12 +151,30 @@ const Home = ({ posts }: { posts: PostType[] }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const posts = (await getPosts()) as PostType[];
 
+  const token = await getCookie("token", {
+    req,
+    res,
+  });
+
+  let user = null;
+
+  if (token) {
+    // @ts-ignore
+    user = await getUser(token);
+    return {
+      props: {
+        posts: posts || [],
+        user,
+      },
+    };
+  }
   return {
     props: {
       posts: posts || [],
+      user,
     },
   };
 };

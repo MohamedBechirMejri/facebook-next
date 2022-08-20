@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import passport from "../../../lib/Auth/passport";
 import nc from "next-connect";
 const jwt = require("jsonwebtoken");
+import { setCookie } from "cookies-next";
 
 const handler = nc({
   onError: (err, req: NextApiRequest, res: NextApiResponse, next) => {
@@ -23,8 +24,8 @@ const handler = nc({
       process.env.JWT_SECRET,
       { expiresIn: "15d" },
       (err: any, token: any) => {
-        if (err) return res.status(500).json(err);
-        else res.redirect("/auth/" + token);
+        setCookie("token", token, { req, res, maxAge: 60 * 60 * 24 * 15 });
+        res.redirect("/");
       }
     );
   }
