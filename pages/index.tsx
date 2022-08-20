@@ -1,4 +1,4 @@
-import type { GetServerSideProps } from "next";
+import type { GetServerSideProps, NextApiRequest, NextApiResponse } from "next";
 import Header from "../components/Header";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import { L49 } from "react-isloading";
 import LeftNav from "../components/Index/LeftNav";
 import AddPost from "../components/Index/AddPost";
 import { useState } from "react";
+import { getUser } from "../lib/Auth/getUser";
 
 const friends = [
   {
@@ -27,7 +28,7 @@ const friends = [
   },
 ];
 
-const Home = ({ posts }: { posts: PostType[] }) => {
+const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
   const birthdays = friends.filter(friend => friend.birthday === "2020-08-10");
 
   const [isAddingPost, setIsAddingPost] = useState(false);
@@ -154,9 +155,18 @@ const Home = ({ posts }: { posts: PostType[] }) => {
 export const getServerSideProps: GetServerSideProps = async () => {
   const posts = (await getPosts()) as PostType[];
 
+  const token = await localStorage.getItem("token");
+
+  let user = null;
+
+  if (token) {
+    user = await getUser(token);
+  }
+
   return {
     props: {
       posts: posts || [],
+      user,
     },
   };
 };
