@@ -2,6 +2,7 @@ import mongoose, { Schema, model } from "mongoose";
 
 const UserSchema = new Schema(
   {
+    facebookId: { type: String, required: true },
     firstName: {
       type: String,
       required: true,
