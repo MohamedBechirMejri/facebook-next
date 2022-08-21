@@ -7,15 +7,7 @@ const Post = ({ post }: { post: PostType }) => {
   const [reacts, setReacts] = useState(
     Object.entries(post.reacts).sort((a, b) => b[1].length - a[1].length)
   );
-  const [token, setToken] = React.useState("");
   const [showComments, setShowComments] = React.useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setToken(token);
-    }
-  }, []);
 
   post.comments = [
     {
