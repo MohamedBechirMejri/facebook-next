@@ -248,19 +248,13 @@ const Post = ({ post }: { post: PostType }) => {
           <button
             className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
             onClick={() => {
-              fetch("/api/posts/" + post._id + "/like", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${token}`,
-                },
-              })
+              fetch("/api/posts/" + post._id.toString() + "/like")
                 .then(res => res.json())
                 .then(data => {
                   if (data) {
                     setReacts(
                       // @ts-ignore
-                      Object.entries(data.reacts).sort(
+                      Object.entries(data.post.reacts).sort(
                         // @ts-ignore
                         (a, b) => b[1].length - a[1].length
                       )
