@@ -107,7 +107,7 @@ const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
             </div>
             <div className="flex flex-col items-stretch gap-4">
               {posts && posts.length > 0 ? (
-                posts.map((p, i) => <Post key={i} post={p} />)
+                posts.map((p, i) => <Post key={i} post={p} user={user} />)
               ) : (
                 <L49
                   style={{
