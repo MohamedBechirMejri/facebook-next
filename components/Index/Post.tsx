@@ -238,7 +238,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
         <hr />
         <div className="flex items-center p-2 justify-evenly">
           <button
-            className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
+            className="flex items-start gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
             onClick={() => {
               fetch("/api/posts/" + post._id.toString() + "/like")
                 .then(res => res.json())
@@ -261,7 +261,13 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
             <div
               style={{
                 backgroundImage: `url(${"/Assets/buttons.png"})`,
-                backgroundPosition: "0px -297px",
+                backgroundPosition: reacts[1][1].includes(user._id.toString())
+                  ? "0px -277px"
+                  : "0px -297px",
+                filter: reacts[1][1].includes(user._id.toString())
+                  ? "invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%)"
+                  : "",
+                // TODO: animate like button
               }}
               className="w-[18px] h-[18px] bg-no-repeat inline-block bg-auto "
             />
