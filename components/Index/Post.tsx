@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import PostType from "../../types/PostType";
 
-const Post = ({ post }: { post: PostType }) => {
+const Post = ({ post, user }: { post: PostType; user: any }) => {
   const [reacts, setReacts] = useState(
     Object.entries(post.reacts).sort((a, b) => b[1].length - a[1].length)
   );
@@ -236,7 +236,7 @@ const Post = ({ post }: { post: PostType }) => {
           </div>
         </div>
         <hr />
-        <div className="flex items-center p-2 font-medium justify-evenly">
+        <div className="flex items-center p-2 justify-evenly">
           <button
             className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
             onClick={() => {
@@ -263,9 +263,20 @@ const Post = ({ post }: { post: PostType }) => {
                 backgroundImage: `url(${"/Assets/buttons.png"})`,
                 backgroundPosition: "0px -297px",
               }}
-              className="w-[18px] h-[18px] bg-no-repeat inline-block bg-auto"
+              className="w-[18px] h-[18px] bg-no-repeat inline-block bg-auto "
             />
-            <span>Like</span>
+            <span
+              className="tracking-tighter"
+              style={{
+                color: reacts[1][1].includes(user._id.toString())
+                  ? "#2078f4"
+                  : "",
+                fontWeight: 600,
+                fontSize: ".9375rem",
+              }}
+            >
+              Like
+            </span>
           </button>
           <button
             className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
