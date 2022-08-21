@@ -1,6 +1,14 @@
+import { getCookie } from "cookies-next";
+import type { NextApiRequest, NextApiResponse } from "next";
 const jwt = require("jsonwebtoken");
 
-export const getUser = (token: string) => {
-  const decoded = jwt.verify(token, process.env.JWT_SECRET);
-  return decoded;
+const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
+  const token = await getCookie("token", {
+    req,
+    res,
+  });
+
+  return jwt.verify(token, process.env.JWT_SECRET);
 };
+
+export default getUser;

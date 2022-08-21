@@ -9,8 +9,7 @@ import { L49 } from "react-isloading";
 import LeftNav from "../components/Index/LeftNav";
 import AddPost from "../components/Index/AddPost";
 import { useState } from "react";
-import { getUser } from "../lib/Auth/getUser";
-import { getCookie } from "cookies-next";
+import getUser from "../lib/Auth/getUser";
 
 const friends = [
   {
@@ -154,23 +153,10 @@ const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const posts = (await getPosts()) as PostType[];
 
-  const token = await getCookie("token", {
-    req,
-    res,
-  });
-
   let user = null;
 
-  if (token) {
-    // @ts-ignore
-    user = await getUser(token);
-    return {
-      props: {
-        posts: posts || [],
-        user,
-      },
-    };
-  }
+  // @ts-ignore
+  user = await getUser(req, res);
   return {
     props: {
       posts: posts || [],
