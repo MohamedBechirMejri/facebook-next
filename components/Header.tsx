@@ -2,7 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Header = ({ children }: { children: React.ReactNode }) => {
+const Header = ({
+  children,
+  user,
+}: {
+  children: React.ReactNode;
+  user: any;
+}) => {
   return (
     <>
       <header className="fixed z-50 flex items-center justify-between w-screen p-2 bg-white shadow-sm h-14">
@@ -73,7 +79,7 @@ const Header = ({ children }: { children: React.ReactNode }) => {
             />
           </button>
           <button className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden">
-            <Image src="https://picsum.photos/600" alt="" layout="fill" />
+            <Image src={user.picture} alt="" layout="fill" />
           </button>
         </div>
       </header>
