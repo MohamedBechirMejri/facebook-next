@@ -29,8 +29,6 @@ const friends = [
 ];
 
 const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
-  const birthdays = friends.filter(friend => friend.birthday === "2020-08-10");
-
   user = user.user;
 
   const [isAddingPost, setIsAddingPost] = useState(false);
