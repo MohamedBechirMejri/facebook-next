@@ -681,6 +681,11 @@
   resolved "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
+"@types/uniqid@^5.3.2":
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/@types/uniqid/-/uniqid-5.3.2.tgz#79c4b0eb6f6143de2f44441b0ce47f0f8c18c4ef"
+  integrity sha512-/NYoaZpWsnAJDsGYeMNDeG3p3fuUb4AiC7MfKxi5VSu18tXd08w6Ch0fKW94T4FeLXXZwZPoFgHA1O0rDYKyMQ==
+
 "@types/webidl-conversions@*":
   version "6.1.1"
   resolved "https://registry.npmjs.org/@types/webidl-conversions/-/webidl-conversions-6.1.1.tgz"
