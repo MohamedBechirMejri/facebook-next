@@ -7,6 +7,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+import uniqid from "uniqid";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -20,10 +21,10 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 const storage = getStorage();
-const storageRef = ref(storage, "images");
+const storageRef = ref(storage, uniqid());
 
 const Img = () => {
-  const [loading, setLoading] = useState("0%");
+  const [loading, setLoading] = useState(0);
   const [img, setImg] = useState("");
   const [image, setImage] = useState(null);
 
@@ -41,7 +42,7 @@ const Img = () => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
-          setLoading(progress.toFixed(0));
+          setLoading(+progress.toFixed(0));
         },
         error => {
           // Handle unsuccessful uploads
