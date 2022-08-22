@@ -41,7 +41,6 @@ const Img = () => {
         snapshot => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
           setLoading(+progress.toFixed(0));
         },
         error => {
@@ -49,7 +48,6 @@ const Img = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
-            console.log("File available at", downloadURL);
             setImg(downloadURL);
           });
         }
