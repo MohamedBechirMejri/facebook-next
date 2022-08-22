@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "cookies-next": "^2.1.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.2",
