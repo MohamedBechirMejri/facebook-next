@@ -7,6 +7,7 @@ const nextConfig = {
       "picsum.photos",
       "www.gravatar.com",
       "platform-lookaside.fbsbx.com",
+      "firebasestorage.googleapis.com",
     ],
   },
 };
