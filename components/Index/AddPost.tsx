@@ -20,7 +20,10 @@ const AddPost = ({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({
+        text,
+        image,
+      }),
     })
       .then(res => res.json())
       .then(res => {
