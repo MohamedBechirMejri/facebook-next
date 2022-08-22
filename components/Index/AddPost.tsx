@@ -8,6 +8,8 @@ const AddPost = ({
   setIsAddingPost: (isAddingPost: boolean) => void;
 }) => {
   const [text, setText] = React.useState("");
+  const [image, setImage] = React.useState("");
+  const [isUploading, setIsUploading] = React.useState(false);
 
   const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -69,7 +71,11 @@ const AddPost = ({
         value={text}
         autoFocus
       />
-      <ImageUpload />
+      <ImageUpload
+        setImageLink={setImage}
+        isUploading={isUploading}
+        setIsUploading={setIsUploading}
+      />
       <div className="w-full h-full [grid-area:19/1/21/2] px-2 p-1">
         <button
           className="w-full bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg text-white font-bold h-full"

@@ -23,9 +23,16 @@ initializeApp(firebaseConfig);
 const storage = getStorage();
 const storageRef = ref(storage, uniqid());
 
-const Img = () => {
+const Img = ({
+  setImageLink,
+  isUploading,
+  setIsUploading,
+}: {
+  setImageLink: (image: string) => void;
+  isUploading: boolean;
+  setIsUploading: (isUploading: boolean) => void;
+}) => {
   const [loading, setLoading] = useState(0);
-  const [img, setImg] = useState("");
   const [image, setImage] = useState(null);
 
   const handleChange = (e: any) => {
@@ -34,6 +41,8 @@ const Img = () => {
 
   const handleSubmit = async () => {
     if (image) {
+      setIsUploading(true);
+
       const uploadTask = uploadBytesResumable(storageRef, image);
 
       uploadTask.on(
@@ -48,7 +57,7 @@ const Img = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
-            setImg(downloadURL);
+            setImageLink(downloadURL);
           });
         }
       );
@@ -68,13 +77,21 @@ const Img = () => {
         />
       </div>
       <div className="w-full h-full max-h-4">
-        <button onClick={handleSubmit}>Upload</button>
-        <div
-          className="h-full transition-all bg-[#d1d5db] rounded-full "
-          style={{
-            width: `${loading}%`,
-          }}
-        />
+        {isUploading ? (
+          <div
+            className="h-full transition-all bg-[#d1d5db] rounded-full "
+            style={{
+              width: `${loading}%`,
+            }}
+          />
+        ) : (
+          <button
+            onClick={handleSubmit}
+            className="w-full p-2 text-white transition-all bg-green-500 rounded-lg hover:bg-green-600"
+          >
+            Upload
+          </button>
+        )}
       </div>
     </div>
   );
