@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import ImageUpload from "./ImageUpload";
 
 const AddPost = ({
   setIsAddingPost,
@@ -63,11 +64,12 @@ const AddPost = ({
       </div>
       <textarea
         placeholder="What's on your mind, username ?"
-        className="w-full py-4 text-2xl bg-white outline-none [grid-area:5/1/19/2] p-4"
+        className="w-full py-4 text-2xl bg-white outline-none [grid-area:5/1/15/2] p-4"
         onChange={e => setText(e.target.value)}
         value={text}
         autoFocus
       />
+      <ImageUpload />
       <div className="w-full h-full [grid-area:19/1/21/2] px-2 p-1">
         <button
           className="w-full bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg text-white font-bold h-full"

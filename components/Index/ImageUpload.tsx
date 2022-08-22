@@ -58,11 +58,19 @@ const Img = () => {
   };
 
   return (
-    <div>
-      {img && <Image src={img} height={100} width={200} alt="" />}
-      <h1>{loading}%</h1>
-      <input type="file" onChange={handleChange} />
-      <button onClick={handleSubmit}>Submit</button>
+    <div className="[grid-area:15/1/19/2] h-full w-full flex flex-col items-stretch justify-evenly px-2">
+      <div className="flex items-center justify-between w-full px-4">
+        <input type="file" onChange={handleChange} />
+        <button onClick={handleSubmit}>Upload</button>
+      </div>
+      <div className="w-full h-full max-h-4">
+        <div
+          className="h-full transition-all bg-[#d1d5db] rounded-full "
+          style={{
+            width: `${loading}%`,
+          }}
+        />
+      </div>
     </div>
   );
 };
