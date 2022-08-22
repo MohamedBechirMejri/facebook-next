@@ -64,7 +64,7 @@ const AddPost = ({
       </div>
       <textarea
         placeholder="What's on your mind, username ?"
-        className="w-full py-4 text-2xl bg-white outline-none [grid-area:5/1/15/2] p-4"
+        className="w-full py-4 text-2xl bg-white outline-none [grid-area:5/1/12/2] p-4"
         onChange={e => setText(e.target.value)}
         value={text}
         autoFocus

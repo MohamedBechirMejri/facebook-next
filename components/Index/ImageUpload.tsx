@@ -58,12 +58,19 @@ const Img = () => {
   };
 
   return (
-    <div className="[grid-area:15/1/19/2] h-full w-full flex flex-col items-stretch justify-evenly px-2">
-      <div className="flex items-center justify-between w-full px-4">
-        <input type="file" onChange={handleChange} />
-        <button onClick={handleSubmit}>Upload</button>
+    <div className="[grid-area:12/1/19/2] h-full w-full grid gap-2 px-2">
+      <div className="relative z-10 flex items-center justify-between w-full px-4 transition-all bg-gray-200 border border-gray-400 border-dashed rounded-lg hover:bg-gray-300">
+        <h1 className="absolute text-gray-700 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+          Add Photos/Videos
+        </h1>
+        <input
+          type="file"
+          onChange={handleChange}
+          className="w-full h-full opacity-0 cursor-pointer"
+        />
       </div>
       <div className="w-full h-full max-h-4">
+        <button onClick={handleSubmit}>Upload</button>
         <div
           className="h-full transition-all bg-[#d1d5db] rounded-full "
           style={{
