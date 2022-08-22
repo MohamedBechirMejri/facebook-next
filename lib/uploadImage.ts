@@ -1,4 +1,4 @@
-const uploadImage = async (image: any) => {
+const uploadImage = async (image: string) => {
   const headers = new Headers();
   headers.append(
     "Authorization",
