@@ -49,8 +49,6 @@ const getPosts = async () => {
       return comment;
     });
 
-    doc === result[0] && console.log(post.comments[0].user);
-
     return post;
   });
 };
