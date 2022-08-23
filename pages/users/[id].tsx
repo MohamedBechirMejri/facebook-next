@@ -3,11 +3,12 @@ import Header from "../../components/Header";
 import getUser from "../../lib/Auth/getUser";
 import dbConnect from "../../lib/dbConnect";
 import User from "../../models/User";
+import Image from "next/image";
 
 const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
   return (
     <Header user={user}>
-      <div className="relative flex w-screen min-h-screen p-2 py-4 text-black">
+      <div className="relative flex flex-col w-screen min-h-screen p-2 py-4 text-black [font-family:Segoe_UI]">
         <div className="w-full bg-gradient-to-b from-gray-100 to-gray-500 h-[48vh] rounded-lg relative overflow-hidden">
           <div
             style={{
@@ -27,6 +28,36 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             />
             Add cover photo
           </button>
+        </div>
+        <div className="z-10 flex items-end justify-between w-full px-8 -mt-10">
+          <div className="flex items-end gap-6">
+            <div className="w-40 h-40 overflow-hidden rounded-full ring-4 ring-white">
+              <Image
+                src={"https://picsum.photos/700"}
+                height={1000}
+                width={1000}
+                alt=""
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <h1 className="text-3xl font-bold">Mohamed Bechir Mejri</h1>
+              <p className="mb-2 font-bold text-gray-500">1 friend</p>
+              <div>
+                <div className="w-8 h-8 overflow-hidden rounded-full">
+                  <Image
+                    src={"https://picsum.photos/700"}
+                    height={1000}
+                    width={1000}
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button>test</button>
+            <button>test</button>
+          </div>
         </div>
       </div>
     </Header>
