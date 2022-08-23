@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import CommentType from "../../types/CommentType";
 import PostType from "../../types/PostType";
 
 const Comments = ({
@@ -67,7 +68,7 @@ const Comments = ({
         </div>
       </form>
       <div className="flex flex-col gap-4 pt-4">
-        {comments.map(comment => (
+        {comments.map((comment: CommentType) => (
           <div key={comment._id}>
             <div className="flex items-start gap-2">
               <div className="flex items-center overflow-hidden rounded-full">
