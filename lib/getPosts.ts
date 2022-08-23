@@ -5,11 +5,9 @@ import dbConnect from "./dbConnect";
 const getPosts = async () => {
   await dbConnect();
 
-  const result = await Post.find({}).populate(
-    "author",
-    "firstName lastName nickname picture id",
-    User
-  );
+  const result = await Post.find({})
+    .sort({ createdAt: "desc" })
+    .populate("author", "firstName lastName nickname picture id", User);
   return result.map(doc => {
     const post = doc.toObject();
     post._id = post._id.toString();
