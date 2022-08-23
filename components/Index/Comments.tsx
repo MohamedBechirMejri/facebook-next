@@ -67,11 +67,11 @@ const Comments = ({
           </button>
         </div>
       </form>
-      <div className="flex flex-col gap-4 pt-4">
+      <div className="flex flex-col gap-4 pt-4 overflow-y-scroll max-h-[30rem] ">
         {comments.map((comment: CommentType) => (
           <div key={comment._id}>
             <div className="flex items-start gap-2">
-              <div className="flex items-center overflow-hidden rounded-full">
+              <div className="flex items-center overflow-hidden rounded-full shrink-0">
                 <Image
                   src={comment.user.picture || "https://picsum.photos/700"}
                   alt=""
@@ -80,7 +80,7 @@ const Comments = ({
                 />
               </div>
               <div>
-                <div className="w-max px-4 p-2 rounded-[18px] bg-[#f0f2f5]  ">
+                <div className="px-4 p-2 rounded-[18px] bg-[#f0f2f5]  ">
                   <Link
                     href={comment.user.nickname || "/users/" + comment.user._id}
                   >
@@ -88,7 +88,7 @@ const Comments = ({
                       {comment.user.firstName + " " + comment.user.lastName}
                     </a>
                   </Link>
-                  <p>{comment.text}</p>
+                  <p className="">{comment.text}</p>
                 </div>{" "}
                 <div className="flex items-center gap-4 pt-2 pl-4 text-xs font-bold">
                   <button className="hover:underline">Like</button>
