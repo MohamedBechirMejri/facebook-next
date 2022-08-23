@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import getUser from "../../../lib/Auth/getUser";
 import dbConnect from "../../../lib/dbConnect";
 import Post from "../../../models/Post";
+import User from "../../../models/User";
 
 export default async function handler(
   req: NextApiRequest,
@@ -36,11 +37,16 @@ export default async function handler(
     },
     image: image || null,
   });
-  post.save((err: any, post: any) => {
+  post.save(async (err: any, post: any) => {
     if (err) {
       res.status(500).json({ message: "Something went wrong" });
       return;
     } else {
+      const author = await User.findById(user.user._id);
+      author.posts.push(post._id);
+
+      await author.save();
+
       return res.status(200).json({ message: "Post created", post });
     }
   });
