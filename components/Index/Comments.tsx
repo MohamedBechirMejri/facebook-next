@@ -3,9 +3,38 @@ import Link from "next/link";
 import { useState } from "react";
 import PostType from "../../types/PostType";
 
-const Comments = ({ post, user }: { post: PostType; user: any }) => {
-  const [commentText, setCommentText] = useState("");
-  const [comments, setComments] = useState(post.comments);
+const Comments = ({
+  post,
+  user,
+  comments,
+  setComments,
+}: {
+  post: PostType;
+  user: any;
+  comments: any;
+  setComments: any;
+}) => {
+  const [text, setText] = useState("");
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    fetch("/api/posts/" + post._id + "/comment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text,
+        // image,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        setComments(res.post.comments);
+        setText("");
+      });
+  };
 
   return (
     <div className="px-4">
@@ -24,16 +53,14 @@ const Comments = ({ post, user }: { post: PostType; user: any }) => {
               className="w-full px-4 p-2 rounded-full bg-[#f0f2f5] outline-none"
               placeholder="Write a comment..."
               onChange={e => {
-                setCommentText(e.target.value);
+                setText(e.target.value);
               }}
-              value={commentText}
+              value={text}
             />
           </div>
           <button
             className="p-2 text-base transition-all rounded-full hover:font-semibold hover:bg-gray-500 hover:text-white"
-            onClick={e => {
-              e.preventDefault();
-            }}
+            onClick={handleSubmit}
           >
             Send
           </button>
