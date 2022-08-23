@@ -8,8 +8,16 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
   return (
     <Header user={user}>
       <div className="relative flex w-screen min-h-screen p-2 py-4 text-black">
-        <div className="w-full bg-gradient-to-b from-gray-100 to-gray-500 h-[48vh] rounded-lg relative">
-          <button className="absolute flex items-center justify-center gap-2 p-2 px-3 text-sm font-bold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200">
+        <div className="w-full bg-gradient-to-b from-gray-100 to-gray-500 h-[48vh] rounded-lg relative overflow-hidden">
+          <div
+            style={{
+              background: "url(https://picsum.photos/2000/1000)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
+            className="w-full h-full"
+          />
+          <button className="absolute flex items-center justify-center gap-2 p-2 px-3 text-sm font-bold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200 active:scale-95">
             <div
               style={{
                 backgroundImage: `url(/Assets/buttons.png)`,
