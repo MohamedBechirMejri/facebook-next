@@ -350,9 +350,15 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                   </div>
                   <div>
                     <div className="w-max px-4 p-2 rounded-[18px] bg-[#f0f2f5]  ">
-                      <h1 className="font-bold">
-                        {comment.user.firstName + " " + comment.user.lastName}
-                      </h1>
+                      <Link
+                        href={
+                          comment.user.nickname || "/users/" + comment.user._id
+                        }
+                      >
+                        <a className="font-bold transition-all hover:underline">
+                          {comment.user.firstName + " " + comment.user.lastName}
+                        </a>
+                      </Link>
                       <p>{comment.text}</p>
                     </div>{" "}
                     <div className="flex items-center gap-4 pt-2 pl-4 text-xs font-bold">
