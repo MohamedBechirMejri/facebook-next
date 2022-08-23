@@ -76,7 +76,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <Link href={post.author.nickname || "/users/" + post.author.id}>
+          <Link href={post.author.nickname || "/users/" + post.author._id}>
             <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
               <div className="relative w-10 h-10 overflow-hidden rounded-full">
                 <Image
@@ -95,10 +95,10 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
               <Link
                 href={
                   post.group
-                    ? "/groups/" + post.group.id
+                    ? "/groups/" + post.group._id
                     : post.page
-                    ? "/pages/" + post.page.id
-                    : post.author.nickname || "/users/" + post.author.id
+                    ? "/pages/" + post.page._id
+                    : post.author.nickname || "/users/" + post.author._id
                 }
               >
                 <a className="hover:underline">
@@ -112,7 +112,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
               {post.group && (
                 <span>
                   <Link
-                    href={post.author.nickname || "/users/" + post.author.id}
+                    href={post.author.nickname || "/users/" + post.author._id}
                   >
                     {" "}
                     <a>{post.author.firstName + " " + post.author.lastName}</a>

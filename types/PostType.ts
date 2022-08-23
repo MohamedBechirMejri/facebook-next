@@ -9,19 +9,19 @@ type PostType = {
   group?: {
     name: string;
     image: string;
-    id: string;
+    _id: string;
   };
   page?: {
     name: string;
     image: string;
-    id: string;
+    _id: string;
   };
   author: {
     firstName: string;
     lastName: string;
     picture: string;
     nickname?: string;
-    id: string;
+    _id: string;
   };
   audience: string;
   reacts: ReactsType;
