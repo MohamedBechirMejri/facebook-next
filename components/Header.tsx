@@ -12,7 +12,7 @@ const Header = ({
   return (
     <>
       <header className="fixed z-50 flex items-center justify-between w-screen p-2 bg-white shadow-sm h-14">
-        <div className="absolute top-0 left-0 flex h-full p-2">
+        <div className="absolute top-0 left-0 z-10 flex h-full p-2">
           <Link href="/">
             <a>
               <div className="relative w-8 h-full px-7">

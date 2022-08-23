@@ -66,7 +66,7 @@ const LeftNav = ({ user }: { user: any }) => {
     },
   ];
   return (
-    <nav className="h-full w-[320px] overflow-y-scroll m-0 fixed left-4 top-16 pb-24 noscroll">
+    <nav className="h-full w-[320px] overflow-y-scroll m-0 fixed left-4 top-16 pb-24 noscroll hidden lg:block">
       {navlinks.map((navlink, index) => (
         <Link href={navlink.href} key={index}>
           <a
