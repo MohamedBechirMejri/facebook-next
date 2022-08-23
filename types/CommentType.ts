@@ -5,11 +5,11 @@ type CommentType = {
   text: string;
   image?: string;
   user: {
+    _id: string;
     firstName: string;
     lastName: string;
     picture: string;
     nickname?: string;
-    id: string;
   };
   reacts: ReactsType;
   createdAt: string;
