@@ -16,10 +16,10 @@ const UserSchema = new Schema(
       required: true,
       unique: true,
     },
-    nickname: {
-      type: String,
-      unique: true,
-    },
+    // nickname: {
+    //   type: String,
+    //   unique: true,
+    // },
     picture: {
       type: String,
     },
