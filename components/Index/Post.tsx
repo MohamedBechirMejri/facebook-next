@@ -331,6 +331,9 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                   placeholder="Write a comment..."
                 />
               </div>
+              <button className="p-2 text-base transition-all rounded-full hover:font-semibold hover:bg-gray-500 hover:text-white">
+                Send
+              </button>
             </div>
           </form>
           <div className="flex flex-col gap-4 pt-4">
