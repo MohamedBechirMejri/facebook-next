@@ -21,7 +21,7 @@ export default async function handler(
 
   const post = new Post({
     // @ts-ignore
-    text,
+    text: !text && image ? " " : text,
     // @ts-ignore
     author: user.user._id,
     comments: [],
