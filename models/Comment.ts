@@ -47,8 +47,22 @@ const CommentSchema = new Schema(
     },
     image: String,
     user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+      firstName: {
+        type: String,
+        required: true,
+      },
+      lastName: {
+        type: String,
+        required: true,
+      },
+      nickname: {
+        type: String,
+        unique: true,
+      },
+      picture: {
+        type: String,
+      },
+      _id: Schema.Types.ObjectId,
     },
     reacts: ReactsSchema,
     // TODO: implement replies
