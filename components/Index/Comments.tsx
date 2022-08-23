@@ -20,6 +20,8 @@ const Comments = ({
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
+    if (!text) return;
+
     fetch("/api/posts/" + post._id + "/comment", {
       method: "POST",
       headers: {
