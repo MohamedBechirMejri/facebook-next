@@ -9,6 +9,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
     Object.entries(post.reacts).sort((a, b) => b[1].length - a[1].length)
   );
   const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState(post.comments);
 
   return (
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
@@ -159,10 +160,10 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            {post.comments.length > 0 && (
+            {comments.length > 0 && (
               <p>
-                {post.comments.length}{" "}
-                {post.comments.length === 1 ? "Comment" : "Comments"}
+                {comments.length}{" "}
+                {comments.length === 1 ? "Comment" : "Comments"}
               </p>
             )}
             {post.shares.length > 0 && (
@@ -251,7 +252,14 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
           </button>
         </div>
       </div>
-      {showComments && <Comments user={user} post={post} />}
+      {showComments && (
+        <Comments
+          user={user}
+          post={post}
+          comments={comments}
+          setComments={setComments}
+        />
+      )}
     </div>
   );
 };
