@@ -9,68 +9,68 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
   );
   const [showComments, setShowComments] = React.useState(false);
 
-  post.comments = [
-    {
-      _id: "1",
-      text: "This is a comment",
-      user: {
-        firstName: "test",
-        lastName: "test",
-        picture: "https://picsum.photos/700",
-        nickname: "test",
-        id: "test",
-      },
-      reacts: {
-        likes: [],
-        loves: ["1", "2", "3", "4", "5"],
-        hahas: [],
-        wows: [],
-        sads: [],
-        angrys: [],
-      },
-      createdAt: "2020-01-01-00-00-00",
-    },
-    {
-      _id: "2",
-      text: "This is a comment 2",
-      user: {
-        firstName: "test 2",
-        lastName: "test",
-        picture: "https://picsum.photos/800",
-        nickname: "test",
-        id: "test",
-      },
-      reacts: {
-        likes: ["1", "2"],
-        loves: ["3", "4"],
-        hahas: ["5", "6", "7"],
-        wows: [],
-        sads: [],
-        angrys: [],
-      },
-      createdAt: "2020-01-02-00-00-00",
-    },
-    {
-      _id: "3",
-      text: "This is a comment 3",
-      user: {
-        firstName: "test 3",
-        lastName: "test",
-        picture: "https://picsum.photos/900",
-        nickname: "test",
-        id: "test",
-      },
-      reacts: {
-        likes: [],
-        loves: [],
-        hahas: [],
-        wows: [],
-        sads: [],
-        angrys: [],
-      },
-      createdAt: "2020-01-03-00-00-00",
-    },
-  ];
+  // post.comments = [
+  //   {
+  //     _id: "1",
+  //     text: "This is a comment",
+  //     user: {
+  //       firstName: "test",
+  //       lastName: "test",
+  //       picture: "https://picsum.photos/700",
+  //       nickname: "test",
+  //       id: "test",
+  //     },
+  //     reacts: {
+  //       likes: [],
+  //       loves: ["1", "2", "3", "4", "5"],
+  //       hahas: [],
+  //       wows: [],
+  //       sads: [],
+  //       angrys: [],
+  //     },
+  //     createdAt: "2020-01-01-00-00-00",
+  //   },
+  //   {
+  //     _id: "2",
+  //     text: "This is a comment 2",
+  //     user: {
+  //       firstName: "test 2",
+  //       lastName: "test",
+  //       picture: "https://picsum.photos/800",
+  //       nickname: "test",
+  //       id: "test",
+  //     },
+  //     reacts: {
+  //       likes: ["1", "2"],
+  //       loves: ["3", "4"],
+  //       hahas: ["5", "6", "7"],
+  //       wows: [],
+  //       sads: [],
+  //       angrys: [],
+  //     },
+  //     createdAt: "2020-01-02-00-00-00",
+  //   },
+  //   {
+  //     _id: "3",
+  //     text: "This is a comment 3",
+  //     user: {
+  //       firstName: "test 3",
+  //       lastName: "test",
+  //       picture: "https://picsum.photos/900",
+  //       nickname: "test",
+  //       id: "test",
+  //     },
+  //     reacts: {
+  //       likes: [],
+  //       loves: [],
+  //       hahas: [],
+  //       wows: [],
+  //       sads: [],
+  //       angrys: [],
+  //     },
+  //     createdAt: "2020-01-03-00-00-00",
+  //   },
+  // ];
 
   return (
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
@@ -322,12 +322,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
           <form>
             <div className="flex items-center gap-2">
               <div className="flex items-center overflow-hidden rounded-full">
-                <Image
-                  src={"https://picsum.photos/700"}
-                  alt=""
-                  height={35}
-                  width={35}
-                />
+                <Image src={user.picture} alt="" height={35} width={35} />
               </div>
               <div className="w-full">
                 <input
