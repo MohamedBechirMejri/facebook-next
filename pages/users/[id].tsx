@@ -5,6 +5,7 @@ import dbConnect from "../../lib/dbConnect";
 import User from "../../models/User";
 import Image from "next/image";
 import Nav from "../../components/Profile/Nav";
+import Post from "../../components/Index/Post";
 
 const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
   return (
@@ -112,6 +113,11 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                 <span>Filters</span>
               </button>
             </div>
+            <div>
+              {profile.posts.map(p => (
+                <Post key={p._id} user={user} post={p} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -160,7 +166,7 @@ export const getServerSideProps = async ({
       p.createdAt = p.createdAt.toISOString();
       p.updatedAt = p.updatedAt.toISOString();
 
-      p.comments = null;
+      p.comments = [];
 
       return p;
     }),
