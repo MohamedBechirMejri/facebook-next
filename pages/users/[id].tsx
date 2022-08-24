@@ -81,6 +81,39 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
           <div className="w-full h-full bg-[#ccced2]" />
         </div>
         <Nav />
+        <div className="flex p-4 px-8">
+          <div className="flex flex-col w-[360px] gap-3 mr-4">
+            <div className="p-4 bg-white border rounded-lg shadow">
+              <h1 className="text-lg font-semibold">Intro</h1>
+            </div>
+            <div className="p-4 bg-white border rounded-lg shadow">
+              <h1 className="text-lg font-semibold">Photos</h1>
+            </div>
+            <div className="p-4 bg-white border rounded-lg shadow">
+              <h1 className="text-lg font-semibold">Friends</h1>
+            </div>
+            {/* <div>
+              Privacy · Terms · Advertising · Ad Choices · Cookies · · Meta ©
+              2022
+            </div> */}
+          </div>
+          <div className="w-[500px] ml-4">
+            <div className="flex items-center justify-between w-full p-2 px-4 bg-white border rounded-lg shadow">
+              <h1 className="text-lg font-semibold">Posts</h1>
+              <button className="flex items-center justify-center gap-2 p-2 px-3 font-semibold tracking-tight transition-all bg-gray-200 rounded-lg hover:bg-gray-300 active:scale-95">
+                {" "}
+                <div
+                  style={{
+                    backgroundImage: `url(${"/Assets/buttons2.png"})`,
+                    backgroundPosition: "0px -134px",
+                  }}
+                  className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto"
+                />
+                <span>Filters</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </Header>
   );
@@ -107,8 +140,6 @@ export const getServerSideProps = async ({
 
   const result = await User.findById(id).populate("posts");
 
-  console.log(result.posts);
-
   const profile = {
     _id: result._id.toString(),
     firstName: result.firstName,
@@ -128,6 +159,8 @@ export const getServerSideProps = async ({
       p.reacts.angrys = p.reacts.angrys.map((id: any) => id.toString());
       p.createdAt = p.createdAt.toISOString();
       p.updatedAt = p.updatedAt.toISOString();
+
+      p.comments = null;
 
       return p;
     }),
