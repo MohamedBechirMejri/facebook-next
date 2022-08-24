@@ -83,7 +83,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
         </div>
         <Nav />
         <div className="flex p-4 px-8">
-          <div className="flex flex-col w-[360px] gap-3 mr-4">
+          <div className="sticky flex flex-col w-[360px] gap-3 mr-4 top-2">
             <div className="p-4 bg-white border rounded-lg shadow">
               <h1 className="text-lg font-semibold">Intro</h1>
             </div>
@@ -113,7 +113,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                 <span>Filters</span>
               </button>
             </div>
-            <div>
+            <div className="mt-4 border rounded-lg shadow">
               {profile.posts.map(p => (
                 <Post key={p._id} user={user} post={p} />
               ))}
