@@ -20,7 +20,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             }}
             className="w-full h-full"
           />
-          <button className="absolute flex items-center justify-center gap-2 p-2 px-3 text-sm font-semibold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200 active:scale-95">
+          <button className="absolute z-[70] flex items-center justify-center gap-2 p-2 px-3 text-sm font-semibold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200 active:scale-95">
             <div
               style={{
                 backgroundImage: `url(/Assets/buttons.png)`,
