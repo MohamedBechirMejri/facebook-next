@@ -4,6 +4,7 @@ import getUser from "../../lib/Auth/getUser";
 import dbConnect from "../../lib/dbConnect";
 import User from "../../models/User";
 import Image from "next/image";
+import Nav from "../../components/Profile/Nav";
 
 const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
   return (
@@ -58,27 +59,28 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             <button className="p-[0.35rem] px-3 font-semibold text-white bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2">
               <div
                 style={{
-                  backgroundImage: `url(/Assets/add.png)`,
+                  backgroundImage: `url(/Assets/addfriend.png)`,
                   filter: "invert(1)",
                 }}
                 className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
               />
-              Add to story
+              Add Friend
             </button>
             <button className="p-[0.35rem] px-3 font-medium tracking-tight bg-[#e4e6eb] hover:bg-[#d8dadf] rounded-lg transition-all flex items-center justify-center gap-2">
               <div
                 style={{
-                  backgroundImage: `url(/Assets/edit.png)`,
+                  backgroundImage: `url(/Assets/message.png)`,
                 }}
                 className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
               />
-              Edit profile
+              Message
             </button>
           </div>
         </div>
         <div className="w-full h-[1px] px-8">
           <div className="w-full h-full bg-[#ccced2]" />
         </div>
+        <Nav />
       </div>
     </Header>
   );
