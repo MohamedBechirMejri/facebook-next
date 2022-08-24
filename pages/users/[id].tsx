@@ -6,6 +6,7 @@ import User from "../../models/User";
 import Image from "next/image";
 import Nav from "../../components/Profile/Nav";
 import Post from "../../components/Index/Post";
+import PostType from "../../types/PostType";
 
 const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
   return (
@@ -114,7 +115,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
               </button>
             </div>
             <div className="mt-4 border rounded-lg shadow">
-              {profile.posts.map(p => (
+              {profile.posts.map((p: PostType) => (
                 <Post key={p._id} user={user} post={p} />
               ))}
             </div>
