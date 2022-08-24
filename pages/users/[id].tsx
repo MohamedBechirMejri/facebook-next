@@ -8,7 +8,7 @@ import Image from "next/image";
 const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
   return (
     <Header user={user}>
-      <div className="relative flex flex-col w-screen min-h-screen p-2 py-4 text-black [font-family:Segoe_UI]">
+      <div className="relative flex flex-col w-screen min-h-screen p-2 py-4 text-black ">
         <div className="w-full bg-gradient-to-b from-gray-100 to-gray-500 h-[48vh] rounded-lg relative overflow-hidden">
           <div
             style={{
@@ -18,7 +18,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             }}
             className="w-full h-full"
           />
-          <button className="absolute flex items-center justify-center gap-2 p-2 px-3 text-sm font-bold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200 active:scale-95">
+          <button className="absolute flex items-center justify-center gap-2 p-2 px-3 text-sm font-semibold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200 active:scale-95">
             <div
               style={{
                 backgroundImage: `url(/Assets/buttons.png)`,
@@ -40,7 +40,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
               />
             </div>
             <div className="flex flex-col gap-1">
-              <h1 className="text-3xl font-bold">Mohamed Bechir Mejri</h1>
+              <h1 className="text-3xl font-semibold">Mohamed Bechir Mejri</h1>
               <p className="mb-2 font-bold text-gray-500">1 friend</p>
               <div>
                 <div className="w-8 h-8 overflow-hidden rounded-full">
@@ -54,9 +54,13 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
               </div>
             </div>
           </div>
-          <div>
-            <button>test</button>
-            <button>test</button>
+          <div className="flex justify-center gap-2">
+            <button className="p-2 px-2 font-semibold text-white bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg tracking-tight">
+              Add to story
+            </button>
+            <button className="p-2 px-2 font-medium tracking-tight bg-gray-300 rounded-lg">
+              Edit profile
+            </button>
           </div>
         </div>
       </div>
