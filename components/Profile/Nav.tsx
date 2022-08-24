@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <nav className="flex items-center w-full p-2 px-8 rounded-lg text-[#606266] relative ">
       <div className="flex flex-col h-full ">
-        <Link href={"/" + router.query.id + "/posts"}>
+        <Link href={"/users/" + router.query.id}>
           <a className="h-full p-3 font-semibold capitalize transition-all rounded-lg  text-[hsl(214,89%,52%)]">
             posts
           </a>
