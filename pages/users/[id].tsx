@@ -55,10 +55,23 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             </div>
           </div>
           <div className="flex justify-center gap-2">
-            <button className="p-2 px-2 font-semibold text-white bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg tracking-tight">
+            <button className="p-[0.35rem] px-3 font-semibold text-white bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2">
+              <div
+                style={{
+                  backgroundImage: `url(/Assets/add.png)`,
+                  filter: "invert(1)",
+                }}
+                className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
+              />
               Add to story
             </button>
-            <button className="p-2 px-2 font-medium tracking-tight bg-gray-300 rounded-lg">
+            <button className="p-[0.35rem] px-3 font-medium tracking-tight bg-[#e4e6eb] hover:bg-[#d8dadf] rounded-lg transition-all flex items-center justify-center gap-2">
+              <div
+                style={{
+                  backgroundImage: `url(/Assets/edit.png)`,
+                }}
+                className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
+              />
               Edit profile
             </button>
           </div>
