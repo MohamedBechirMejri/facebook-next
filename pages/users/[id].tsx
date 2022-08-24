@@ -8,7 +8,7 @@ import Image from "next/image";
 const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
   return (
     <Header user={user}>
-      <div className="relative flex flex-col w-screen min-h-screen p-2 py-4 text-black ">
+      <div className="relative flex flex-col w-screen min-h-screen p-2 pb-4 text-black max-w-[1280px] mx-auto">
         <div className="w-full bg-gradient-to-b from-gray-100 to-gray-500 h-[48vh] rounded-lg relative overflow-hidden">
           <div
             style={{
@@ -29,7 +29,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             Add cover photo
           </button>
         </div>
-        <div className="z-10 flex items-end justify-between w-full px-8 -mt-10">
+        <div className="z-10 flex items-end justify-between w-full px-8 pb-4 -mt-10 ">
           <div className="flex items-end gap-6">
             <div className="w-40 h-40 overflow-hidden rounded-full ring-4 ring-white">
               <Image
@@ -75,6 +75,9 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
               Edit profile
             </button>
           </div>
+        </div>
+        <div className="w-full h-[1px] px-8">
+          <div className="w-full h-full bg-[#ccced2]" />
         </div>
       </div>
     </Header>
