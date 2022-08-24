@@ -1,7 +1,7 @@
+import dbConnect from "./dbConnect";
 import Comment from "../models/Comment";
 import Post from "../models/Post";
 import User from "../models/User";
-import dbConnect from "./dbConnect";
 
 const getPosts = async () => {
   await dbConnect();
@@ -10,7 +10,7 @@ const getPosts = async () => {
     .sort({ createdAt: "desc" })
     .populate("author", "firstName lastName nickname picture id", User);
 
-  result = await Post.populate(result, { path: "comments" });
+  result = await Post.populate(result, { path: "comments", model: Comment });
 
   return result.map(doc => {
     const post = doc.toObject();
