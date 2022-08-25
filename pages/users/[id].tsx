@@ -83,8 +83,8 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
           <div className="w-full h-full bg-[#ccced2]" />
         </div>
         <Nav />
-        <div className="flex p-4 px-8">
-          <div className="sticky flex flex-col w-[360px] gap-3 mr-4 top-2">
+        <div className="flex items-start justify-center p-4 px-8">
+          <div className="sticky flex flex-col w-full gap-3 mr-4 top-20">
             <div className="p-4 bg-white border rounded-lg shadow">
               <h1 className="text-lg font-semibold">Intro</h1>
             </div>
@@ -99,7 +99,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
               2022
             </div> */}
           </div>
-          <div className="w-[500px] ml-4">
+          <div className="w-full ml-4">
             <div className="flex items-center justify-between w-full p-2 px-4 bg-white border rounded-lg shadow">
               <h1 className="text-lg font-semibold">Posts</h1>
               <button className="flex items-center justify-center gap-2 p-2 px-3 font-semibold tracking-tight transition-all bg-gray-200 rounded-lg hover:bg-gray-300 active:scale-95">
@@ -114,7 +114,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                 <span>Filters</span>
               </button>
             </div>
-            <div className="mt-4 border rounded-lg shadow">
+            <div className="flex flex-col gap-4 mt-4 rounded-lg ">
               {profile.posts.map((p: PostType) => (
                 <Post key={p._id} user={user} post={p} />
               ))}
