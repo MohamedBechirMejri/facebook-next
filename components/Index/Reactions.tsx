@@ -1,7 +1,7 @@
 import Image from "next/image";
 const Reactions = () => {
   return (
-    <div className="absolute flex items-center justify-center gap-2 p-2 bg-white border rounded-full -top-14 left-8">
+    <div className="absolute flex items-center justify-center gap-2 p-2 bg-white border rounded-full -top-14 left-8 w-max">
       <button className="transition-all hover:scale-125 active:scale-100">
         <Image src="/Assets/rlike.png" height={35} width={35} alt="like" />
       </button>
