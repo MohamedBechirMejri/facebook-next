@@ -178,7 +178,13 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
         </div>
         <hr />
         <div className="relative flex items-center p-2 justify-evenly">
-          {isReacting && <Reactions setIsReacting={setIsReacting} />}
+          {isReacting && (
+            <Reactions
+              setIsReacting={setIsReacting}
+              post={post}
+              setReacts={setReacts}
+            />
+          )}
           <button
             className="flex items-start gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
             onClick={() => {
