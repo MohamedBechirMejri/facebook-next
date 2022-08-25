@@ -177,9 +177,10 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
           </div>
         </div>
         <hr />
-        <div className="flex items-center p-2 justify-evenly">
+        <div className="relative flex items-center p-2 justify-evenly">
+          {isReacting && <Reactions setIsReacting={setIsReacting} />}
           <button
-            className="relative flex items-start gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
+            className="flex items-start gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
             onClick={() => {
               fetch("/api/posts/" + post._id.toString() + "/like")
                 .then(res => res.json())
@@ -201,7 +202,6 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
             onMouseEnter={() => setIsReacting(true)}
             onMouseLeave={() => setIsReacting(false)}
           >
-            {isReacting && <Reactions />}
             <div
               style={{
                 backgroundImage: `url(${"/Assets/buttons.png"})`,
