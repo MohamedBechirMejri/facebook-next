@@ -12,6 +12,23 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState(post.comments);
   const [isReacting, setIsReacting] = useState(false);
+  const [userReaction, setUserReaction] = useState("");
+
+  useEffect(() => {
+    if (reacts[1][1].includes(user._id.toString()))
+      setUserReaction(reacts[1][0].substring(0, reacts[1][0].length - 1));
+    else if (reacts[2][1].includes(user._id.toString()))
+      setUserReaction(reacts[2][0].substring(0, reacts[2][0].length - 1));
+    else if (reacts[3][1].includes(user._id.toString()))
+      setUserReaction(reacts[3][0].substring(0, reacts[3][0].length - 1));
+    else if (reacts[4][1].includes(user._id.toString()))
+      setUserReaction(reacts[4][0].substring(0, reacts[4][0].length - 1));
+    else if (reacts[5][1].includes(user._id.toString()))
+      setUserReaction(reacts[5][0].substring(0, reacts[5][0].length - 1));
+    else if (reacts[6][1].includes(user._id.toString()))
+      setUserReaction(reacts[6][0].substring(0, reacts[6][0].length - 1));
+    else setUserReaction("");
+  }, [reacts, user._id]);
 
   return (
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
@@ -186,7 +203,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
             />
           )}
           <button
-            className="flex items-start gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
+            className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
             onClick={() => {
               fetch("/api/posts/" + post._id.toString() + "/like")
                 .then(res => res.json())
@@ -210,28 +227,60 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
           >
             <div
               style={{
-                backgroundImage: `url(${"/Assets/buttons.png"})`,
-                backgroundPosition: reacts[1][1].includes(user._id.toString())
-                  ? "0px -277px"
-                  : "0px -297px",
-                filter: reacts[1][1].includes(user._id.toString())
-                  ? "invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%)"
-                  : "",
+                backgroundImage: `url(
+                  /Assets/${
+                    userReaction === "love"
+                      ? "love.svg"
+                      : userReaction === "haha"
+                      ? "haha.svg"
+                      : userReaction === "wow"
+                      ? "wow.svg"
+                      : userReaction === "sad"
+                      ? "sad.svg"
+                      : userReaction === "angry"
+                      ? "angry.svg"
+                      : "buttons.png"
+                  })`,
+                backgroundPosition:
+                  userReaction && userReaction !== "like"
+                    ? ""
+                    : reacts[1][1].includes(user._id.toString())
+                    ? "0px -277px"
+                    : "0px -297px",
+                filter:
+                  userReaction !== "like"
+                    ? ""
+                    : "invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%)",
                 // TODO: animate like button
               }}
               className="w-[18px] h-[18px] bg-no-repeat inline-block bg-auto "
             />
             <span
-              className="tracking-tighter"
+              className="tracking-tighter capitalize"
               style={{
-                color: reacts[1][1].includes(user._id.toString())
-                  ? "#2078f4"
-                  : "",
+                color:
+                  userReaction === "like"
+                    ? "#2078f4"
+                    : userReaction === "love"
+                    ? "#F33E58"
+                    : userReaction === "haha"
+                    ? "#F7B125"
+                    : userReaction === "wow"
+                    ? "#F7B125"
+                    : userReaction === "sad"
+                    ? "#F7B125"
+                    : userReaction === "angry"
+                    ? "#E7910F"
+                    : "",
                 fontWeight: 600,
-                fontSize: ".9375rem",
+                fontSize:
+                  userReaction && userReaction !== "like" ? "1.15rem" : "1rem",
+                // : ".9375rem",
+                marginLeft:
+                  userReaction && userReaction !== "like" ? "5px" : "",
               }}
             >
-              Like
+              {userReaction || "Like"}
             </span>
           </button>
           <button
