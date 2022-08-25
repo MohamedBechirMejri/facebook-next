@@ -11,6 +11,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
   );
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState(post.comments);
+  const [isReacting, setIsReacting] = useState(false);
 
   return (
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
@@ -176,10 +177,9 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
           </div>
         </div>
         <hr />
-        <div className="relative flex items-center p-2 justify-evenly">
-          <Reactions />
+        <div className="flex items-center p-2 justify-evenly">
           <button
-            className="flex items-start gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
+            className="relative flex items-start gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95"
             onClick={() => {
               fetch("/api/posts/" + post._id.toString() + "/like")
                 .then(res => res.json())
@@ -198,7 +198,10 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                   console.log(err);
                 });
             }}
+            onMouseEnter={() => setIsReacting(true)}
+            onMouseLeave={() => setIsReacting(false)}
           >
+            {isReacting && <Reactions />}
             <div
               style={{
                 backgroundImage: `url(${"/Assets/buttons.png"})`,
