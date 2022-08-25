@@ -40,7 +40,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100">
-          <Image src="/Assets/rlike.png" height={35} width={35} alt="like" />
+          <Image src="/Assets/like.svg" height={35} width={35} alt="like" />
         </div>
       </button>
       <button
@@ -50,7 +50,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100">
-          <Image src="/Assets/rlove.png" height={35} width={35} alt="love" />
+          <Image src="/Assets/love.svg" height={35} width={35} alt="love" />
         </div>
       </button>
       <button
@@ -60,7 +60,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100">
-          <Image src="/Assets/rhaha.png" height={35} width={35} alt="haha" />
+          <Image src="/Assets/haha.svg" height={35} width={35} alt="haha" />
         </div>
       </button>
       <button
@@ -70,7 +70,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100">
-          <Image src="/Assets/rwow.png" height={35} width={35} alt="wow" />
+          <Image src="/Assets/wow.svg" height={35} width={35} alt="wow" />
         </div>{" "}
       </button>
       <button
@@ -80,7 +80,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100">
-          <Image src="/Assets/rsad.png" height={35} width={35} alt="sad" />
+          <Image src="/Assets/sad.svg" height={35} width={35} alt="sad" />
         </div>
       </button>
       <button
@@ -90,7 +90,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100">
-          <Image src="/Assets/rangry.png" height={35} width={35} alt="angry" />
+          <Image src="/Assets/angry.svg" height={35} width={35} alt="angry" />
         </div>{" "}
       </button>
     </div>
