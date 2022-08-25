@@ -130,7 +130,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                 <Image
                   src={
                     "/Assets/" +
-                    reacts[1][0].substring(0, reacts[1][0].length - 1) +
+                    reacts[2][0].substring(0, reacts[2][0].length - 1) +
                     ".svg"
                   }
                   alt=""
@@ -142,7 +142,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                 <Image
                   src={
                     "/Assets/" +
-                    reacts[1][0].substring(0, reacts[1][0].length - 1) +
+                    reacts[3][0].substring(0, reacts[3][0].length - 1) +
                     ".svg"
                   }
                   alt=""
