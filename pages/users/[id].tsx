@@ -7,6 +7,7 @@ import Image from "next/image";
 import Nav from "../../components/Profile/Nav";
 import Post from "../../components/Index/Post";
 import PostType from "../../types/PostType";
+import Link from "next/link";
 
 const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
   return (
@@ -90,6 +91,33 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             </div>
             <div className="p-4 bg-white border rounded-lg shadow">
               <h1 className="text-lg font-semibold">Photos</h1>
+              <div className="grid grid-cols-3 gap-1 m-1">
+                {profile.posts
+                  .filter((p: any) => p.image)
+                  .map((p: any, i: number) => (
+                    <Link href={"/posts/" + p._id} key={p._id}>
+                      <a
+                        className={
+                          i > 5 ? "hidden" : "hover:contrast-75 transition-all"
+                        }
+                      >
+                        <Image
+                          src={p.image}
+                          height={1000}
+                          width={1000}
+                          alt=""
+                          style={{
+                            borderTopLeftRadius: i === 0 ? ".5rem" : "",
+                            borderTopRightRadius: i === 2 ? ".5rem" : "",
+                            borderBottomLeftRadius: i === 3 ? ".5rem" : "",
+                            borderBottomRightRadius:
+                              i === 5 || i + 1 === undefined ? ".5rem" : "",
+                          }}
+                        />
+                      </a>
+                    </Link>
+                  ))}
+              </div>
             </div>
             <div className="p-4 bg-white border rounded-lg shadow">
               <h1 className="text-lg font-semibold">Friends</h1>
