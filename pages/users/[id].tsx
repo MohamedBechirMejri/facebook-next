@@ -89,8 +89,15 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             <div className="p-4 bg-white border rounded-lg shadow">
               <h1 className="text-lg font-semibold">Intro</h1>
             </div>
-            <div className="p-4 bg-white border rounded-lg shadow">
-              <h1 className="text-lg font-semibold">Photos</h1>
+            <div className="p-3 bg-white border rounded-lg shadow">
+              <h1 className="flex items-center justify-between w-full pb-2 text-lg font-semibold">
+                <span>Photos</span>
+                <Link href={"/users/" + user._id + "/photos"}>
+                  <a className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg">
+                    See all photos
+                  </a>
+                </Link>
+              </h1>
               <div className="grid grid-cols-3 gap-1 m-1">
                 {profile.posts
                   .filter((p: any) => p.image)
