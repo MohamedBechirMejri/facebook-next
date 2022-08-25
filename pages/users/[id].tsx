@@ -126,8 +126,15 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                   ))}
               </div>
             </div>
-            <div className="p-4 bg-white border rounded-lg shadow">
-              <h1 className="text-lg font-semibold">Friends</h1>
+            <div className="p-3 bg-white border rounded-lg shadow">
+              <h1 className="flex items-center justify-between w-full pb-2 text-lg font-semibold">
+                <span>Friends</span>
+                <Link href={"/users/" + user._id + "/friends"}>
+                  <a className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg">
+                    See all friends
+                  </a>
+                </Link>
+              </h1>
             </div>
             {/* <div>
               Privacy · Terms · Advertising · Ad Choices · Cookies · · Meta ©
