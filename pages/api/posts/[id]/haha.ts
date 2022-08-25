@@ -15,6 +15,27 @@ export default async function handler(
 
   const post = await Post.findById(id);
 
+  if (post.reacts.likes.includes(user.user._id))
+    post.reacts.likes = post.reacts.likes.filter(
+      (like: any) => like.toString() !== user.user._id.toString()
+    );
+  if (post.reacts.loves.includes(user.user._id))
+    post.reacts.loves = post.reacts.loves.filter(
+      (love: any) => love.toString() !== user.user._id.toString()
+    );
+  if (post.reacts.wows.includes(user.user._id))
+    post.reacts.wows = post.reacts.wows.filter(
+      (wow: any) => wow.toString() !== user.user._id.toString()
+    );
+  if (post.reacts.sads.includes(user.user._id))
+    post.reacts.sads = post.reacts.sads.filter(
+      (sad: any) => sad.toString() !== user.user._id.toString()
+    );
+  if (post.reacts.angrys.includes(user.user._id))
+    post.reacts.angrys = post.reacts.angrys.filter(
+      (angry: any) => angry.toString() !== user.user._id.toString()
+    );
+
   if (post.reacts.hahas.includes(user.user._id)) {
     post.reacts.hahas = post.reacts.hahas.filter(
       //@ts-ignore
