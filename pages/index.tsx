@@ -2,12 +2,12 @@ import type { GetServerSideProps, NextApiRequest, NextApiResponse } from "next";
 import Header from "../components/Header";
 import Link from "next/link";
 import Image from "next/image";
-import Post from "../components/Index/Post";
+import Post from "../components/Post/Post";
 import PostType from "../types/PostType";
 import getPosts from "../lib/getPosts";
 import { L49 } from "react-isloading";
 import LeftNav from "../components/Index/LeftNav";
-import AddPost from "../components/Index/AddPost";
+import AddPost from "../components/Post/AddPost";
 import { useState } from "react";
 import getUser from "../lib/Auth/getUser";
 

@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import PostComponent from "../../components/Index/Post";
+import PostComponent from "../../components/Post/Post";
 import type { NextApiRequest, NextApiResponse } from "next";
 import dbConnect from "../../lib/dbConnect";
 import Post from "../../models/Post";

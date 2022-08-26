@@ -5,7 +5,7 @@ import dbConnect from "../../lib/dbConnect";
 import User from "../../models/User";
 import Image from "next/image";
 import Nav from "../../components/Profile/Nav";
-import Post from "../../components/Index/Post";
+import Post from "../../components/Post/Post";
 import PostType from "../../types/PostType";
 import Link from "next/link";
 import PostModel from "../../models/Post";
