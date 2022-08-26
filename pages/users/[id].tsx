@@ -8,6 +8,7 @@ import Nav from "../../components/Profile/Nav";
 import Post from "../../components/Index/Post";
 import PostType from "../../types/PostType";
 import Link from "next/link";
+import PostModel from "../../models/Post";
 
 const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
   return (
@@ -187,7 +188,10 @@ export const getServerSideProps = async ({
 
   const { id } = query;
 
-  const result = await User.findById(id).populate("posts");
+  const result = await User.findById(id).populate({
+    path: "posts",
+    model: PostModel,
+  });
 
   const profile = {
     _id: result._id.toString(),
