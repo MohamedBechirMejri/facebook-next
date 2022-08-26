@@ -5,7 +5,7 @@ import type { NextApiResponse, NextApiRequest } from "next";
 const Messages = ({ user }: { user: any }) => {
   return (
     <Header user={user}>
-      <div></div>
+      <div className="relative flex w-screen p-2 text-black bg-black h-[93vh]"></div>
     </Header>
   );
 };
@@ -22,7 +22,7 @@ export const getServerSideProps = async ({
   const user = await getUser(req, res);
   return {
     props: {
-      user,
+      user: user.user,
     },
   };
 };
