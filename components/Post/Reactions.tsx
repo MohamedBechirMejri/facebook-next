@@ -29,7 +29,7 @@ const Reactions = ({
 
   return (
     <div
-      className="absolute flex items-center justify-center gap-2 p-2 bg-white border rounded-full -top-12 left-8 w-max animate-reveal"
+      className="absolute flex items-center justify-center gap-2 p-2 bg-white border rounded-full -top-14 left-8 w-max animate-reveal"
       onMouseEnter={() => setIsReacting(true)}
       onMouseLeave={() => setIsReacting(false)}
     >
@@ -40,7 +40,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
-          <Image src="/Assets/like.svg" height={35} width={35} alt="like" />
+          <Image src="/Assets/like.svg" height={40} width={40} alt="like" />
         </div>
       </button>
       <button
@@ -50,7 +50,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
-          <Image src="/Assets/love.svg" height={35} width={35} alt="love" />
+          <Image src="/Assets/love.svg" height={40} width={40} alt="love" />
         </div>
       </button>
       <button
@@ -60,7 +60,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
-          <Image src="/Assets/haha.svg" height={35} width={35} alt="haha" />
+          <Image src="/Assets/haha.svg" height={40} width={40} alt="haha" />
         </div>
       </button>
       <button
@@ -70,7 +70,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
-          <Image src="/Assets/wow.svg" height={35} width={35} alt="wow" />
+          <Image src="/Assets/wow.svg" height={40} width={40} alt="wow" />
         </div>{" "}
       </button>
       <button
@@ -80,7 +80,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
-          <Image src="/Assets/sad.svg" height={35} width={35} alt="sad" />
+          <Image src="/Assets/sad.svg" height={40} width={40} alt="sad" />
         </div>
       </button>
       <button
@@ -90,7 +90,7 @@ const Reactions = ({
         }}
       >
         <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
-          <Image src="/Assets/angry.svg" height={35} width={35} alt="angry" />
+          <Image src="/Assets/angry.svg" height={40} width={40} alt="angry" />
         </div>{" "}
       </button>
     </div>
