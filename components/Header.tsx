@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import UserOptions from "./Header/UserOptions";
 
 const Header = ({
   children,
@@ -78,9 +79,8 @@ const Header = ({
               alt=""
             />
           </button>
-          <button className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden">
-            <Image src={user.picture} alt="" layout="fill" />
-          </button>
+
+          <UserOptions user={user} />
         </div>
       </header>
       <div className="pt-14">{children}</div>
