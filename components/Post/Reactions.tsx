@@ -39,7 +39,7 @@ const Reactions = ({
           handleReact("like");
         }}
       >
-        <div className="transition-all hover:scale-125 active:scale-100">
+        <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
           <Image src="/Assets/like.svg" height={35} width={35} alt="like" />
         </div>
       </button>
@@ -49,7 +49,7 @@ const Reactions = ({
           handleReact("love");
         }}
       >
-        <div className="transition-all hover:scale-125 active:scale-100">
+        <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
           <Image src="/Assets/love.svg" height={35} width={35} alt="love" />
         </div>
       </button>
@@ -59,7 +59,7 @@ const Reactions = ({
           handleReact("haha");
         }}
       >
-        <div className="transition-all hover:scale-125 active:scale-100">
+        <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
           <Image src="/Assets/haha.svg" height={35} width={35} alt="haha" />
         </div>
       </button>
@@ -69,7 +69,7 @@ const Reactions = ({
           handleReact("wow");
         }}
       >
-        <div className="transition-all hover:scale-125 active:scale-100">
+        <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
           <Image src="/Assets/wow.svg" height={35} width={35} alt="wow" />
         </div>{" "}
       </button>
@@ -79,7 +79,7 @@ const Reactions = ({
           handleReact("sad");
         }}
       >
-        <div className="transition-all hover:scale-125 active:scale-100">
+        <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
           <Image src="/Assets/sad.svg" height={35} width={35} alt="sad" />
         </div>
       </button>
@@ -89,7 +89,7 @@ const Reactions = ({
           handleReact("angry");
         }}
       >
-        <div className="transition-all hover:scale-125 active:scale-100">
+        <div className="transition-all hover:scale-125 active:scale-100 hover:-translate-y-2">
           <Image src="/Assets/angry.svg" height={35} width={35} alt="angry" />
         </div>{" "}
       </button>
