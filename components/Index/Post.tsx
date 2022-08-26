@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import PostType from "../../types/PostType";
 import Comments from "./Comments";
 import Reactions from "./Reactions";
+import PostOptions from "./PostOptions";
 
 const Post = ({ post, user }: { post: PostType; user: any }) => {
   const [reacts, setReacts] = useState(
@@ -113,9 +114,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
             </p>
           </div>
         </div>
-        <div className="py-1 px-2 text-xl font-medium hover:bg-[#f2f2f2] rounded-full transition-all cursor-pointer">
-          •••
-        </div>
+        <PostOptions />
       </div>
       <p className="p-6 py-4 text-justify">{post.text}</p>
       {post.image && (
