@@ -174,6 +174,7 @@ const Messages = ({ user }: { user: any }) => {
                         <p
                           style={{
                             fontSize: msg.emoji.size,
+                            lineHeight: 1,
                           }}
                         >
                           {msg.emoji.text}
