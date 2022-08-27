@@ -2,11 +2,51 @@ import Header from "../../components/Header";
 import getUser from "../../lib/Auth/getUser";
 import type { NextApiResponse, NextApiRequest } from "next";
 import Image from "next/image";
+import { useState } from "react";
 
 const Messages = ({ user }: { user: any }) => {
+  const [messages, setMessages] = useState([
+    {
+      text: "send me that pic",
+      image: null,
+      user: {
+        firstName: "other",
+        lastName: "test",
+        picture: "https://picsum.photos/800",
+        _id: "2",
+      },
+      createdAt: "2022-08-25T04:43:50.264Z",
+      _id: "1",
+    },
+    {
+      text: "test",
+      image: "https://picsum.photos/1000",
+      user: {
+        firstName: "me",
+        lastName: "test",
+        picture: "https://picsum.photos/900",
+        _id: user._id,
+      },
+      createdAt: "2022-08-25T04:43:50.264Z",
+      _id: "2",
+    },
+    {
+      text: "lol",
+      image: null,
+      user: {
+        firstName: "other",
+        lastName: "test",
+        picture: "https://picsum.photos/800",
+        _id: "2",
+      },
+      createdAt: "2022-08-25T04:43:50.264Z",
+      _id: "3",
+    },
+  ]);
+
   return (
     <Header user={user}>
-      <div className="relative flex w-screen p-2 text-black h-[93vh] bg-white ">
+      <div className="relative flex w-screen text-black h-[93vh] bg-white ">
         {/* SECTION: Chats   */}
         <div className="w-[360px] h-full  shrink-0 px-4 py-2">
           <h1 className="pb-4 text-2xl font-semibold">
@@ -23,10 +63,10 @@ const Messages = ({ user }: { user: any }) => {
             />
           </div>
         </div>
-        <div className="flex w-full h-full bg-blue-400">
+        <div className="flex w-full h-full ">
           {/* SECTION: Main   */}
-          <main className="flex flex-col justify-between w-full h-full bg-blue-400">
-            <div className="flex items-center justify-between p-4 bg-white border shadow">
+          <main className="flex flex-col justify-between w-full h-full ">
+            <div className="flex items-center justify-between p-4 border-b">
               <div className="flex items-center gap-4">
                 <div className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden transition-all active:scale-95 z-20 ">
                   <Image
@@ -88,8 +128,26 @@ const Messages = ({ user }: { user: any }) => {
                 </button>
               </div>
             </div>
-            <div></div>
-            <div className="flex items-center w-full gap-2 p-2 bg-white">
+            <div>
+              {messages.map(msg => (
+                <div key={msg._id}>
+                  {/*
+                      text: "lol",
+                      image: null,
+                      user: {
+                        firstName: "other",
+                        lastName: "test",
+                        picture: "https://picsum.photos/800",
+                        _id: "2",
+                      },
+                      createdAt: "2022-08-25T04:43:50.264Z",
+                      _id: "3",
+                  */}
+
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center w-full gap-2 p-2 ">
               <div className="flex items-center gap-1">
                 <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
                   <svg viewBox="0 0 24 24" height="20px" width="20px">
