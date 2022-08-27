@@ -2,11 +2,12 @@ import Header from "../../components/Header";
 import getUser from "../../lib/Auth/getUser";
 import type { NextApiResponse, NextApiRequest } from "next";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import Info from "../../components/Messages/Info";
 import Chats from "../../components/Messages/Chats";
 
 const Messages = ({ user }: { user: any }) => {
+  const ref = useRef(null);
   const [messages, setMessages] = useState([
     {
       emoji: null,
@@ -64,6 +65,13 @@ const Messages = ({ user }: { user: any }) => {
       _id: "3",
     },
   ]);
+
+  useEffect(() => {
+    const msgs = ref.current;
+    console.log("msgs: ", msgs);
+    // @ts-ignore
+    msgs.scrollTop = msgs.scrollHeight;
+  }, []);
 
   return (
     <Header user={user}>
@@ -134,7 +142,7 @@ const Messages = ({ user }: { user: any }) => {
                 </button>
               </div>
             </div>
-            <div className="h-full overflow-y-scroll">
+            <div ref={ref} className="h-full overflow-y-scroll">
               <div className="flex flex-col justify-end gap-4 ">
                 {messages.map(msg => (
                   <div key={msg._id} className="w-full">
