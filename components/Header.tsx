@@ -68,9 +68,16 @@ const Header = ({
           <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
             <Image src="/Assets/menu.svg" height={20} width={20} alt="" />
           </button>
-          <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
-            <Image src="/Assets/messenger.svg" height={20} width={20} alt="" />
-          </button>
+          <Link href="/messages">
+            <a className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
+              <Image
+                src="/Assets/messenger.svg"
+                height={20}
+                width={20}
+                alt=""
+              />
+            </a>
+          </Link>
           <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
             <Image
               src="/Assets/notifications.svg"
