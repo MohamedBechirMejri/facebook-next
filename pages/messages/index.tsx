@@ -4,6 +4,7 @@ import type { NextApiResponse, NextApiRequest } from "next";
 import Image from "next/image";
 import { useState } from "react";
 import Info from "../../components/Messages/Info";
+import Chats from "../../components/Messages/Chats";
 
 const Messages = ({ user }: { user: any }) => {
   const [messages, setMessages] = useState([
@@ -67,22 +68,7 @@ const Messages = ({ user }: { user: any }) => {
   return (
     <Header user={user}>
       <div className="relative flex w-screen text-black h-[93.45vh] bg-white ">
-        {/* SECTION: Chats   */}
-        <div className="w-[360px] h-full shrink-0 px-4 py-2">
-          <h1 className="pb-4 text-2xl font-semibold">
-            <span>Chats</span>
-          </h1>
-          <div className="rounded-full bg-[#f0f2f5] flex items-center justify-left p-2 transition-all">
-            <div className="relative w-8 h-4">
-              <Image src="/Assets/search.svg" layout="fill" alt="" />
-            </div>
-            <input
-              type="text"
-              className="bg-transparent placeholder:text-[#656797] outline-none text-black transition-all"
-              placeholder="Search Messenger"
-            />
-          </div>
-        </div>
+        <Chats />
         <div className="flex w-full h-full ">
           {/* SECTION: Main   */}
           <main className="flex flex-col justify-between w-full h-full ">
