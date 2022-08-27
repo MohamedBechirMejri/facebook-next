@@ -41,7 +41,7 @@ const Chats = () => {
         </div>
         <input
           type="text"
-          className="bg-transparent placeholder:text-[#656797] outline-none text-black transition-all"
+          className="bg-transparent placeholder:text-[#656797] outline-none text-black transition-all w-full"
           placeholder="Search Messenger"
         />
       </div>
