@@ -66,6 +66,8 @@ const Messages = ({ user }: { user: any }) => {
     },
   ]);
 
+  const [showInfo, setShowInfo] = useState(false);
+
   useEffect(() => {
     const msgs = ref.current;
     console.log("msgs: ", msgs);
@@ -123,7 +125,11 @@ const Messages = ({ user }: { user: any }) => {
                     ></path>
                   </svg>
                 </button>
-                <button className="p-2 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
+
+                <button
+                  className="p-2 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300"
+                  onClick={() => setShowInfo(!showInfo)}
+                >
                   <svg
                     role="presentation"
                     name="icon"
@@ -316,7 +322,7 @@ const Messages = ({ user }: { user: any }) => {
               <button className="text-xl">👍🏻</button>
             </div>
           </main>
-          <Info />
+          {showInfo && <Info />}
         </div>
       </div>
     </Header>
