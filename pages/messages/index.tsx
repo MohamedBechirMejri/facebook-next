@@ -181,13 +181,15 @@ const Messages = ({ user }: { user: any }) => {
                         </p>
                       ) : (
                         <div className="">
-                          <p
-                            className={`p-2 px-4 bg-gray-200 ${
-                              msg.image && "rounded-b-none"
-                            }  rounded-3xl`}
-                          >
-                            {msg.text}
-                          </p>
+                          {msg.text && (
+                            <p
+                              className={`p-2 px-4 bg-gray-200 ${
+                                msg.image && "rounded-b-none"
+                              }  rounded-3xl`}
+                            >
+                              {msg.text}
+                            </p>
+                          )}
                           {msg.image && (
                             <div
                               className={`overflow-hidden rounded-lg rounded-t-none w-72 shrink-0 ${
