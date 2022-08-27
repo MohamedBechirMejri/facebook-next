@@ -7,6 +7,7 @@ import { useState } from "react";
 const Messages = ({ user }: { user: any }) => {
   const [messages, setMessages] = useState([
     {
+      emoji: null,
       text: "send me that pic",
       image: null,
       user: {
@@ -19,6 +20,7 @@ const Messages = ({ user }: { user: any }) => {
       _id: "1",
     },
     {
+      emoji: null,
       text: "test",
       image: "https://picsum.photos/1000",
       user: {
@@ -31,7 +33,24 @@ const Messages = ({ user }: { user: any }) => {
       _id: "2",
     },
     {
+      emoji: null,
       text: "lol",
+      image: null,
+      user: {
+        firstName: "other",
+        lastName: "test",
+        picture: "https://picsum.photos/800",
+        _id: "2",
+      },
+      createdAt: "2022-08-25T04:43:50.264Z",
+      _id: "3",
+    },
+    {
+      emoji: {
+        text: "👍🏻",
+        size: "50px",
+      },
+      text: null,
       image: null,
       user: {
         firstName: "other",
@@ -46,9 +65,9 @@ const Messages = ({ user }: { user: any }) => {
 
   return (
     <Header user={user}>
-      <div className="relative flex w-screen text-black h-[93vh] bg-white ">
+      <div className="relative flex w-screen text-black h-[93.45vh] bg-white ">
         {/* SECTION: Chats   */}
-        <div className="w-[360px] h-full  shrink-0 px-4 py-2">
+        <div className="w-[360px] h-full shrink-0 px-4 py-2">
           <h1 className="pb-4 text-2xl font-semibold">
             <span>Chats</span>
           </h1>
@@ -128,24 +147,70 @@ const Messages = ({ user }: { user: any }) => {
                 </button>
               </div>
             </div>
-            <div>
-              {messages.map(msg => (
-                <div key={msg._id}>
-                  {/*
-                      text: "lol",
-                      image: null,
-                      user: {
-                        firstName: "other",
-                        lastName: "test",
-                        picture: "https://picsum.photos/800",
-                        _id: "2",
-                      },
-                      createdAt: "2022-08-25T04:43:50.264Z",
-                      _id: "3",
-                  */}
-
-                </div>
-              ))}
+            <div className="h-full overflow-y-scroll">
+              <div className="flex flex-col justify-end gap-4 ">
+                {messages.map(msg => (
+                  <div key={msg._id} className="w-full">
+                    <p className="w-full p-4 text-xs text-center text-gray-400">
+                      {msg.createdAt}
+                    </p>
+                    <div
+                      className={`flex items-end gap-2 p-4 ${
+                        msg.user._id === user._id && "flex-row-reverse"
+                      }`}
+                    >
+                      <div className="w-10 h-10 shrink-0">
+                        <Image
+                          src={msg.user.picture}
+                          width={1000}
+                          height={1000}
+                          alt="user"
+                          style={{
+                            borderRadius: "100%",
+                          }}
+                        />
+                      </div>
+                      {msg.emoji ? (
+                        <p
+                          style={{
+                            fontSize: msg.emoji.size,
+                          }}
+                        >
+                          {msg.emoji.text}
+                        </p>
+                      ) : (
+                        <div className="">
+                          <p
+                            className={`p-2 px-4 bg-gray-200 ${
+                              msg.image && "rounded-b-none"
+                            }  rounded-3xl`}
+                          >
+                            {msg.text}
+                          </p>
+                          {msg.image && (
+                            <div
+                              className={`overflow-hidden rounded-lg rounded-t-none w-72 shrink-0 ${
+                                msg.text && "rounded-b-none"
+                              }`}
+                            >
+                              <Image
+                                src={msg.image}
+                                width={1000}
+                                height={1000}
+                                alt="user"
+                                style={{
+                                  borderBottomRightRadius: ".5rem",
+                                  borderBottomLeftRadius: ".5rem",
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="flex items-center w-full gap-2 p-2 ">
               <div className="flex items-center gap-1">
