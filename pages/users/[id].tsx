@@ -23,7 +23,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             }}
             className="w-full h-full"
           />
-          <button className="absolute z-[70] flex items-center justify-center gap-2 p-2 px-3 text-sm font-semibold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200 active:scale-95">
+        {user._id === profile._id &&  <button className="absolute z-[70] flex items-center justify-center gap-2 p-2 px-3 text-sm font-semibold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200 active:scale-95">
             <div
               style={{
                 backgroundImage: `url(/Assets/buttons.png)`,
@@ -32,7 +32,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
               className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
             />
             Add cover photo
-          </button>
+          </button>}
         </div>
         <div className="z-10 flex items-end justify-between w-full px-8 pb-4 -mt-10 ">
           <div className="flex items-end gap-6">
