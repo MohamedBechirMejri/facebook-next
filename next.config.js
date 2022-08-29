@@ -8,6 +8,7 @@ const nextConfig = {
       "www.gravatar.com",
       "platform-lookaside.fbsbx.com",
       "firebasestorage.googleapis.com",
+      "scontent.ftun9-1.fna.fbcdn.net",
     ],
   },
 };
