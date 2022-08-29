@@ -76,10 +76,20 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
 
       {showMenu && (
         <div className="absolute z-20 flex flex-col p-2 bg-white border rounded-lg shadow w-72 right-1/2 h-max top-[120%]">
-          <button className="flex items-center gap-2 p-1 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-green-200">
+          <button
+            className="flex items-center gap-2 p-1 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-green-200"
+            onClick={() => {
+              request("confirm");
+            }}
+          >
             <span>Confirm</span>
           </button>
-          <button className="flex items-center gap-2 p-1 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-blue-200">
+          <button
+            className="flex items-center gap-2 p-1 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-blue-200"
+            onClick={() => {
+              request("delete");
+            }}
+          >
             <span>Delete Request</span>
           </button>
         </div>
