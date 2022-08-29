@@ -45,5 +45,5 @@ export default async function handler(
   await receiver.save();
   await sender.save();
 
-  return res.status(200).json({ message: "Done", sender, receiver });
+  return res.status(200).json({ requests: sender.friendRequests });
 }
