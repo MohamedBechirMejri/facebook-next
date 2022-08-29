@@ -29,21 +29,20 @@ const Login = () => {
             </a>
           </Link>
           <hr className="w-full bg-black" />
-          {/* <button className="w-64 bg-[#42b72a] hover:bg-[#36a420] transition-all p-3 rounded-lg px-4 active:scale-95">
-            A Dummy Account
-          </button> */}
-          <button className="flex items-center justify-center gap-2 bg-[#42b72a] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest  hover:bg-[#36a420] transition-all active:scale-95">
-            <Image
-              src="/Assets/guest-icon.png"
-              height={34}
-              width={34}
-              alt=""
-              style={{
-                filter: "invert(1)",
-              }}
-            />
-            <span>Continue as guest</span>
-          </button>
+          <Link href="/api/auth/guest">
+            <a className="flex items-center justify-center gap-2 bg-[#42b72a] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest  hover:bg-[#36a420] transition-all active:scale-95">
+              <Image
+                src="/Assets/guest-icon.png"
+                height={34}
+                width={34}
+                alt=""
+                style={{
+                  filter: "invert(1)",
+                }}
+              />
+              <span>Continue as guest</span>
+            </a>
+          </Link>
         </div>{" "}
       </div>
     </div>
