@@ -20,12 +20,14 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
     >
       <div
         style={{
-          backgroundImage: `url(/Assets/addfriend.png)`,
+          backgroundImage: requests.sent.includes(profile._id)
+            ? "url(/Assets/cancelrequest.png)"
+            : "url(/Assets/addfriend.png)",
           filter: "invert(1)",
         }}
         className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
       />
-      Add Friend
+      {requests.sent.includes(profile._id) ? "Cancel Request" : "Add Friend"}
     </button>
   );
 };
