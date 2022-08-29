@@ -4,16 +4,48 @@ import React, { useState } from "react";
 const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
   const [requests, setRequests] = useState(user.friendRequests);
 
+  const request = (action: string) => {
+    axios
+      .post("/api/friends/" + action, {
+        id: profile._id,
+      })
+      .then(res => setRequests(res.data.requests));
+  };
+
+  // const deleteRequest = () => { request
+  //   axios
+  //     .post("/api/friends/delete", {
+  //       id: profile._id,
+  //     })
+  //     .then(res => setRequests(res.data.requests));
+  // };
+
+  // const confirmRequest = () => {
+  //   axios
+  //     .post("/api/friends/confirm", {
+  //       id: profile._id,
+  //     })
+  //     .then(res => setRequests(res.data.requests));
+  // };
+  // const unfriend = () => {
+  //   axios
+  //     .post("/api/friends/unfriend", {
+  //       id: profile._id,
+  //     })
+  //     .then(res => setRequests(res.data.requests));
+  // };
+  // const block = () => {
+  //   axios
+  //     .post("/api/friends/block", {
+  //       id: profile._id,
+  //     })
+  //     .then(res => setRequests(res.data.requests));
+  // };
+
   return (
     <button
       className="p-[0.35rem] px-3 font-semibold text-white bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2"
-      onClick={() => {
-        axios
-          .post("/api/friends/request", {
-            id: profile._id,
-          })
-          .then(res => setRequests(res.data.requests));
-      }}
+      onClick={() => {}}
     >
       <div
         style={{
