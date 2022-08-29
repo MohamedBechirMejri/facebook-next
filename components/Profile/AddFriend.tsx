@@ -79,18 +79,28 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
           <button
             className="flex items-center gap-2 p-1 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-green-200"
             onClick={() => {
-              request("confirm");
+              if (user.friends.includes(profile._id)) request("unfriend");
+              else request("confirm");
             }}
           >
-            <span>Confirm</span>
+            <span>
+              {" "}
+              {user.friends.includes(profile._id) ? "Unfriend" : "Confirm"}{" "}
+            </span>
           </button>
           <button
             className="flex items-center gap-2 p-1 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-blue-200"
             onClick={() => {
-              request("delete");
+              if (user.friends.includes(profile._id)) request("block");
+              else request("delete");
             }}
           >
-            <span>Delete Request</span>
+            <span>
+              {" "}
+              {user.friends.includes(profile._id)
+                ? "Block"
+                : "Delete Request"}{" "}
+            </span>
           </button>
         </div>
       )}
