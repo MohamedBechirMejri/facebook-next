@@ -44,7 +44,7 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
 
   return (
     <button
-      className="p-[0.35rem] px-3 font-semibold text-white bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2"
+      className="p-[0.35rem] px-3 font-semibold text-white bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2 active:scale-95"
       onClick={() => {}}
     >
       <div
