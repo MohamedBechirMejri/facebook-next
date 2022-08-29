@@ -60,7 +60,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             </div>
           </div>
           {user._id !== profile._id && (
-            <div className="flex justify-center gap-2">
+            <div className="relative flex justify-center gap-2">
               <AddFriend user={user} profile={profile} />
               <button className="p-[0.35rem] px-3 font-medium tracking-tight bg-[#e4e6eb] hover:bg-[#d8dadf] rounded-lg transition-all flex items-center justify-center gap-2">
                 <div
