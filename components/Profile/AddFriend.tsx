@@ -17,14 +17,20 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
     >
       <div
         style={{
-          backgroundImage: requests.sent.includes(profile._id)
+          backgroundImage: requests.received.includes(profile._id)
+            ? "url(/Assets/respond.png)"
+            : requests.sent.includes(profile._id)
             ? "url(/Assets/cancelrequest.png)"
             : "url(/Assets/addfriend.png)",
           filter: "invert(1)",
         }}
         className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
       />
-      {requests.sent.includes(profile._id) ? "Cancel Request" : "Add Friend"}
+      {requests.received.includes(profile._id)
+        ? "Respond"
+        : requests.sent.includes(profile._id)
+        ? "Cancel Request"
+        : "Add Friend"}
     </button>
   );
 };
