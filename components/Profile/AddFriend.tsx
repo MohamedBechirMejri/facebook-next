@@ -12,10 +12,7 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
           .post("/api/friends/request", {
             id: profile._id,
           })
-          .then(
-            // res => console.log("data: ", res.data.requests)
-            res => setRequests(res.data.requests)
-          );
+          .then(res => setRequests(res.data.requests));
       }}
     >
       <div
