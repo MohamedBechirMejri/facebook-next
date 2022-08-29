@@ -81,6 +81,8 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
             onClick={() => {
               if (user.friends.includes(profile._id)) request("unfriend");
               else request("confirm");
+
+              setShowMenu(false);
             }}
           >
             <span>
@@ -93,6 +95,8 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
             onClick={() => {
               if (user.friends.includes(profile._id)) request("block");
               else request("delete");
+
+              setShowMenu(false);
             }}
           >
             <span>
