@@ -10,23 +10,7 @@ import LeftNav from "../components/Index/LeftNav";
 import AddPost from "../components/Post/AddPost";
 import { useState } from "react";
 import getUser from "../lib/Auth/getUser";
-
-const friends = [
-  {
-    name: "test",
-    image: "https://picsum.photos/500",
-    birthday: "2020-01-01",
-    latestConnection: "2020-01-01-00-00-00",
-    href: "/user/id",
-  },
-  {
-    name: "test2",
-    image: "https://picsum.photos/700",
-    birthday: "2020-01-12",
-    latestConnection: "2022-08-10-04-36-55",
-    href: "/user/id",
-  },
-];
+import Friends from "../components/Index/Friends";
 
 const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
   user = user.user;
@@ -122,26 +106,7 @@ const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
               )}
             </div>
           </main>
-          <div className="h-full w-[280px] overflow-y-scroll m-0 fixed right-4 top-16 pb-24">
-            {/* <div>
-            <h3>Birthdays</h3>
-          </div>  */}{" "}
-            <h3 className="p-1 text-lg font-bold">Contacts</h3>
-            <div>
-              {friends.map((friend, i) => {
-                return (
-                  <Link href={"/messages" + friend.href} key={i}>
-                    <a className="text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-1 px-2 rounded-lg transition-all">
-                      <div className="relative w-8 h-8 overflow-hidden rounded-full">
-                        <Image src={friend.image} alt="" layout="fill" />
-                      </div>
-                      <h2>{friend.name}</h2>
-                    </a>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+          <Friends user={user} />
         </div>
       </Header>
     </div>
