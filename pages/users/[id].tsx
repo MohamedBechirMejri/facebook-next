@@ -124,40 +124,67 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
               <div className="grid grid-cols-3 gap-1 m-1">
                 {profile.posts
                   .filter((p: any) => p.image)
-                  .map((p: any, i: number) => (
-                    <Link href={"/posts/" + p._id} key={p._id}>
-                      <a
-                        className={
-                          i > 5 ? "hidden" : "hover:contrast-75 transition-all"
-                        }
-                      >
-                        <Image
-                          src={p.image}
-                          height={1000}
-                          width={1000}
-                          alt=""
-                          style={{
-                            borderTopLeftRadius: i === 0 ? ".5rem" : "",
-                            borderTopRightRadius: i === 2 ? ".5rem" : "",
-                            borderBottomLeftRadius: i === 3 ? ".5rem" : "",
-                            borderBottomRightRadius:
-                              i === 5 || i + 1 === undefined ? ".5rem" : "",
-                          }}
-                        />
-                      </a>
-                    </Link>
-                  ))}
+                  .map((p: any, i: number) =>
+                    i > 5 ? null : (
+                      <Link href={"/posts/" + p._id} key={p._id}>
+                        <a className="transition-all hover:contrast-75">
+                          <Image
+                            src={p.image}
+                            height={1000}
+                            width={1000}
+                            alt=""
+                            style={{
+                              borderTopLeftRadius: i === 0 ? ".5rem" : "",
+                              borderTopRightRadius: i === 2 ? ".5rem" : "",
+                              borderBottomLeftRadius: i === 3 ? ".5rem" : "",
+                              borderBottomRightRadius:
+                                i === 5 || i + 1 === undefined ? ".5rem" : "",
+                            }}
+                          />
+                        </a>
+                      </Link>
+                    )
+                  )}
               </div>
             </div>
             <div className="p-3 bg-white border rounded-lg shadow">
               <h1 className="flex items-center justify-between w-full pb-2 text-lg font-semibold">
-                <span>Friends</span>
+                <span className="flex flex-col mb-2">
+                  <span>Friends </span>
+                  <span
+                    className={` text-base text-gray-500 ${
+                      !profile.friends.length && " opacity-0 "
+                    }`}
+                  >
+                    {profile.friends.length} friend
+                    {profile.friends.length !== 1 && "s"}
+                  </span>
+                </span>
                 <Link href={"/users/" + user._id + "/friends"}>
                   <a className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg">
                     See all friends
                   </a>
                 </Link>
               </h1>
+              <div className="grid grid-cols-3 gap-1 m-1">
+                {profile.friends.map((friend: any, i: number) => {
+                  return i < 10 ? (
+                    <Link key={i} href={"/users/" + friend._id}>
+                      <a className="transition-all hover:contrast-75 active:scale-95">
+                        <Image
+                          src={friend.picture}
+                          height={1000}
+                          width={1000}
+                          alt=""
+                          style={{
+                            borderRadius: ".5rem",
+                          }}
+                        />
+                      </a>
+                    </Link>
+                  ) : null;
+                })}
+              </div>
             </div>
             {/* <div>
               Privacy · Terms · Advertising · Ad Choices · Cookies · · Meta ©
