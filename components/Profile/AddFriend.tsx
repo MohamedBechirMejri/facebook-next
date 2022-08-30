@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
   const [requests, setRequests] = useState(user.friendRequests);
+  const [friends, setFriends] = useState(user.friends);
   const [showMenu, setShowMenu] = useState(false);
 
   const request = (action: string) => {
@@ -10,7 +11,10 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
       .post("/api/friends/" + action, {
         id: profile._id,
       })
-      .then(res => setRequests(res.data.requests));
+      .then(res => {
+        setRequests(res.data.requests);
+        if (res.data.friends) setFriends(res.data.friends);
+      });
   };
 
   // const deleteRequest = () => { request
@@ -49,7 +53,7 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
         className="p-[0.35rem] px-3 font-semibold text-white bg-[#1b74e4] hover:bg-[#1a6ed8] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2 active:scale-95 z-30"
         onClick={() => {
           if (
-            user.friends.includes(profile._id) ||
+            friends.includes(profile._id) ||
             requests.received.includes(profile._id)
           )
             setShowMenu(!showMenu);
@@ -60,7 +64,7 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
           style={{
             backgroundImage:
               requests.received.includes(profile._id) ||
-              user.friends.includes(profile._id)
+              friends.includes(profile._id)
                 ? "url(/Assets/respond.png)"
                 : requests.sent.includes(profile._id)
                 ? "url(/Assets/cancelrequest.png)"
@@ -69,7 +73,7 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
           }}
           className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
         />
-        {user.friends.includes(profile._id)
+        {friends.includes(profile._id)
           ? "Friends"
           : requests.received.includes(profile._id)
           ? "Respond"
@@ -83,7 +87,7 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
           <button
             className="flex items-center gap-2 p-1 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-green-200"
             onClick={() => {
-              if (user.friends.includes(profile._id)) request("unfriend");
+              if (friends.includes(profile._id)) request("unfriend");
               else request("confirm");
 
               setShowMenu(false);
@@ -91,13 +95,13 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
           >
             <span>
               {" "}
-              {user.friends.includes(profile._id) ? "Unfriend" : "Confirm"}{" "}
+              {friends.includes(profile._id) ? "Unfriend" : "Confirm"}{" "}
             </span>
           </button>
           <button
             className="flex items-center gap-2 p-1 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-blue-200"
             onClick={() => {
-              if (user.friends.includes(profile._id)) request("block");
+              if (friends.includes(profile._id)) request("block");
               else request("delete");
 
               setShowMenu(false);
@@ -105,9 +109,7 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
           >
             <span>
               {" "}
-              {user.friends.includes(profile._id)
-                ? "Block"
-                : "Delete Request"}{" "}
+              {friends.includes(profile._id) ? "Block" : "Delete Request"}{" "}
             </span>
           </button>
         </div>
