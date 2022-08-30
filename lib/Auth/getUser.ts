@@ -14,7 +14,7 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-  const user = await User.findById(decoded.user._id);
+  const user = await User.findById(decoded.user._id).populate("friends");
 
   return {
     user: {
@@ -24,7 +24,15 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
       email: user.email,
       picture: user.picture,
       posts: user.posts.map((id: any) => id.toString()),
-      friends: user.friends.map((id: any) => id.toString()),
+      friends: user.friends.map((f: any) => {
+        return {
+          _id: f._id.toString(),
+          firstName: f.firstName,
+          lastName: f.lastName,
+          email: f.email,
+          picture: f.picture,
+        };
+      }),
       friendRequests: {
         received: user.friendRequests.received.map((id: any) => id.toString()),
         sent: user.friendRequests.sent.map((id: any) => id.toString()),
