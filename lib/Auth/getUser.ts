@@ -23,6 +23,10 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
     .populate({
       path: "conversations",
       model: Conversation,
+      populate: {
+        path: "users",
+        model: User,
+      },
     });
 
   return {
