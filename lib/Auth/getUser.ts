@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import User from "../../models/User";
 import dbConnect from "../dbConnect";
 const jwt = require("jsonwebtoken");
+import Conversation from "../../models/Conversation";
 
 const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
   const token = await getCookie("token", {
@@ -14,7 +15,15 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-  const user = await User.findById(decoded.user._id).populate("friends");
+  const user = await User.findById(decoded.user._id)
+    .populate({
+      path: "friends",
+      model: User,
+    })
+    .populate({
+      path: "conversations",
+      model: Conversation,
+    });
 
   return {
     user: {
@@ -39,7 +48,7 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
       },
       groups: user.groups.map((id: any) => id.toString()),
       pages: user.pages.map((id: any) => id.toString()),
-      conversations: user.conversations.map((id: any) => id.toString()),
+      conversations: user.conversations.map((id: any) => JSON.stringify(id)),
       blocks: user.blocks.map((id: any) => id.toString()),
       saves: user.saves.map((id: any) => id.toString()),
       notifications: user.notifications.map((id: any) => id.toString()),
