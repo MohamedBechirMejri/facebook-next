@@ -46,9 +46,16 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
               <h1 className="text-3xl font-semibold">
                 {profile.firstName + " " + profile.lastName}
               </h1>
-              <p className="mb-2 font-bold text-gray-500">1 friend</p>
-              <div>
-                <div className="w-8 h-8 overflow-hidden rounded-full">
+              <p
+                className={`mb-1 font-bold text-gray-500 ${
+                  !profile.friends.length && " opacity-0 "
+                }`}
+              >
+                {profile.friends.length} friend
+                {profile.friends.length > 1 && "s"}
+              </p>
+              {!profile.friends.length ? (
+                <div className="w-8 h-8 overflow-hidden rounded-full opacity-0">
                   <Image
                     src={"https://picsum.photos/700"}
                     height={1000}
@@ -56,7 +63,29 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                     alt=""
                   />
                 </div>
-              </div>
+              ) : (
+                <div className="flex items-center">
+                  {profile.friends.map((friend: any, i: number) => {
+                    return i < 10 ? (
+                      <Link key={i} href={"/users/" + friend._id}>
+                        <a
+                          className="block w-8 h-8 -mr-1 overflow-hidden transition-all border-2 border-white rounded-full active:scale-95"
+                          style={{
+                            zIndex: i,
+                          }}
+                        >
+                          <Image
+                            src={friend.picture}
+                            height={1000}
+                            width={1000}
+                            alt=""
+                          />
+                        </a>
+                      </Link>
+                    ) : null;
+                  })}
+                </div>
+              )}
             </div>
           </div>
           {user._id !== profile._id && (
@@ -182,16 +211,27 @@ export const getServerSideProps = async ({
 
   const { id } = query;
 
-  const result = await User.findById(id).populate({
-    path: "posts",
-    model: PostModel,
-  });
+  const result = await User.findById(id)
+    .populate({
+      path: "posts",
+      model: PostModel,
+    })
+    .populate({
+      path: "friends",
+      model: User,
+    });
 
   const profile = {
     _id: result._id.toString(),
     firstName: result.firstName,
     lastName: result.lastName,
     picture: result.picture,
+    friends: result.friends.map((f: any) => ({
+      _id: f._id.toString(),
+      firstName: f.firstName,
+      lastName: f.lastName,
+      picture: f.picture,
+    })),
     posts: result.posts.map((post: any) => {
       const p = post.toObject();
 
