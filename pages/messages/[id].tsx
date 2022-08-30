@@ -2,17 +2,18 @@ import Header from "../../components/Header";
 import getUser from "../../lib/Auth/getUser";
 import type { NextApiResponse, NextApiRequest } from "next";
 import Image from "next/image";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, SetStateAction } from "react";
 import Info from "../../components/Messages/Info";
 import Chats from "../../components/Messages/Chats";
+import io from "socket.io-client";
+
+let socket;
 
 const Messages = ({ user }: { user: any }) => {
   const ref = useRef(null);
-
   const [conversations, setConversations] = useState(
     user.conversations.map((c: any) => JSON.parse(c))
   );
-
   const [messages, setMessages] = useState([
     {
       emoji: null,
@@ -70,14 +71,39 @@ const Messages = ({ user }: { user: any }) => {
       _id: "3",
     },
   ]);
-
   const [showInfo, setShowInfo] = useState(true);
+  const [input, setInput] = useState("");
+
+  useEffect(() => {
+    const socketInitializer = async () => {
+      await fetch("/api/socket");
+      socket = io();
+
+      socket.on("connect", () => {
+        console.log("connected");
+      });
+
+      socket.on("update-input", msg => {
+        console.log("msg: ", msg);
+        setInput(msg);
+      });
+    };
+    socketInitializer();
+  }, []);
 
   useEffect(() => {
     const msgs = ref.current;
     // @ts-ignore
     msgs.scrollTop = msgs.scrollHeight;
   }, []);
+
+  const onChangeHandler = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
+    setInput(e.target.value);
+    // @ts-ignore
+    socket.emit("input-change", e.target.value);
+  };
 
   return (
     <Header user={user}>
@@ -305,6 +331,8 @@ const Messages = ({ user }: { user: any }) => {
                   type="text"
                   className="w-full bg-transparent outline-none"
                   placeholder="Aa"
+                  value={input}
+                  onChange={onChangeHandler}
                 />
                 <button className="transition-all rounded-full active:scale-95">
                   <svg height="20px" viewBox="0 0 38 38" width="20px">
