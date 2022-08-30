@@ -1,4 +1,5 @@
 import axios from "axios";
+import Router from "next/router";
 import React, { useState } from "react";
 
 const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
@@ -14,38 +15,9 @@ const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
       .then(res => {
         setRequests(res.data.requests);
         if (res.data.friends) setFriends(res.data.friends);
+        if (res.data.blocks) Router.push("/");
       });
   };
-
-  // const deleteRequest = () => { request
-  //   axios
-  //     .post("/api/friends/delete", {
-  //       id: profile._id,
-  //     })
-  //     .then(res => setRequests(res.data.requests));
-  // };
-
-  // const confirmRequest = () => {
-  //   axios
-  //     .post("/api/friends/confirm", {
-  //       id: profile._id,
-  //     })
-  //     .then(res => setRequests(res.data.requests));
-  // };
-  // const unfriend = () => {
-  //   axios
-  //     .post("/api/friends/unfriend", {
-  //       id: profile._id,
-  //     })
-  //     .then(res => setRequests(res.data.requests));
-  // };
-  // const block = () => {
-  //   axios
-  //     .post("/api/friends/block", {
-  //       id: profile._id,
-  //     })
-  //     .then(res => setRequests(res.data.requests));
-  // };
 
   return (
     <>
