@@ -10,7 +10,7 @@ import LeftNav from "../components/Index/LeftNav";
 import AddPost from "../components/Post/AddPost";
 import { useState } from "react";
 import getUser from "../lib/Auth/getUser";
-import Friends from "../components/Index/Friends";
+import RightNav from "../components/Index/RightNav";
 
 const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
   user = user.user;
@@ -106,7 +106,7 @@ const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
               )}
             </div>
           </main>
-          <Friends user={user} />
+          <RightNav user={user} />
         </div>
       </Header>
     </div>
