@@ -21,6 +21,7 @@
     "react-dom": "18.2.0",
     "react-isloading": "^1.0.6",
     "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.1",
     "uniqid": "^5.4.0"
   },
   "devDependencies": {
