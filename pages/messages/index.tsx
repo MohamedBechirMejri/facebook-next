@@ -4,11 +4,14 @@ import type { NextApiResponse, NextApiRequest } from "next";
 import Chats from "../../components/Messages/Chats";
 import { L49 } from "react-isloading";
 import Router from "next/router";
+import { useEffect } from "react";
 
 const Messages = ({ user }: { user: any }) => {
   const conversations = user.conversations.map((c: any) => JSON.parse(c));
 
-  if (conversations[0]) Router.push("/messages/" + conversations[0]._id);
+  useEffect(() => {
+    if (conversations[0]) Router.push("/messages/" + conversations[0]._id);
+  }, [conversations]);
 
   return (
     <Header user={user}>
