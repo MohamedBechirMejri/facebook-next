@@ -4,7 +4,7 @@ const PostOptions = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <div>
+    <div className="relative">
       <div
         className="py-1 pb-2 px-2 text-xl font-medium hover:bg-[#f2f2f2] active:bg-[#d4d4d4] rounded-full transition-all cursor-pointer relative z-20"
         onClick={() => setIsVisible(!isVisible)}
@@ -12,7 +12,7 @@ const PostOptions = () => {
         •••
       </div>
       {isVisible && (
-        <div className="absolute z-20 flex flex-col p-2 bg-white border rounded-lg shadow w-72 right-10 h-max">
+        <div className="absolute z-20 flex flex-col p-2 bg-white border rounded-lg shadow w-72 right-1 top-12 h-max">
           <button className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-green-200">
             <div
               style={{
