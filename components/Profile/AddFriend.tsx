@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 const AddFriend = ({ user, profile }: { user: any; profile: any }) => {
   const [requests, setRequests] = useState(user.friendRequests);
-  const [friends, setFriends] = useState(user.friends);
+  const [friends, setFriends] = useState(user.friends.map((f: any) => f._id));
   const [showMenu, setShowMenu] = useState(false);
 
   const request = (action: string) => {
