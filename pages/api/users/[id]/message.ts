@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import getUser from "../../../../lib/Auth/getUser";
 import dbConnect from "../../../../lib/dbConnect";
 import Conversation from "../../../../models/Conversation";
+import User from "../../../../models/User";
 
 export default async function handler(
   req: NextApiRequest,
@@ -17,6 +18,9 @@ export default async function handler(
     users: { $all: [id, user.user._id] },
   });
 
+  const user1 = await User.findById(user.user._id);
+  const user2 = await User.findById(id);
+
   if (!conversation) {
     conversation = new Conversation({
       emoji: "👍🏻",
@@ -26,6 +30,12 @@ export default async function handler(
     });
 
     await conversation.save();
+
+    user1.conversations.push(conversation._id);
+    user2.conversations.push(conversation._id);
+
+    await user1.save();
+    await user2.save();
   }
 
   res.redirect("/messages/" + conversation._id);
