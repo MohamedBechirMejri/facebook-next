@@ -1,6 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const Chats = () => {
+const Chats = ({
+  conversations,
+  user,
+}: {
+  conversations?: any;
+  user?: any;
+}) => {
   return (
     <div className="w-[360px] h-full shrink-0 px-4 py-2">
       <h1 className="flex items-center justify-between pb-4 text-2xl font-semibold">
@@ -44,6 +51,22 @@ const Chats = () => {
           className="bg-transparent placeholder:text-[#656797] outline-none text-black transition-all w-full"
           placeholder="Search Messenger"
         />
+      </div>
+      <div className="pt-6 overflow-y-scroll">
+        {conversations?.map((c: any) => {
+          const { firstName, lastName, picture } =
+            c.users[0]._id === user._id ? c.users[1] : c.users[0];
+          return (
+            <Link href={"/messages/" + c._id} key={c._id}>
+              <a className="flex items-center justify-start gap-4 p-2 transition-all rounded-lg hover:bg-gray-200">
+                <div className="relative overflow-hidden rounded-full w-14 h-14">
+                  <Image src={picture} layout="fill" alt="" />
+                </div>
+                <h2 className="font-medium">{firstName + " " + lastName}</h2>
+              </a>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
