@@ -263,7 +263,13 @@ export const getServerSideProps = async ({
       const p = post.toObject();
 
       p._id = p._id.toString();
-      p.author = user;
+      // TODO: get the real author from db (otherwise this will break shares)
+      p.author = {
+        _id: result._id.toString(),
+        firstName: result.firstName,
+        lastName: result.lastName,
+        picture: result.picture,
+      };
       p.reacts._id = p.reacts._id.toString();
       p.reacts.likes = p.reacts.likes.map((id: any) => id.toString());
       p.reacts.loves = p.reacts.loves.map((id: any) => id.toString());
