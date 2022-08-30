@@ -2,8 +2,8 @@ import mongoose, { Schema, model } from "mongoose";
 
 const ConversationSchema = new Schema(
   {
-    emoji: String,
-    theme: String,
+    emoji: { type: String, default: "👍🏻" },
+    theme: { type: String, default: "#005fff" },
     users: [
       {
         type: Schema.Types.ObjectId,
