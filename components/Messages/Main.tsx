@@ -48,14 +48,25 @@ const Main = ({
 
   const router = useRouter();
 
+  const sendMessage = () => {
+    axios
+      .post("/api/conversations/" + router.query.id, {
+        text: "test",
+      })
+      .then(res => {
+        console.log(res.data);
+        setConversation(res.data.conversation);
+      });
+  };
+
   useEffect(() => {
     axios.get("/api/conversations/" + router.query.id).then(res => {
-      console.log(res.data);
       setConversation(res.data.conversation);
     });
   }, [router.query.id]);
 
   useEffect(() => {
+    if (!conversation) return;
     const msgs = ref.current;
     // @ts-ignore
     msgs.scrollTop = msgs.scrollHeight;
@@ -97,7 +108,12 @@ const Main = ({
           </p>
         </div>
         <div className="flex items-center gap-4">
-          <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
+          <button
+            className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300"
+            onClick={() => {
+              sendMessage();
+            }}
+          >
             <CallSvg />
           </button>
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
