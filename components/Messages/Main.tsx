@@ -66,7 +66,18 @@ const Main = ({
       <div className="flex items-center justify-between p-4 border-b">
         <div className="flex items-center gap-4">
           <div className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden transition-all active:scale-95 z-20 ">
-            <Image src={"https://picsum.photos/700"} alt="" layout="fill" />
+            <Image
+              src={
+                // @ts-ignore
+                conversation.users[0]._id !== user._id
+                  ? // @ts-ignore
+                    conversation.users[0].picture
+                  : // @ts-ignore
+                    conversation.users[1].picture
+              }
+              alt=""
+              layout="fill"
+            />
           </div>
           <p className="text-xl font-bold">
             {
