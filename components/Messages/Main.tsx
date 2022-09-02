@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import CallSvg from "./SVGs/Call";
 import VideoSvg from "./SVGs/Video";
 import InfoSvg from "./SVGs/Info";
+import MoreSvg from "./SVGs/More";
 
 const Main = ({
   user,
@@ -174,18 +175,7 @@ const Main = ({
       <div className="flex items-center w-full gap-2 p-2 ">
         <div className="flex items-center gap-1">
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <svg viewBox="0 0 24 24" height="20px" width="20px">
-              <g fillRule="evenodd">
-                <polygon
-                  fill="none"
-                  points="-6,30 30,30 30,-6 -6,-6 "
-                ></polygon>
-                <path
-                  d="m18,11l-5,0l0,-5c0,-0.552 -0.448,-1 -1,-1c-0.5525,0 -1,0.448 -1,1l0,5l-5,0c-0.5525,0 -1,0.448 -1,1c0,0.552 0.4475,1 1,1l5,0l0,5c0,0.552 0.4475,1 1,1c0.552,0 1,-0.448 1,-1l0,-5l5,0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1m-6,13c-6.6275,0 -12,-5.3725 -12,-12c0,-6.6275 5.3725,-12 12,-12c6.627,0 12,5.3725 12,12c0,6.6275 -5.373,12 -12,12"
-                  fill="#005cf8"
-                ></path>
-              </g>
-            </svg>
+            <MoreSvg />
           </button>{" "}
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
             <svg viewBox="0 -1 17 17" height="20px" width="20px">
