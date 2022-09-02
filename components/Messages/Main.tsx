@@ -194,7 +194,7 @@ const Main = ({
             <EmojiSvg />
           </button>
         </div>
-        <button className="text-xl">👍🏻</button>
+        <button className="text-xl">{conversation.emoji}</button>
       </div>
     </main>
   ) : (
