@@ -61,14 +61,29 @@ const Main = ({
     msgs.scrollTop = msgs.scrollHeight;
   }, [conversation]);
 
-  return (
+  return conversation ? (
     <main className="flex flex-col justify-between w-full h-full ">
       <div className="flex items-center justify-between p-4 border-b">
         <div className="flex items-center gap-4">
           <div className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden transition-all active:scale-95 z-20 ">
             <Image src={"https://picsum.photos/700"} alt="" layout="fill" />
           </div>
-          <p className="text-xl font-bold">Test</p>
+          <p className="text-xl font-bold">
+            {
+              // @ts-ignore
+              conversation.users[0]._id !== user._id
+                ? // @ts-ignore
+                  conversation.users[0].firstName +
+                  " " +
+                  // @ts-ignore
+                  conversation.users[0].lastName
+                : // @ts-ignore
+                  conversation.users[1].firstName +
+                  " " +
+                  // @ts-ignore
+                  conversation.users[1].lastName
+            }
+          </p>
         </div>
         <div className="flex items-center gap-4">
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
@@ -182,6 +197,8 @@ const Main = ({
         <button className="text-xl">👍🏻</button>
       </div>
     </main>
+  ) : (
+    <div>Loading...</div>
   );
 };
 
