@@ -3,12 +3,17 @@ import getUser from "../../lib/Auth/getUser";
 import type { NextApiResponse, NextApiRequest } from "next";
 import Chats from "../../components/Messages/Chats";
 import { L49 } from "react-isloading";
-import Router from "next/router";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Messages = ({ user }: { user: any }) => {
-  const conversations = user.conversations.map((c: any) => JSON.parse(c));
+  const router = useRouter();
 
-  if (conversations[0]) Router.push("/messages/" + conversations[0]._id);
+  useEffect(() => {
+    const conversations = user.conversations.map((c: any) => JSON.parse(c));
+
+    if (conversations[0]) router.push("/messages/" + conversations[0]._id);
+  }, [router, user.conversations]);
 
   return (
     <Header user={user}>
