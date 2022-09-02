@@ -128,7 +128,7 @@ const Main = ({
           </button>
         </div>
       </div>
-      <div ref={ref} className="h-full overflow-y-scroll">
+      <div ref={ref} className="h-full overflow-y-scroll noscroll">
         <div className="flex flex-col justify-end gap-4 ">
           {conversation?.messages.map(msg => (
             <div key={msg._id} className="w-full">
