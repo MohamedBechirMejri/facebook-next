@@ -8,6 +8,8 @@ import MediaSvg from "./SVGs/Media";
 import StickerSvg from "./SVGs/Sticker";
 import GifSvg from "./SVGs/Gif";
 import EmojiSvg from "./SVGs/Emoji";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const Main = ({
   user,
@@ -19,69 +21,45 @@ const Main = ({
   setShowInfo: any;
 }) => {
   const ref = useRef(null);
-  const [messages, setMessages] = useState([
-    {
-      emoji: null,
-      text: "send me that pic",
-      image: null,
-      user: {
-        firstName: "other",
-        lastName: "test",
-        picture: "https://picsum.photos/800",
-        _id: "2",
-      },
-      createdAt: "2022-08-25T04:43:50.264Z",
-      _id: "1",
-    },
-    {
-      emoji: null,
-      text: "test",
-      image: "https://picsum.photos/1000",
-      user: {
-        firstName: "me",
-        lastName: "test",
-        picture: "https://picsum.photos/900",
-        _id: user._id,
-      },
-      createdAt: "2022-08-25T04:43:50.264Z",
-      _id: "2",
-    },
-    {
-      emoji: null,
-      text: "lol",
-      image: null,
-      user: {
-        firstName: "other",
-        lastName: "test",
-        picture: "https://picsum.photos/800",
-        _id: "2",
-      },
-      createdAt: "2022-08-25T04:43:50.264Z",
-      _id: "3",
-    },
-    {
-      emoji: {
-        text: "👍🏻",
-        size: "50px",
-      },
-      text: null,
-      image: null,
-      user: {
-        firstName: "other",
-        lastName: "test",
-        picture: "https://picsum.photos/800",
-        _id: "2",
-      },
-      createdAt: "2022-08-25T04:43:50.264Z",
-      _id: "3",
-    },
-  ]);
+  const [conversation, setConversation] = useState(
+    null as {
+      createdAt: string;
+      emoji: string;
+      messages: {
+        _id: string;
+        createdAt: string;
+        emoji: {
+          text: string;
+          size: string;
+        };
+        image: string;
+        text: string;
+        user: {
+          picture: string;
+          _id: string;
+        };
+      }[];
+      theme: string;
+      updatedAt: string;
+      users: [];
+      _id: string;
+    } | null
+  );
+
+  const router = useRouter();
+
+  useEffect(() => {
+    axios.get("/api/conversations/" + router.query.id).then(res => {
+      console.log(res.data);
+      setConversation(res.data.conversation);
+    });
+  }, [router.query.id]);
 
   useEffect(() => {
     const msgs = ref.current;
     // @ts-ignore
     msgs.scrollTop = msgs.scrollHeight;
-  }, []);
+  }, [conversation]);
 
   return (
     <main className="flex flex-col justify-between w-full h-full ">
@@ -110,7 +88,7 @@ const Main = ({
       </div>
       <div ref={ref} className="h-full overflow-y-scroll">
         <div className="flex flex-col justify-end gap-4 ">
-          {messages.map(msg => (
+          {conversation?.messages.map(msg => (
             <div key={msg._id} className="w-full">
               <p className="w-full p-4 text-xs text-center text-gray-400">
                 {msg.createdAt}
