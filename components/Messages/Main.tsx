@@ -10,6 +10,7 @@ import GifSvg from "./SVGs/Gif";
 import EmojiSvg from "./SVGs/Emoji";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { L49 } from "react-isloading";
 
 const Main = ({
   user,
@@ -225,7 +226,18 @@ const Main = ({
       </div>
     </main>
   ) : (
-    <div>Loading...</div>
+    <div className="relative flex flex-col items-center justify-center w-full h-full">
+      <L49
+        style={{
+          height: "7rem",
+          width: "7rem",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      />
+    </div>
   );
 };
 
