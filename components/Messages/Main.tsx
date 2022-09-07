@@ -20,6 +20,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import uniqid from "uniqid";
+import type ConversationType from "../../types/ConversationType";
 
 const Main = ({
   user,
@@ -32,28 +33,7 @@ const Main = ({
 }) => {
   const Ref = useRef(null);
   const [conversation, setConversation] = useState(
-    null as {
-      createdAt: string;
-      emoji: string;
-      messages: {
-        _id: string;
-        createdAt: string;
-        emoji: {
-          text: string;
-          size: string;
-        };
-        image: string;
-        text: string;
-        user: {
-          picture: string;
-          _id: string;
-        };
-      }[];
-      theme: string;
-      updatedAt: string;
-      users: [];
-      _id: string;
-    } | null
+    null as ConversationType | null
   );
 
   const router = useRouter();
