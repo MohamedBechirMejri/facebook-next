@@ -235,6 +235,7 @@ const Main = ({
         </div>
         {messageText ? (
           <button
+            className="text-4xl transition-all active:scale-90"
             onClick={() => {
               sendMessage();
             }}
