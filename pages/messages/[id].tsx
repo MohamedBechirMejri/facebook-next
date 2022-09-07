@@ -15,7 +15,7 @@ const Messages = ({ user }: { user: any }) => {
 
   return (
     <Header user={user}>
-      <div className="relative flex w-screen text-black h-[93.45vh] bg-white ">
+      <div className="relative flex w-screen text-black h-[92vh] bg-white ring-white ring-[8rem]">
         <Chats conversations={conversations} user={user} />
         <div className="flex w-full h-full ">
           <Main user={user} showInfo={showInfo} setShowInfo={setShowInfo} />
