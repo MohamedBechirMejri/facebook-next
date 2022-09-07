@@ -59,6 +59,16 @@ const Main = ({
         setConversation(res.data.conversation);
       });
   };
+  const sendEmoji = () => {
+    axios
+      .post("/api/conversations/" + router.query.id, {
+        emoji: { text: conversation?.emoji, size: "5rem" },
+      })
+      .then(res => {
+        console.log(res.data);
+        setConversation(res.data.conversation);
+      });
+  };
 
   useEffect(() => {
     axios.get("/api/conversations/" + router.query.id).then(res => {
@@ -156,7 +166,7 @@ const Main = ({
                   <p
                     style={{
                       fontSize: msg.emoji.size,
-                      lineHeight: 1,
+                      lineHeight: 1.05,
                     }}
                   >
                     {msg.emoji.text}
@@ -222,7 +232,12 @@ const Main = ({
             <EmojiSvg />
           </button>
         </div>
-        <button className="text-xl">{conversation.emoji}</button>
+        <button
+          className="text-4xl transition-all active:scale-90"
+          onClick={() => sendEmoji()}
+        >
+          {conversation.emoji}
+        </button>
       </div>
     </main>
   ) : (
