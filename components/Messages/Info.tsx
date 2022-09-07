@@ -5,9 +5,11 @@ import { useState } from "react";
 const Info = ({
   conversation,
   setConversation,
+  user,
 }: {
   conversation: any;
   setConversation: any;
+  user: any;
 }) => {
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
 
@@ -16,7 +18,14 @@ const Info = ({
       <div className="w-[360px] h-full shrink-0 flex p-2 items-center flex-col">
         <div className="w-24 shrink-0">
           <Image
-            src={"https://picsum.photos/900"}
+            src={
+              // @ts-ignore
+              conversation.users[0]._id !== user._id
+                ? // @ts-ignore
+                  conversation.users[0].picture
+                : // @ts-ignore
+                  conversation.users[1].picture
+            }
             width={1000}
             height={1000}
             alt="user"
@@ -25,7 +34,20 @@ const Info = ({
             }}
           />
         </div>
-        <p className="font-bold">Name</p>
+        <p className="font-bold">
+          {
+            // @ts-ignore
+            conversation.users[0]._id !== user._id
+              ? // @ts-ignore
+                conversation.users[0].firstName +
+                " " +
+                conversation.users[0].lastName
+              : // @ts-ignore
+                conversation.users[1].firstName +
+                " " +
+                conversation.users[1].lastName
+          }
+        </p>
         <div className="flex flex-col items-center p-4">
           <Link href={"/"}>
             <a className="p-[.2rem] px-2 pt-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all">

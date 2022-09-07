@@ -44,6 +44,7 @@ const Messages = ({ user }: { user: any }) => {
             <Info
               conversation={conversation}
               setConversation={setConversation}
+              user={user}
             />
           )}
         </div>
