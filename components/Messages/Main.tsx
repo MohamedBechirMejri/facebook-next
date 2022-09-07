@@ -309,7 +309,7 @@ const Main = ({
           </button>
         ) : (
           <button
-            className="text-4xl transition-all active:scale-90"
+            className="-mt-1 text-4xl transition-all active:scale-90"
             onClick={sendEmoji}
           >
             {conversation.emoji}
