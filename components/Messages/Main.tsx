@@ -11,6 +11,7 @@ import EmojiSvg from "./SVGs/Emoji";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { L49 } from "react-isloading";
+import SendSvg from "./SVGs/Send";
 
 const Main = ({
   user,
@@ -237,12 +238,18 @@ const Main = ({
             <EmojiSvg />
           </button>
         </div>
-        <button
-          className="text-4xl transition-all active:scale-90"
-          onClick={() => sendEmoji()}
-        >
-          {conversation.emoji}
-        </button>
+        {messageText ? (
+          <button>
+            <SendSvg fill={conversation.theme} />
+          </button>
+        ) : (
+          <button
+            className="text-4xl transition-all active:scale-90"
+            onClick={() => sendEmoji()}
+          >
+            {conversation.emoji}
+          </button>
+        )}
       </div>
     </main>
   ) : (
