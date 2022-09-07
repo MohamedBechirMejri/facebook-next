@@ -10,7 +10,7 @@ import GifSvg from "./SVGs/Gif";
 import EmojiSvg from "./SVGs/Emoji";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { L49 } from "react-isloading";
+import { L49, L92 } from "react-isloading";
 import SendSvg from "./SVGs/Send";
 import { initializeApp } from "firebase/app";
 import {
@@ -60,16 +60,19 @@ const Main = ({
 
   const [messageText, setMessageText] = useState("");
   const [imageLink, setImageLink] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   const sendMessage = () => {
-    if (!messageText) return;
+    if (!messageText && !imageLink) return;
 
     axios
       .post("/api/conversations/" + router.query.id, {
         text: messageText,
+        image: imageLink,
       })
       .then(res => {
         setMessageText("");
+        setImageLink("");
         setConversation(res.data.conversation);
       });
   };
@@ -108,6 +111,9 @@ const Main = ({
   }, [conversation]);
 
   const handleChange = (e: any) => {
+    setImageLink("");
+    setIsUploading(true);
+
     const storage = getStorage();
     const storageRef = ref(storage, uniqid());
 
@@ -126,6 +132,7 @@ const Main = ({
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
           setImageLink(downloadURL);
+          setIsUploading(false);
         });
       }
     );
@@ -280,27 +287,40 @@ const Main = ({
             value={messageText}
             onKeyDown={e => e.key === "Enter" && sendMessage()}
           />
-          {imageLink && (
+          {(imageLink || isUploading) && (
             <div
-              className="flex items-center h-full px-4 transition-all cursor-pointer hover:grayscale active:scale-95"
+              className="relative flex items-center h-full px-4 transition-all cursor-pointer hover:grayscale active:scale-95"
               onClick={() => setImageLink("")}
             >
-              <Image
-                src={imageLink}
-                height={40}
-                width={43}
-                alt=""
-                style={{
-                  borderRadius: ".5rem",
-                }}
-              />
+              {!imageLink ? (
+                <L92
+                  style={{
+                    height: "2rem",
+                    width: "2rem",
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -60%)",
+                  }}
+                />
+              ) : (
+                <Image
+                  src={imageLink}
+                  height={40}
+                  width={43}
+                  alt=""
+                  style={{
+                    borderRadius: ".5rem",
+                  }}
+                />
+              )}
             </div>
           )}
           <button className="transition-all rounded-full active:scale-95">
             <EmojiSvg />
           </button>
         </div>
-        {messageText ? (
+        {messageText || imageLink ? (
           <button
             className="text-4xl transition-all active:scale-90"
             onClick={sendMessage}
