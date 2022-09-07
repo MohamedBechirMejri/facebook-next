@@ -123,12 +123,7 @@ const Main = ({
           </p>
         </div>
         <div className="flex items-center gap-4">
-          <button
-            className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300"
-            onClick={() => {
-              sendMessage();
-            }}
-          >
+          <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
             <CallSvg />
           </button>
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
@@ -239,7 +234,11 @@ const Main = ({
           </button>
         </div>
         {messageText ? (
-          <button>
+          <button
+            onClick={() => {
+              sendMessage();
+            }}
+          >
             <SendSvg fill={conversation.theme} />
           </button>
         ) : (
