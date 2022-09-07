@@ -40,7 +40,12 @@ const Messages = ({ user }: { user: any }) => {
             conversation={conversation}
             setConversation={setConversation}
           />
-          {showInfo && <Info />}
+          {showInfo && (
+            <Info
+              conversation={conversation}
+              setConversation={setConversation}
+            />
+          )}
         </div>
       </div>
     </Header>
