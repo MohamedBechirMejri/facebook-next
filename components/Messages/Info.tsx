@@ -49,7 +49,14 @@ const Info = ({
           }
         </p>
         <div className="flex flex-col items-center p-4">
-          <Link href={"/"}>
+          <Link
+            href={`
+              /users/${
+                conversation.users[0]._id !== user._id
+                  ? conversation.users[0]._id
+                  : conversation.users[1]._id
+              }`}
+          >
             <a className="p-[.2rem] px-2 pt-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all">
               <div
                 style={{
