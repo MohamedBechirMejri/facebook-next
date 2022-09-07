@@ -49,13 +49,17 @@ const Main = ({
 
   const router = useRouter();
 
+  const [messageText, setMessageText] = useState("");
+
   const sendMessage = () => {
+    if (!messageText) return;
+
     axios
       .post("/api/conversations/" + router.query.id, {
-        text: "test",
+        text: messageText,
       })
       .then(res => {
-        console.log(res.data);
+        setMessageText("");
         setConversation(res.data.conversation);
       });
   };
@@ -65,7 +69,6 @@ const Main = ({
         emoji: { text: conversation?.emoji, size: "5rem" },
       })
       .then(res => {
-        console.log(res.data);
         setConversation(res.data.conversation);
       });
   };
@@ -227,6 +230,8 @@ const Main = ({
             type="text"
             className="w-full bg-transparent outline-none"
             placeholder="Aa"
+            onChange={e => setMessageText(e.target.value)}
+            value={messageText}
           />
           <button className="transition-all rounded-full active:scale-95">
             <EmojiSvg />
