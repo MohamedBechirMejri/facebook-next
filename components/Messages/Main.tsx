@@ -20,21 +20,21 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import uniqid from "uniqid";
-import type ConversationType from "../../types/ConversationType";
 
 const Main = ({
   user,
   showInfo,
   setShowInfo,
+  conversation,
+  setConversation,
 }: {
   user: any;
   showInfo: boolean;
   setShowInfo: any;
+  conversation: any;
+  setConversation: any;
 }) => {
   const Ref = useRef(null);
-  const [conversation, setConversation] = useState(
-    null as ConversationType | null
-  );
 
   const router = useRouter();
 
@@ -67,10 +67,6 @@ const Main = ({
   };
 
   useEffect(() => {
-    axios.get("/api/conversations/" + router.query.id).then(res => {
-      setConversation(res.data.conversation);
-    });
-
     const firebaseConfig = {
       apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
       authDomain: "facebook-clone-6c38e.firebaseapp.com",
@@ -81,7 +77,7 @@ const Main = ({
     };
 
     initializeApp(firebaseConfig);
-  }, [router.query.id]);
+  }, []);
 
   useEffect(() => {
     if (!conversation) return;
@@ -171,7 +167,7 @@ const Main = ({
       </div>
       <div ref={Ref} className="h-full overflow-y-scroll noscroll">
         <div className="flex flex-col justify-end gap-4 ">
-          {conversation?.messages.map(msg => (
+          {conversation?.messages.map((msg: any) => (
             <div key={msg._id} className="w-full">
               <p className="w-full p-4 text-xs text-center text-gray-400">
                 {msg.createdAt}
