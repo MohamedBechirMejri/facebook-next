@@ -228,6 +228,7 @@ const Main = ({
             placeholder="Aa"
             onChange={e => setMessageText(e.target.value)}
             value={messageText}
+            onKeyDown={e => e.key === "Enter" && sendMessage()}
           />
           <button className="transition-all rounded-full active:scale-95">
             <EmojiSvg />
@@ -236,16 +237,14 @@ const Main = ({
         {messageText ? (
           <button
             className="text-4xl transition-all active:scale-90"
-            onClick={() => {
-              sendMessage();
-            }}
+            onClick={sendMessage}
           >
             <SendSvg fill={conversation.theme} />
           </button>
         ) : (
           <button
             className="text-4xl transition-all active:scale-90"
-            onClick={() => sendEmoji()}
+            onClick={sendEmoji}
           >
             {conversation.emoji}
           </button>
