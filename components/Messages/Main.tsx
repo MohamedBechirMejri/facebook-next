@@ -12,6 +12,14 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { L49 } from "react-isloading";
 import SendSvg from "./SVGs/Send";
+import { initializeApp } from "firebase/app";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import uniqid from "uniqid";
 
 const Main = ({
   user,
@@ -22,7 +30,7 @@ const Main = ({
   showInfo: boolean;
   setShowInfo: any;
 }) => {
-  const ref = useRef(null);
+  const Ref = useRef(null);
   const [conversation, setConversation] = useState(
     null as {
       createdAt: string;
@@ -79,14 +87,49 @@ const Main = ({
     axios.get("/api/conversations/" + router.query.id).then(res => {
       setConversation(res.data.conversation);
     });
+
+    const firebaseConfig = {
+      apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+      authDomain: "facebook-clone-6c38e.firebaseapp.com",
+      projectId: "facebook-clone-6c38e",
+      storageBucket: "facebook-clone-6c38e.appspot.com",
+      messagingSenderId: "337509918932",
+      appId: "1:337509918932:web:4f1b7c8fb17951b73f7341",
+    };
+
+    initializeApp(firebaseConfig);
   }, [router.query.id]);
 
   useEffect(() => {
     if (!conversation) return;
-    const msgs = ref.current;
+    const msgs = Ref.current;
     // @ts-ignore
     msgs.scrollTop = msgs.scrollHeight;
   }, [conversation]);
+
+  const handleChange = (e: any) => {
+    const storage = getStorage();
+    const storageRef = ref(storage, uniqid());
+
+    const uploadTask = uploadBytesResumable(storageRef, e.target.files[0]);
+
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        // setLoading(+progress.toFixed(0));
+      },
+      error => {
+        // Handle unsuccessful uploads
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
+          setImageLink(downloadURL);
+        });
+      }
+    );
+  };
 
   return conversation ? (
     <main className="flex flex-col justify-between w-full h-full ">
@@ -139,7 +182,7 @@ const Main = ({
           </button>
         </div>
       </div>
-      <div ref={ref} className="h-full overflow-y-scroll noscroll">
+      <div ref={Ref} className="h-full overflow-y-scroll noscroll">
         <div className="flex flex-col justify-end gap-4 ">
           {conversation?.messages.map(msg => (
             <div key={msg._id} className="w-full">
@@ -212,13 +255,18 @@ const Main = ({
         <div className="flex items-center gap-1">
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
             <MoreSvg />
-          </button>{" "}
-          <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
+          </button>
+          <button className="relative p-1 transition-all rounded-full cursor-pointer hover:bg-gray-200 active:bg-gray-300">
             <MediaSvg />
-          </button>{" "}
+            <input
+              type="file"
+              onChange={handleChange}
+              className="absolute inset-0 opacity-0 cursor-pointer"
+            />
+          </button>
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
             <StickerSvg />
-          </button>{" "}
+          </button>
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
             <GifSvg />
           </button>
