@@ -51,6 +51,7 @@ const Main = ({
   const router = useRouter();
 
   const [messageText, setMessageText] = useState("");
+  const [imageLink, setImageLink] = useState("");
 
   const sendMessage = () => {
     if (!messageText) return;
@@ -206,7 +207,8 @@ const Main = ({
           ))}
         </div>
       </div>
-      <div className="flex items-center w-full gap-2 p-2 ">
+
+      <div className="relative flex items-center w-full gap-2 p-2">
         <div className="flex items-center gap-1">
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
             <MoreSvg />
@@ -230,6 +232,22 @@ const Main = ({
             value={messageText}
             onKeyDown={e => e.key === "Enter" && sendMessage()}
           />
+          {imageLink && (
+            <div
+              className="flex items-center h-full px-4 transition-all cursor-pointer hover:grayscale active:scale-95"
+              onClick={() => setImageLink("")}
+            >
+              <Image
+                src={imageLink}
+                height={40}
+                width={43}
+                alt=""
+                style={{
+                  borderRadius: ".5rem",
+                }}
+              />
+            </div>
+          )}
           <button className="transition-all rounded-full active:scale-95">
             <EmojiSvg />
           </button>
