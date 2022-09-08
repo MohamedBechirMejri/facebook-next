@@ -48,6 +48,11 @@ const GifOverlay = ({
               type="search"
               className="w-full h-10 bg-[#f0f2f5] rounded-full outline-none px-4"
               placeholder="Search"
+              onChange={e => {
+                giphy.search(e.target.value).then((res: any) => {
+                  setGifs(res.data);
+                });
+              }}
             />
           </div>
           <div className="flex flex-col items-center">
