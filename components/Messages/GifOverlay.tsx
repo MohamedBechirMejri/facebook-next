@@ -1,9 +1,18 @@
+import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import GifSvg from "./SVGs/Gif";
 const giphy = require("giphy-api")(process.env.NEXT_PUBLIC_GIPHY_API_KEY);
 
-const GifOverlay = ({ theme }: { theme: string }) => {
+const GifOverlay = ({
+  theme,
+  id,
+  setConversation,
+}: {
+  theme: string;
+  id: any;
+  setConversation: any;
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [gifs, setGifs] = useState([]);
 
@@ -12,6 +21,16 @@ const GifOverlay = ({ theme }: { theme: string }) => {
       setGifs(res.data);
     });
   }, []);
+
+  const sendGif = (imageLink: string) => {
+    axios
+      .post("/api/conversations/" + id, {
+        image: imageLink,
+      })
+      .then(res => {
+        setConversation(res.data.conversation);
+      });
+  };
 
   return (
     <div className="flex items-center h-full">
@@ -37,6 +56,10 @@ const GifOverlay = ({ theme }: { theme: string }) => {
                 <div
                   key={i}
                   className="m-1 overflow-hidden transition-all rounded-lg shadow cursor-pointer active:scale-95 w-fit hover:grayscale"
+                  onClick={() => {
+                    sendGif(gif.images.original.url);
+                    setIsVisible(false);
+                  }}
                 >
                   <Image
                     src={gif.images.original.url}
