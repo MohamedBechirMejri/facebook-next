@@ -9,9 +9,11 @@ import EmojiSvg from "./SVGs/Emoji";
 const EmojiOverlay = ({
   messageText,
   setMessageText,
+  theme,
 }: {
   messageText: any;
   setMessageText: any;
+  theme: string;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -26,7 +28,7 @@ const EmojiOverlay = ({
         className="relative z-20 pt-1 transition-all rounded-full active:scale-95"
         onClick={() => setIsVisible(!isVisible)}
       >
-        <EmojiSvg fill={"#321"} />
+        <EmojiSvg fill={theme} />
       </button>
 
       {isVisible && (

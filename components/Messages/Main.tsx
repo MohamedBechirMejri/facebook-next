@@ -295,6 +295,7 @@ const Main = ({
           <EmojiOverlay
             messageText={messageText}
             setMessageText={setMessageText}
+            theme={conversation.theme}
           />
         </div>
         {messageText || imageLink ? (
