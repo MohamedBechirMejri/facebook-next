@@ -8,7 +8,7 @@ const GifOverlay = ({ theme }: { theme: string }) => {
   const [gifs, setGifs] = useState([]);
 
   useEffect(() => {
-    giphy.search("pokemon").then((res: any) => {
+    giphy.trending().then((res: any) => {
       setGifs(res.data);
     });
   }, []);
