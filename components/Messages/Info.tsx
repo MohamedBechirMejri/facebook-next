@@ -14,6 +14,7 @@ const Info = ({
 }) => {
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
   const [theme, setTheme] = useState(conversation?.theme);
+  const [isSettingTheme, setIsSettingTheme] = useState(false);
 
   useEffect(() => {
     setTheme(conversation?.theme);
@@ -75,14 +76,23 @@ const Info = ({
           </Link>
           <p className="text-sm">Profile</p>
         </div>
-        <div className="fixed flex flex-col items-center justify-center gap-4 py-4 -translate-x-1/2 -translate-y-1/2 bg-white border rounded-lg shadow w-72 h-72 top-1/2 left-1/2">
-          <h1 className="text-xl font-bold">Theme</h1>
-          <HexColorPicker color={theme} onChange={setTheme} />
-          <div className="flex gap-4">
-            <button>Cancel</button>
-            <button>Save</button>
+        {isSettingTheme && (
+          <div className="fixed flex flex-col items-center justify-center gap-4 py-4 -translate-x-1/2 -translate-y-1/2 bg-white border rounded-lg shadow w-72 h-72 top-1/2 left-1/2">
+            <h1 className="text-xl font-bold">Theme</h1>
+            <HexColorPicker color={theme} onChange={setTheme} />
+            <div className="flex gap-4">
+              <button
+                onClick={() => {
+                  setIsSettingTheme(false);
+                  setTheme(conversation?.theme);
+                }}
+              >
+                Cancel
+              </button>
+              <button>Save</button>
+            </div>
           </div>
-        </div>
+        )}
         <div className="w-full text-left">
           <button
             className="flex items-center justify-between w-full p-4 font-bold transition-all hover:bg-gray-200 rounded-xl active:bg-gray-300"
@@ -105,6 +115,7 @@ const Info = ({
                 transform: isCustomizeOpen ? "" : "translate(0,-200%)",
                 opacity: isCustomizeOpen ? "" : 0,
               }}
+              onClick={() => setIsSettingTheme(!isSettingTheme)}
             >
               <div
                 style={{
