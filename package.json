@@ -13,6 +13,7 @@
     "cookies-next": "^2.1.1",
     "emoji-picker-react": "^4.0.0-rc.19",
     "firebase": "^9.9.3",
+    "giphy-api": "^2.0.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.3",
     "next": "12.2.5",
