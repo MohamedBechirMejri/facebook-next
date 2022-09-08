@@ -251,10 +251,7 @@ const Main = ({
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
             <StickerSvg fill={conversation.theme} />
           </button>
-          <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <GifSvg fill={conversation.theme} />
-          </button>
-          <GifOverlay />
+          <GifOverlay theme={conversation.theme} />
         </div>
         <div className="flex items-center w-full h-10 px-4 overflow-hidden transition-all bg-gray-200 rounded-full">
           <input

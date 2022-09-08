@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import GifSvg from "./SVGs/Gif";
 const giphy = require("giphy-api")(process.env.NEXT_PUBLIC_GIPHY_API_KEY);
 
-const GifOverlay = ({}: {}) => {
+const GifOverlay = ({ theme }: { theme: string }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   //   useEffect(() => {
@@ -15,14 +16,16 @@ const GifOverlay = ({}: {}) => {
   //   }, []);
 
   return (
-    <div className="">
+    <div className="flex items-center h-full">
       <button
-        className="relative z-20 pt-1 transition-all rounded-full active:scale-95"
+        className="relative z-20 transition-all rounded-full active:scale-95"
         onClick={() => setIsVisible(!isVisible)}
-      ></button>
+      >
+        <GifSvg fill={theme} />
+      </button>
 
       {isVisible && (
-        <div className="absolute z-20 flex flex-col bg-white border rounded-lg shadow w-max right-16 h-max -top-[810%]"></div>
+        <div className="absolute z-20 flex flex-col bg-white border rounded-lg shadow w-max right-16 h-max "></div>
       )}
       {isVisible && (
         <div
