@@ -20,6 +20,7 @@ import {
 import uniqid from "uniqid";
 import EmojiOverlay from "./EmojiOverlay";
 import GifOverlay from "./GifOverlay";
+import StickersOverlay from "./StickersOverlay";
 
 const Main = ({
   user,
@@ -248,9 +249,11 @@ const Main = ({
               className="absolute inset-0 opacity-0 cursor-pointer"
             />
           </button>
-          <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <StickerSvg fill={conversation.theme} />
-          </button>
+          <StickersOverlay
+            theme={conversation.theme}
+            id={router.query.id}
+            setConversation={setConversation}
+          />
           <GifOverlay
             theme={conversation.theme}
             id={router.query.id}
