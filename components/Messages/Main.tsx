@@ -6,7 +6,6 @@ import InfoSvg from "./SVGs/Info";
 import MoreSvg from "./SVGs/More";
 import MediaSvg from "./SVGs/Media";
 import StickerSvg from "./SVGs/Sticker";
-import GifSvg from "./SVGs/Gif";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { L49, L92 } from "react-isloading";
@@ -20,6 +19,8 @@ import {
 } from "firebase/storage";
 import uniqid from "uniqid";
 import EmojiOverlay from "./EmojiOverlay";
+import GifOverlay from "./GifOverlay";
+import StickersOverlay from "./StickersOverlay";
 
 const Main = ({
   user,
@@ -52,6 +53,7 @@ const Main = ({
       })
       .then(res => {
         setMessageText("");
+        setIsUploading(false);
         setImageLink("");
         setConversation(res.data.conversation);
       });
@@ -247,12 +249,16 @@ const Main = ({
               className="absolute inset-0 opacity-0 cursor-pointer"
             />
           </button>
-          <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <StickerSvg fill={conversation.theme} />
-          </button>
-          <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <GifSvg fill={conversation.theme} />
-          </button>
+          <StickersOverlay
+            theme={conversation.theme}
+            id={router.query.id}
+            setConversation={setConversation}
+          />
+          <GifOverlay
+            theme={conversation.theme}
+            id={router.query.id}
+            setConversation={setConversation}
+          />
         </div>
         <div className="flex items-center w-full h-10 px-4 overflow-hidden transition-all bg-gray-200 rounded-full">
           <input
