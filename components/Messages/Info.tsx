@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HexColorPicker } from "react-colorful";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const Info = ({
   conversation,
@@ -12,13 +14,31 @@ const Info = ({
   setConversation: any;
   user: any;
 }) => {
+  const router = useRouter();
+
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
   const [theme, setTheme] = useState(conversation?.theme);
+  const [emoji, setEmoji] = useState(conversation?.emoji);
   const [isSettingTheme, setIsSettingTheme] = useState(false);
 
   useEffect(() => {
     setTheme(conversation?.theme);
   }, [conversation?.theme]);
+
+  const sendCustomization = () => {
+    if (!theme && !emoji) return;
+
+    axios
+      .post("/api/conversations/" + router.query.id + "/customize", {
+        theme,
+        emoji,
+      })
+      .then(res => {
+        setConversation(res.data.conversation);
+        setTheme(conversation?.theme);
+        setEmoji(conversation?.emoji);
+      });
+  };
 
   return (
     conversation && (
@@ -89,7 +109,14 @@ const Info = ({
               >
                 Cancel
               </button>
-              <button>Save</button>
+              <button
+                onClick={() => {
+                  setIsSettingTheme(false);
+                  sendCustomization();
+                }}
+              >
+                Save
+              </button>
             </div>
           </div>
         )}
