@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { HexColorPicker } from "react-colorful";
 
 const Info = ({
   conversation,
@@ -12,6 +13,11 @@ const Info = ({
   user: any;
 }) => {
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
+  const [theme, setTheme] = useState(conversation?.theme);
+
+  useEffect(() => {
+    setTheme(conversation?.theme);
+  }, [conversation?.theme]);
 
   return (
     conversation && (
@@ -68,6 +74,14 @@ const Info = ({
             </a>
           </Link>
           <p className="text-sm">Profile</p>
+        </div>
+        <div className="fixed flex flex-col items-center justify-center gap-4 py-4 -translate-x-1/2 -translate-y-1/2 bg-white border rounded-lg shadow w-72 h-72 top-1/2 left-1/2">
+          <h1 className="text-xl font-bold">Theme</h1>
+          <HexColorPicker color={theme} onChange={setTheme} />
+          <div className="flex gap-4">
+            <button>Cancel</button>
+            <button>Save</button>
+          </div>
         </div>
         <div className="w-full text-left">
           <button
