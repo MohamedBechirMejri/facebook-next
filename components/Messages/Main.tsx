@@ -7,7 +7,6 @@ import MoreSvg from "./SVGs/More";
 import MediaSvg from "./SVGs/Media";
 import StickerSvg from "./SVGs/Sticker";
 import GifSvg from "./SVGs/Gif";
-import EmojiSvg from "./SVGs/Emoji";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { L49, L92 } from "react-isloading";
@@ -20,6 +19,7 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import uniqid from "uniqid";
+import EmojiOverlay from "./EmojiOverlay";
 
 const Main = ({
   user,
@@ -254,7 +254,7 @@ const Main = ({
             <GifSvg fill={conversation.theme} />
           </button>
         </div>
-        <div className="flex w-full h-10 px-4 overflow-hidden transition-all bg-gray-200 rounded-full">
+        <div className="flex items-center w-full h-10 px-4 overflow-hidden transition-all bg-gray-200 rounded-full">
           <input
             type="text"
             className="w-full bg-transparent outline-none"
@@ -292,9 +292,10 @@ const Main = ({
               )}
             </div>
           )}
-          <button className="transition-all rounded-full active:scale-95">
-            <EmojiSvg fill={conversation.theme} />
-          </button>
+          <EmojiOverlay
+            messageText={messageText}
+            setMessageText={setMessageText}
+          />
         </div>
         {messageText || imageLink ? (
           <button
