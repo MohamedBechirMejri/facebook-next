@@ -151,17 +151,17 @@ const Main = ({
         </div>
         <div className="flex items-center gap-4">
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <CallSvg />
+            <CallSvg fill={conversation.theme} />
           </button>
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <VideoSvg />
+            <VideoSvg fill={conversation.theme} />
           </button>
 
           <button
             className="p-2 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300"
             onClick={() => setShowInfo(!showInfo)}
           >
-            <InfoSvg />
+            <InfoSvg fill={conversation.theme} />
           </button>
         </div>
       </div>
@@ -237,10 +237,10 @@ const Main = ({
       <div className="relative flex items-center w-full gap-2 p-2">
         <div className="flex items-center gap-1">
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <MoreSvg />
+            <MoreSvg fill={conversation.theme} />
           </button>
           <button className="relative p-1 transition-all rounded-full cursor-pointer hover:bg-gray-200 active:bg-gray-300">
-            <MediaSvg />
+            <MediaSvg fill={conversation.theme} />
             <input
               type="file"
               onChange={handleChange}
@@ -248,10 +248,10 @@ const Main = ({
             />
           </button>
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <StickerSvg />
+            <StickerSvg fill={conversation.theme} />
           </button>
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
-            <GifSvg />
+            <GifSvg fill={conversation.theme} />
           </button>
         </div>
         <div className="flex w-full h-10 px-4 overflow-hidden transition-all bg-gray-200 rounded-full">
@@ -293,7 +293,7 @@ const Main = ({
             </div>
           )}
           <button className="transition-all rounded-full active:scale-95">
-            <EmojiSvg />
+            <EmojiSvg fill={conversation.theme} />
           </button>
         </div>
         {messageText || imageLink ? (
