@@ -20,6 +20,7 @@ import {
 } from "firebase/storage";
 import uniqid from "uniqid";
 import EmojiOverlay from "./EmojiOverlay";
+import GifOverlay from "./GifOverlay";
 
 const Main = ({
   user,
@@ -253,6 +254,7 @@ const Main = ({
           <button className="p-1 transition-all rounded-full hover:bg-gray-200 active:bg-gray-300">
             <GifSvg fill={conversation.theme} />
           </button>
+          <GifOverlay />
         </div>
         <div className="flex items-center w-full h-10 px-4 overflow-hidden transition-all bg-gray-200 rounded-full">
           <input
