@@ -36,7 +36,7 @@ const GifOverlay = ({ theme }: { theme: string }) => {
               return (
                 <div
                   key={i}
-                  className="m-1 overflow-hidden transition-all rounded-lg shadow cursor-pointer active:scale-95 w-fit"
+                  className="m-1 overflow-hidden transition-all rounded-lg shadow cursor-pointer active:scale-95 w-fit hover:grayscale"
                 >
                   <Image
                     src={gif.images.original.url}
