@@ -13,7 +13,7 @@ const Chats = ({
       <h1 className="flex items-center justify-between pb-4 text-2xl font-semibold">
         <span>Chats</span>
         <div className="flex items-center gap-4 px-4 pt-2">
-          <button className="px-[.35rem] hover:bg-gray-200 rounded-full transition-all active:bg-gray-300">
+          <button className="px-[.35rem] bg-gray-100 rounded-full transition-all hover:bg-gray-200 active:bg-gray-300">
             <div
               style={{
                 backgroundImage: `url(${"/Assets/buttons8.png"})`,
@@ -22,7 +22,7 @@ const Chats = ({
               className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto transition-all"
             />
           </button>
-          <button className="px-[.35rem] hover:bg-gray-200 rounded-full transition-all active:bg-gray-300">
+          <button className="px-[.35rem] bg-gray-100 rounded-full transition-all hover:bg-gray-200 active:bg-gray-300">
             <div
               style={{
                 backgroundImage: `url(${"/Assets/buttons7.png"})`,
@@ -31,7 +31,7 @@ const Chats = ({
               className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto transition-all"
             />
           </button>
-          <button className="px-[.35rem] hover:bg-gray-200 rounded-full transition-all active:bg-gray-300">
+          <button className="px-[.35rem] bg-gray-100 rounded-full transition-all hover:bg-gray-200 active:bg-gray-300">
             <div
               style={{
                 backgroundImage: `url(${"/Assets/buttons9.png"})`,
