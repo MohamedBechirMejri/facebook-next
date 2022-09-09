@@ -4,7 +4,9 @@ import Link from "next/link";
 const RightNav = ({ user }: { user: any }) => {
   return (
     <div className="h-full w-[280px] overflow-y-scroll m-0 fixed right-4 top-16 pb-24 hidden xl:block">
-      <h3 className="p-2 mb-2 text-lg font-bold">Contacts</h3>
+      <h3 className="p-2 mb-2 text-lg font-semibold text-[#65676b]">
+        Contacts
+      </h3>
       <div>
         {user.friends.map((friend: any, i: number) => {
           return (
