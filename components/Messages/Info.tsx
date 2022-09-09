@@ -210,6 +210,17 @@ const Info = ({
             </button>
           </div>
         </div>
+
+        <Link href={"/api/conversations/" + conversation._id + "/delete"}>
+          <a
+            className="block w-full p-4 font-bold text-center text-red-500 transition-all bg-white cursor-pointer hover:bg-red-200 rounded-xl active:bg-red-300"
+            style={{
+              transform: isCustomizeOpen ? "" : " translateY(-130%)",
+            }}
+          >
+            <span> Delete chat </span>
+          </a>
+        </Link>
       </div>
     )
   );
