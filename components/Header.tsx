@@ -34,12 +34,12 @@ const Header = ({
         </div>
         <div className="h-full lg:grid grid-cols-5 grid-rows-1 w-[590px] mx-auto hidden">
           <Link href="/">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all justify-center">
+            <a className="hover:bg-[#f2f2f2] active:bg-[#e0e0e0] rounded-lg h-full w-full py-2 flex transition-all justify-center">
               <Image src="/Assets/home.svg" height={50} width={50} alt="" />
             </a>
           </Link>
           <Link href="/friends">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all justify-center">
+            <a className="hover:bg-[#f2f2f2] active:bg-[#e0e0e0] rounded-lg h-full w-full py-2 flex transition-all justify-center">
               <Image src="/Assets/friends.svg" height={50} width={50} alt="" />
             </a>
           </Link>
