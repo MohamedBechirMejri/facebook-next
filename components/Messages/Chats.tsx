@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FriendsOverlay from "./FriendsOverlay";
 
 const Chats = ({
   conversations,
@@ -31,15 +32,7 @@ const Chats = ({
               className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto transition-all"
             />
           </button>
-          <button className="px-[.35rem] bg-gray-100 rounded-full transition-all hover:bg-gray-200 active:bg-gray-300">
-            <div
-              style={{
-                backgroundImage: `url(${"/Assets/buttons9.png"})`,
-                backgroundPosition: "0px -557px",
-              }}
-              className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto transition-all"
-            />
-          </button>
+          <FriendsOverlay user={user} />
         </div>
       </h1>
       <div className="rounded-full bg-[#f0f2f5] flex items-center justify-left p-2 transition-all">
