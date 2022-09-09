@@ -64,7 +64,7 @@ const Header = ({
             <Image src="/Assets/menu.svg" height={20} width={20} alt="" />
           </button>
           <Link href="/messages">
-            <a className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
+            <a className="bg-[#d8dadf] hover:bg-[#c4c5c9] rounded-full w-10 h-10 flex items-center justify-center transition-all active:scale-95">
               <Image
                 src="/Assets/messenger.svg"
                 height={20}
