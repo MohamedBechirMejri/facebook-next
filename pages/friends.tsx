@@ -11,13 +11,13 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
 
   return (
     <Header user={user}>
-      <div className="relative w-screen min-h-screen text-black bg-[#f0f2f5] px-4">
+      <div className="relative w-screen min-h-screen text-black bg-[#f0f2f5] px-4 p-4">
         <div>
-          <h1>Friend Requests</h1>
+          <h1 className="font-bold">Friend Requests</h1>
         </div>
         <hr />
         <div>
-          <h1>People You May Know</h1>
+          <h1 className="font-bold">People You May Know</h1>
           <div className="flex flex-wrap gap-4 p-4 text-center">
             {allUsers.map((u: any) => {
               return user.friends.map((f: any) => f._id).includes(u._id) ||
