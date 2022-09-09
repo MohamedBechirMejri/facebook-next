@@ -91,7 +91,12 @@ const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
             </div>
             <div className="flex flex-col items-stretch gap-4">
               {posts && posts.length > 0 ? (
-                posts.map((p, i) => <Post key={i} post={p} user={user} />)
+                posts.map((p, i) =>
+                  p.author._id === user._id ||
+                  user.friends.map((f: any) => f._id).includes(p.author._id) ? (
+                    <Post key={i} post={p} user={user} />
+                  ) : null
+                )
               ) : (
                 <L49
                   style={{
