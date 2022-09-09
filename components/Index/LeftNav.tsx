@@ -67,9 +67,26 @@ const LeftNav = ({ user }: { user: any }) => {
   ];
   return (
     <nav className="h-full w-[320px] overflow-y-scroll m-0 fixed left-4 top-16 pb-24 noscroll hidden lg:block">
-      {navlinks.map((navlink, index) => (
-        <Link href={navlink.href} key={index}>
-          <a
+      {navlinks.map((navlink, index) =>
+        navlink.href.includes("users") ||
+        navlink.href.includes("friends") ||
+        navlink.href.includes("messages") ||
+        navlink.href.includes("saved") ? (
+          <Link href={navlink.href} key={index}>
+            <a
+              className={
+                "text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all after:block after:w-2 after:h-2 after:bg-green-400 relative after:absolute after:right-4 after:rounded-full"
+              }
+            >
+              <div className="relative w-10 h-10 overflow-hidden rounded-full">
+                <Image src={navlink.icon} alt="" layout="fill" />
+              </div>
+              <h2>{navlink.label}</h2>
+            </a>
+          </Link>
+        ) : (
+          <p
+            key={index}
             className={
               "text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all "
             }
@@ -78,9 +95,9 @@ const LeftNav = ({ user }: { user: any }) => {
               <Image src={navlink.icon} alt="" layout="fill" />
             </div>
             <h2>{navlink.label}</h2>
-          </a>
-        </Link>
-      ))}
+          </p>
+        )
+      )}
     </nav>
   );
 };
