@@ -39,11 +39,12 @@ const FriendsOverlay = ({ user }: { user: any }) => {
               <h1>
                 {friend.firstName} {friend.lastName}
               </h1>
-              <Link href={"/api/users/" + friend._id + "/message"}>
-                <a className="p-1 px-2 text-base text-white transition-all bg-blue-600 rounded-lg hover:bg-blue-700 active:scale-95">
-                  Message
-                </a>
-              </Link>
+              <a
+                href={"/api/users/" + friend._id + "/message"}
+                className="p-1 px-2 text-base text-white transition-all bg-blue-600 rounded-lg hover:bg-blue-700 active:scale-95"
+              >
+                Message
+              </a>
             </div>
           ))}
         </div>
