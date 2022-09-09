@@ -49,7 +49,7 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
                       <button
                         className="p-2 px-3 font-semibold text-[#18f261] bfg-[#1b74e4] bg-[#e7fff3] hovefr:bg-[#1a6ed8] hover:bg-[#dbf2e5] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2 active:scale-95 w-[90%]"
                         onClick={() => {
-                          request("request", u);
+                          request("confirm", u);
                         }}
                       >
                         Confirm
@@ -58,7 +58,10 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
                     <button
                       className="p-2 px-3 font-semibold text-[#f21818] bfg-[#1b74e4] bg-[#ffe7e7] hovefr:bg-[#1a6ed8] hover:bg-[#f2dbdb] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2 active:scale-95 w-[100%]"
                       onClick={() => {
-                        request("request", u);
+                        request(
+                          requests.sent.includes(u._id) ? "request" : "delete",
+                          u
+                        );
                       }}
                     >
                       {requests.sent.includes(u._id)
