@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const PostOptions = () => {
+const PostOptions = ({ user, post }: { user: any; post: any }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
@@ -23,27 +23,32 @@ const PostOptions = () => {
             />
             <span> Save Post</span>
           </button>
-          <hr className="my-2" />
-          <button className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-blue-200">
-            <div
-              style={{
-                backgroundImage: `url(${"/Assets/buttons4.png"})`,
-                backgroundPosition: "0px -526px",
-              }}
-              className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
-            />
-            <span> Edit Post</span>
-          </button>
-          <button className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-red-200">
-            <div
-              style={{
-                backgroundImage: `url(${"/Assets/buttons3.png"})`,
-                backgroundPosition: "0px -1313px",
-              }}
-              className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
-            />
-            <span> Delete Post </span>
-          </button>
+
+          {post.author._id === user._id && (
+            <>
+              <hr className="my-2" />
+              <button className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-blue-200">
+                <div
+                  style={{
+                    backgroundImage: `url(${"/Assets/buttons4.png"})`,
+                    backgroundPosition: "0px -526px",
+                  }}
+                  className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
+                />
+                <span> Edit Post</span>
+              </button>
+              <button className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-red-200">
+                <div
+                  style={{
+                    backgroundImage: `url(${"/Assets/buttons3.png"})`,
+                    backgroundPosition: "0px -1313px",
+                  }}
+                  className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
+                />
+                <span> Delete Post </span>
+              </button>
+            </>
+          )}
         </div>
       )}
       {isVisible && (

@@ -114,7 +114,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
             </p>
           </div>
         </div>
-        <PostOptions />
+        <PostOptions user={user} post={post} />
       </div>
       <p className="p-6 py-4 text-justify">{post.text}</p>
       {post.image && (
