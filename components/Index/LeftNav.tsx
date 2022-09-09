@@ -68,7 +68,10 @@ const LeftNav = ({ user }: { user: any }) => {
   return (
     <nav className="h-full w-[320px] overflow-y-scroll m-0 fixed left-4 top-16 pb-24 noscroll hidden lg:block">
       {navlinks.map((navlink, index) =>
-        /users|friends|saved|messages/gm.test(navlink.href) ? ( // <-- regex
+        navlink.href.includes("users") ||
+        navlink.href.includes("friends") ||
+        navlink.href.includes("messages") ||
+        navlink.href.includes("saved") ? (
           <Link href={navlink.href} key={index}>
             <a
               className={
