@@ -11,6 +11,7 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
   allUsers = JSON.parse(allUsers);
 
   const [requests, setRequests] = useState(user.friendRequests);
+  console.log("requests: ", requests);
   const [friends, setFriends] = useState(user.friends.map((f: any) => f._id));
 
   const request = (action: string, u: any) => {
@@ -35,7 +36,10 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
           <h1 className="font-bold">People You May Know</h1>
           <div className="flex flex-wrap gap-4 p-4 text-center">
             {allUsers.map((u: any) => {
-              return friends.includes(u._id) || u._id === user._id ? null : (
+              return friends.includes(u._id) ||
+                requests.sent.includes(u._id) ||
+                requests.received.includes(u._id) ||
+                u._id === user._id ? null : (
                 <div
                   key={u._id}
                   className="flex flex-col items-center w-48 gap-3 overflow-hidden bg-white rounded-lg shadow h-72"
@@ -48,18 +52,14 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
                   </h3>
                   <button
                     className="p-2 px-3 font-semibold text-[#1877f2] bfg-[#1b74e4] bg-[#e7f3ff] hovefr:bg-[#1a6ed8] hover:bg-[#dbe7f2] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2 active:scale-95 w-[90%]"
-                    // onClick={() => {
-                    //   if (
-                    //     friends.includes(profile._id) ||
-                    //     requests.received.includes(profile._id)
-                    //   )
-                    //     setShowMenu(!showMenu);
-                    //   else request("request");
-                    // }}
+                    onClick={() => {
+                      request("request", u);
+                    }}
                   >
-                    {requests.sent.includes(u._id)
+                    {/* {requests.sent.includes(u._id)
                       ? "Cancel Request"
-                      : "Add Friend"}
+                      : "Add Friend"} */}
+                    Add Friend
                   </button>
                 </div>
               );
