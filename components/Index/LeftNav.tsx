@@ -5,7 +5,7 @@ import React from "react";
 const LeftNav = ({ user }: { user: any }) => {
   const navlinks = [
     {
-      href: "/user/" + user._id,
+      href: "/users/" + user._id,
       label: user.firstName + " " + user.lastName,
       icon: user.picture,
     },
