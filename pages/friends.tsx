@@ -29,7 +29,7 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
     <Header user={user}>
       <div className="relative w-screen min-h-screen text-black bg-[#f0f2f5] px-4 p-4">
         <div>
-          <h1 className="font-bold">Friend Requests</h1>
+          <h1 className="text-xl font-bold">Friend Requests</h1>
           <div className="flex flex-wrap gap-4 p-4 text-center">
             {allUsers.map((u: any) => {
               return requests.sent.includes(u._id) ||
@@ -76,7 +76,7 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
         </div>
         <hr />
         <div>
-          <h1 className="font-bold">People You May Know</h1>
+          <h1 className="text-xl font-bold">People You May Know</h1>
           <div className="flex flex-wrap gap-4 p-4 text-center">
             {allUsers.map((u: any) => {
               return friends.includes(u._id) ||
