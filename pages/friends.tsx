@@ -5,9 +5,24 @@ import Image from "next/image";
 import { useState } from "react";
 import getUser from "../lib/Auth/getUser";
 import User from "../models/User";
+import axios from "axios";
 
 const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
   allUsers = JSON.parse(allUsers);
+
+  const [requests, setRequests] = useState(user.friendRequests);
+  const [friends, setFriends] = useState(user.friends.map((f: any) => f._id));
+
+  const request = (action: string, u: any) => {
+    axios
+      .post("/api/friends/" + action, {
+        id: u._id,
+      })
+      .then(res => {
+        setRequests(res.data.requests);
+        if (res.data.friends) setFriends(res.data.friends);
+      });
+  };
 
   return (
     <Header user={user}>
@@ -20,8 +35,7 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
           <h1 className="font-bold">People You May Know</h1>
           <div className="flex flex-wrap gap-4 p-4 text-center">
             {allUsers.map((u: any) => {
-              return user.friends.map((f: any) => f._id).includes(u._id) ||
-                u._id === user._id ? null : (
+              return friends.includes(u._id) || u._id === user._id ? null : (
                 <div
                   key={u._id}
                   className="flex flex-col items-center w-48 gap-3 overflow-hidden bg-white rounded-lg shadow h-72"
@@ -43,16 +57,9 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
                     //   else request("request");
                     // }}
                   >
-                    {/* <div
-                      style={{
-                        backgroundImage: false
-                          ? "url(/Assets/cancelrequest.png)"
-                          : "url(/Assets/addfriend.png)",
-                        filter: "invert(1)",
-                      }}
-                      className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
-                    /> */}
-                    {false ? "Cancel Request" : "Add Friend"}
+                    {requests.sent.includes(u._id)
+                      ? "Cancel Request"
+                      : "Add Friend"}
                   </button>
                 </div>
               );
