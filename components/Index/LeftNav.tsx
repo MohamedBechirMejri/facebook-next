@@ -60,7 +60,7 @@ const LeftNav = ({ user }: { user: any }) => {
       icon: "/Assets/favorites-colored.png",
     },
     {
-      href: "/messenger",
+      href: "/messages",
       label: "Messenger",
       icon: "/Assets/messenger-colored.png",
     },
