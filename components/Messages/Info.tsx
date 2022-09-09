@@ -112,6 +112,11 @@ const Info = ({
             <HexColorPicker color={theme} onChange={setTheme} />
             <div className="flex gap-4">
               <button
+                className="p-1 px-2 font-semibold transition-all border rounded active:scale-95"
+                style={{
+                  color: theme,
+                  borderColor: theme,
+                }}
                 onClick={() => {
                   setIsSettingTheme(false);
                   setTheme(conversation?.theme);
@@ -120,6 +125,11 @@ const Info = ({
                 Cancel
               </button>
               <button
+                className="p-1 px-4 font-semibold text-white transition-all border rounded active:scale-95"
+                style={{
+                  backgroundColor: theme,
+                  borderColor: theme,
+                }}
                 onClick={() => {
                   setIsSettingTheme(false);
                   sendCustomization();
