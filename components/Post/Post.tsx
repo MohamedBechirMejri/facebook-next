@@ -5,6 +5,7 @@ import PostType from "../../types/PostType";
 import Comments from "./Comments";
 import Reactions from "./Reactions";
 import PostOptions from "./PostOptions";
+import { formatDistanceToNow } from "date-fns";
 
 const Post = ({ post, user }: { post: PostType; user: any }) => {
   const [reacts, setReacts] = useState(
@@ -81,8 +82,9 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
               )}
               <span>
                 <Link href={"/posts/" + post._id}>
-                  {/* TODO: format date */}
-                  <a className="hover:underline">{post.createdAt}</a>
+                  <a className="hover:underline">
+                    {formatDistanceToNow(new Date(post.createdAt))} ago
+                  </a>
                 </Link>
               </span>{" "}
               ·{" "}
