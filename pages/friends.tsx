@@ -30,6 +30,46 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
       <div className="relative w-screen min-h-screen text-black bg-[#f0f2f5] px-4 p-4">
         <div>
           <h1 className="font-bold">Friend Requests</h1>
+          <div className="flex flex-wrap gap-4 p-4 text-center">
+            {allUsers.map((u: any) => {
+              return requests.sent.includes(u._id) ||
+                requests.received.includes(u._id) ? (
+                <div
+                  key={u._id}
+                  className="flex flex-col items-center w-48 gap-2 overflow-hidden bg-white rounded-lg shadow h-72"
+                >
+                  <div className="relative w-full h-2/3">
+                    <Image src={u.picture} layout="fill" alt="" />
+                  </div>
+                  <h3 className="font-bold">
+                    {u.firstName} {u.lastName}
+                  </h3>
+                  <div className="flex gap-2">
+                    {!requests.sent.includes(u._id) && (
+                      <button
+                        className="p-2 px-3 font-semibold text-[#18f261] bfg-[#1b74e4] bg-[#e7fff3] hovefr:bg-[#1a6ed8] hover:bg-[#dbf2e5] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2 active:scale-95 w-[90%]"
+                        onClick={() => {
+                          request("request", u);
+                        }}
+                      >
+                        Confirm
+                      </button>
+                    )}
+                    <button
+                      className="p-2 px-3 font-semibold text-[#f21818] bfg-[#1b74e4] bg-[#ffe7e7] hovefr:bg-[#1a6ed8] hover:bg-[#f2dbdb] rounded-lg tracking-tight transition-all flex items-center justify-center gap-2 active:scale-95 w-[100%]"
+                      onClick={() => {
+                        request("request", u);
+                      }}
+                    >
+                      {requests.sent.includes(u._id)
+                        ? "Cancel Request"
+                        : "Delete"}
+                    </button>
+                  </div>
+                </div>
+              ) : null;
+            })}
+          </div>
         </div>
         <hr />
         <div>
@@ -56,9 +96,6 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
                       request("request", u);
                     }}
                   >
-                    {/* {requests.sent.includes(u._id)
-                      ? "Cancel Request"
-                      : "Add Friend"} */}
                     Add Friend
                   </button>
                 </div>
