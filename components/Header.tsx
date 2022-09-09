@@ -43,26 +43,21 @@ const Header = ({
               <Image src="/Assets/friends.svg" height={50} width={50} alt="" />
             </a>
           </Link>
-          <Link href="/watch">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all justify-center">
-              <Image src="/Assets/watch.svg" height={50} width={50} alt="" />
-            </a>
-          </Link>
-          <Link href="/marketplace">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex  transition-all  justify-center">
-              <Image
-                src="/Assets/marketplace.svg"
-                height={50}
-                width={50}
-                alt=""
-              />
-            </a>
-          </Link>
-          <Link href="/groups">
-            <a className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all   justify-center">
-              <Image src="/Assets/groups.svg" height={50} width={50} alt="" />
-            </a>
-          </Link>
+
+          <p className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all justify-center">
+            <Image src="/Assets/watch.svg" height={50} width={50} alt="" />
+          </p>
+          <p className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex  transition-all  justify-center">
+            <Image
+              src="/Assets/marketplace.svg"
+              height={50}
+              width={50}
+              alt=""
+            />
+          </p>
+          <p className="hover:bg-[#f2f2f2] rounded-lg h-full w-full py-2 flex transition-all   justify-center">
+            <Image src="/Assets/groups.svg" height={50} width={50} alt="" />
+          </p>
         </div>
         <div className="absolute top-0 right-0 flex items-center justify-center h-full gap-2 p-2 px-4">
           <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
