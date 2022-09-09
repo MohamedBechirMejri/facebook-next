@@ -153,8 +153,13 @@ const Info = ({
               // defaultSkinTone={SkinTones.MEDIUM}
               emojiStyle={EmojiStyle.FACEBOOK}
             />
-            <div className="z-10 flex gap-4 hover:bg-gray-400">
+            <div className="z-10 flex gap-4">
               <button
+                className="p-1 px-2 font-semibold transition-all border rounded active:scale-95"
+                style={{
+                  color: theme,
+                  borderColor: theme,
+                }}
                 onClick={() => {
                   setIsSettingEmoji(false);
                   setEmoji(conversation?.emoji);
@@ -163,6 +168,11 @@ const Info = ({
                 Cancel
               </button>
               <button
+                className="p-1 px-4 font-semibold text-white transition-all border rounded active:scale-95"
+                style={{
+                  backgroundColor: theme,
+                  borderColor: theme,
+                }}
                 onClick={() => {
                   setIsSettingEmoji(false);
                   sendCustomization();
