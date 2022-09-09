@@ -27,7 +27,7 @@ const PostOptions = ({ user, post }: { user: any; post: any }) => {
           {post.author._id === user._id && (
             <>
               <hr className="my-2" />
-              <button className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-blue-200">
+              <button className="flex items-center gap-2 p-2 mb-2 text-left transition-all bg-gray-100 rounded-lg cursor-default">
                 <div
                   style={{
                     backgroundImage: `url(${"/Assets/buttons4.png"})`,
