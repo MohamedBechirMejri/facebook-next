@@ -5,7 +5,6 @@ import VideoSvg from "./SVGs/Video";
 import InfoSvg from "./SVGs/Info";
 import MoreSvg from "./SVGs/More";
 import MediaSvg from "./SVGs/Media";
-import StickerSvg from "./SVGs/Sticker";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { L49, L92 } from "react-isloading";
@@ -21,6 +20,7 @@ import uniqid from "uniqid";
 import EmojiOverlay from "./EmojiOverlay";
 import GifOverlay from "./GifOverlay";
 import StickersOverlay from "./StickersOverlay";
+import { formatDistanceToNow } from "date-fns";
 
 const Main = ({
   user,
@@ -172,7 +172,7 @@ const Main = ({
           {conversation?.messages.map((msg: any) => (
             <div key={msg._id} className="w-full">
               <p className="w-full p-4 text-xs text-center text-gray-400">
-                {msg.createdAt}
+                {formatDistanceToNow(new Date(msg.createdAt))} ago
               </p>
               <div
                 className={`flex items-end gap-2 p-4 ${
