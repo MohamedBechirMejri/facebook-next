@@ -228,20 +228,20 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
           >
             <div
               style={{
-                backgroundImage: `url(
-                  /Assets/${
-                    userReaction === "love"
-                      ? "love.svg"
-                      : userReaction === "haha"
-                      ? "haha.svg"
-                      : userReaction === "wow"
-                      ? "wow.svg"
-                      : userReaction === "sad"
-                      ? "sad.svg"
-                      : userReaction === "angry"
-                      ? "angry.svg"
-                      : "buttons.png"
-                  })`,
+                backgroundImage:
+                  "url(/Assets/" +
+                  (userReaction === "love"
+                    ? "love.svg"
+                    : userReaction === "haha"
+                    ? "haha.svg"
+                    : userReaction === "wow"
+                    ? "wow.svg"
+                    : userReaction === "sad"
+                    ? "sad.svg"
+                    : userReaction === "angry"
+                    ? "angry.svg"
+                    : "buttons.png") +
+                  ")",
                 backgroundPosition:
                   userReaction && userReaction !== "like"
                     ? ""
@@ -249,9 +249,9 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                     ? "0px -277px"
                     : "0px -297px",
                 filter:
-                  userReaction !== "like"
-                    ? ""
-                    : "invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%)",
+                  userReaction === "like"
+                    ? "invert(39%) sepia(57%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(200%) saturate(147.75%) hue-rotate(202deg) brightness(97%) contrast(96%)"
+                    : "none",
                 // TODO: animate like button
               }}
               className="w-[18px] h-[18px] bg-no-repeat inline-block bg-auto "
@@ -272,13 +272,13 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                     ? "#F7B125"
                     : userReaction === "angry"
                     ? "#E7910F"
-                    : "",
+                    : "#606266",
                 fontWeight: 600,
                 fontSize:
                   userReaction && userReaction !== "like" ? "1.15rem" : "1rem",
                 // : ".9375rem",
                 marginLeft:
-                  userReaction && userReaction !== "like" ? "5px" : "",
+                  userReaction && userReaction !== "like" ? "5px" : "0px",
               }}
             >
               {userReaction || "Like"}
