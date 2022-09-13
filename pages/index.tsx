@@ -33,7 +33,13 @@ const Home = ({ user }: { user: any }) => {
         />
       )}
       <Header user={user}>
-        {isAddingPost && <AddPost setIsAddingPost={setIsAddingPost} />}
+        {isAddingPost && (
+          <AddPost
+            setIsAddingPost={setIsAddingPost}
+            posts={posts}
+            setPosts={setPosts}
+          />
+        )}
         <div className="relative flex w-screen min-h-screen p-2 py-4 text-black">
           <LeftNav user={user} />
           <main className="mx-auto w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5] text-[#606266]">

@@ -1,11 +1,16 @@
 import Image from "next/image";
 import React from "react";
 import ImageUpload from "./ImageUpload";
+import axios from "axios";
 
 const AddPost = ({
   setIsAddingPost,
+  posts,
+  setPosts,
 }: {
   setIsAddingPost: (isAddingPost: boolean) => void;
+  posts: any;
+  setPosts: any;
 }) => {
   const [text, setText] = React.useState("");
   const [image, setImage] = React.useState("");
@@ -15,19 +20,13 @@ const AddPost = ({
     e.preventDefault();
     setIsAddingPost(false);
 
-    fetch("/api/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    axios
+      .post("/api/posts", {
         text,
         image,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
+      })
+      .then(() => {
+        axios.get("/api/posts").then(res => setPosts(res.data.posts));
       });
   };
 
