@@ -4,16 +4,22 @@ import Link from "next/link";
 import Image from "next/image";
 import Post from "../components/Post/Post";
 import PostType from "../types/PostType";
-import getPosts from "../lib/getPosts";
 import { L49 } from "react-isloading";
 import LeftNav from "../components/Index/LeftNav";
 import AddPost from "../components/Post/AddPost";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import getUser from "../lib/Auth/getUser";
 import RightNav from "../components/Index/RightNav";
+import axios from "axios";
 
-const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
+const Home = ({ user }: { user: any }) => {
   user = user.user;
+
+  const [posts, setPosts] = useState([] as PostType[]);
+
+  useEffect(() => {
+    axios.get("/api/posts").then(res => setPosts(res.data.posts));
+  }, []);
 
   const [isAddingPost, setIsAddingPost] = useState(false);
   return (
@@ -119,15 +125,12 @@ const Home = ({ posts, user }: { posts: PostType[]; user: any }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const posts = (await getPosts()) as PostType[];
-
   let user = null;
 
   // @ts-ignore
   user = await getUser(req, res);
   return {
     props: {
-      posts: posts || [],
       user,
     },
   };
