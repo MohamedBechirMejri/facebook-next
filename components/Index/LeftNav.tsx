@@ -83,10 +83,10 @@ const LeftNav = ({ user }: { user: any }) => {
                 "text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all after:block after:w-2 after:h-2 after:bg-green-400 relative after:absolute after:right-4 after:rounded-full"
               }
             >
-              <div className="relative w-10 h-10 overflow-hidden rounded-full">
+              <span className="relative w-10 h-10 overflow-hidden rounded-full">
                 <Image src={navlink.icon} alt="" layout="fill" />
-              </div>
-              <h2>{navlink.label}</h2>
+              </span>
+              <span>{navlink.label}</span>
             </a>
           </Link>
         ) : (
@@ -96,10 +96,10 @@ const LeftNav = ({ user }: { user: any }) => {
               "text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all "
             }
           >
-            <div className="relative w-10 h-10 overflow-hidden rounded-full">
+            <span className="relative w-10 h-10 overflow-hidden rounded-full">
               <Image src={navlink.icon} alt="" layout="fill" />
-            </div>
-            <h2>{navlink.label}</h2>
+            </span>
+            <span>{navlink.label}</span>
           </p>
         )
       )}
