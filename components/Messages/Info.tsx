@@ -147,7 +147,7 @@ const Info = ({
               autoFocusSearch={false}
               theme={Theme.LIGHT}
               // lazyLoadEmojis={true}
-              showPreview={false}
+              // showPreview={false}
               // skinTonesDisabled
               // searchPlaceHolder="Filter"
               // defaultSkinTone={SkinTones.MEDIUM}
