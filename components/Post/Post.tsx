@@ -33,7 +33,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
   }, [reacts, user._id]);
 
   return (
-    <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg">
+    <div className="flex flex-col items-stretch justify-center gap-2 py-4 bg-white rounded-lg animate-reveal">
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <Link href={post.author.nickname || "/users/" + post.author._id}>
