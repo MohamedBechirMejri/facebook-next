@@ -31,8 +31,7 @@ export const getServerSideProps = async ({
   await dbConnect();
 
   // @ts-ignore
-  let user = await getUser(req, res);
-  user = user.user;
+  const { user } = await getUser(req, res);
 
   const { id } = query;
 

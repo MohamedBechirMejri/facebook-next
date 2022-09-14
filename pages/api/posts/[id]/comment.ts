@@ -31,7 +31,6 @@ export default async function handler(
     user: {
       firstName: user.user.firstName,
       lastName: user.user.lastName,
-      nickame: user.user.nickname,
       picture: user.user.picture,
       _id: user.user._id,
     },
