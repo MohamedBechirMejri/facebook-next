@@ -4,20 +4,20 @@ import { useRouter } from "next/router";
 
 const PostOptions = ({ user, post }: { user: any; post: any }) => {
   const Router = useRouter();
-  const { id } = Router.query;
 
   const [isVisible, setIsVisible] = useState(false);
 
   const handleSave = (e: React.MouseEvent) => {
     e.preventDefault();
-    axios.get("/api/posts/" + id + "/save").then(res => {
+    axios.get("/api/posts/" + post._id + "/save").then(res => {
       console.log(res.status); // TODO: Add Toast (Saved | Unsaved)
+      setIsVisible(false);
     });
   };
 
   const handleDelete = (e: React.MouseEvent) => {
     e.preventDefault();
-    axios.get("/api/posts/" + id + "/delete").then(() => Router.reload);
+    axios.get("/api/posts/" + post._id + "/delete").then(() => Router.reload);
   };
 
   return (
