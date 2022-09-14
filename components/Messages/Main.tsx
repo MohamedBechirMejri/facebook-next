@@ -16,6 +16,13 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+import {
+  getFirestore,
+  onSnapshot,
+  setDoc,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 import uniqid from "uniqid";
 import EmojiOverlay from "./EmojiOverlay";
 import GifOverlay from "./GifOverlay";
@@ -42,6 +49,54 @@ const Main = ({
   const [messageText, setMessageText] = useState("");
   const [imageLink, setImageLink] = useState("");
   const [isUploading, setIsUploading] = useState(false);
+  const [latestMessage, setLatestMessage] = useState("");
+
+  useEffect(() => {
+    const firebaseConfig = {
+      apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+      authDomain: "facebook-clone-6c38e.firebaseapp.com",
+      projectId: "facebook-clone-6c38e",
+      storageBucket: "facebook-clone-6c38e.appspot.com",
+      messagingSenderId: "337509918932",
+      appId: "1:337509918932:web:4f1b7c8fb17951b73f7341",
+    };
+
+    initializeApp(firebaseConfig);
+  }, []);
+
+  useEffect(() => {
+    if (!conversation) return;
+    const msgs = Ref.current;
+    // @ts-ignore
+    msgs.scrollTop = msgs.scrollHeight;
+  }, [conversation]);
+
+  useEffect(() => {
+    axios.get("/api/conversations/" + router.query.id).then(res => {
+      setConversation(res.data.conversation);
+    });
+  }, [latestMessage, router.query.id, setConversation]);
+
+  useEffect(() => {
+    const db = getFirestore();
+
+    if (!conversation) return;
+
+    const unsubscribe = onSnapshot(
+      doc(db, "conversations", conversation._id),
+      Doc => {
+        if (!Doc.data()) {
+          setDoc(doc(db, "conversations", conversation._id), {
+            latestMessage: new Date(),
+            users: [conversation.users[0]._id, conversation.users[1]._id],
+          });
+        } else setLatestMessage(Doc.data()!.latestMessage);
+      }
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, [conversation]);
 
   const sendMessage = () => {
     if (!messageText && !imageLink) return;
@@ -67,26 +122,6 @@ const Main = ({
         setConversation(res.data.conversation);
       });
   };
-
-  useEffect(() => {
-    const firebaseConfig = {
-      apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-      authDomain: "facebook-clone-6c38e.firebaseapp.com",
-      projectId: "facebook-clone-6c38e",
-      storageBucket: "facebook-clone-6c38e.appspot.com",
-      messagingSenderId: "337509918932",
-      appId: "1:337509918932:web:4f1b7c8fb17951b73f7341",
-    };
-
-    initializeApp(firebaseConfig);
-  }, []);
-
-  useEffect(() => {
-    if (!conversation) return;
-    const msgs = Ref.current;
-    // @ts-ignore
-    msgs.scrollTop = msgs.scrollHeight;
-  }, [conversation]);
 
   const handleChange = (e: any) => {
     setImageLink("");
