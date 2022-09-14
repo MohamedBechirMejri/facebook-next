@@ -1,9 +1,16 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { deleteCookie } from "cookies-next";
+import Router from "next/router";
 
 const UserOptions = ({ user }: { user: any }) => {
   const [isVisible, setIsVisible] = useState(false);
+
+  const handleLogout = () => {
+    deleteCookie("token");
+    Router.replace("/");
+  };
 
   return (
     <div>
@@ -45,21 +52,22 @@ const UserOptions = ({ user }: { user: any }) => {
               <span>Settings</span>
             </a>
           </Link>
-          <Link href={"/users/" + user._id + "/logout"}>
-            <a className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-red-200">
-              <div className=" bg-[#d8dadf] px-[.6rem] rounded-full pt-2 p-1 mr-1 ">
-                {" "}
-                <div
-                  style={{
-                    backgroundImage: `url(${"/Assets/buttons5.png"})`,
-                    backgroundPosition: "0px -71px",
-                  }}
-                  className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
-                />
-              </div>
-              <span>Logout</span>
-            </a>
-          </Link>
+
+          <button
+            className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-red-200"
+            onClick={handleLogout}
+          >
+            <div className=" bg-[#d8dadf] px-[.6rem] rounded-full pt-2 p-1 mr-1 ">
+              <div
+                style={{
+                  backgroundImage: `url(${"/Assets/buttons5.png"})`,
+                  backgroundPosition: "0px -71px",
+                }}
+                className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
+              />
+            </div>
+            <span>Logout</span>
+          </button>
         </div>
       )}
       {isVisible && (
