@@ -6,11 +6,13 @@ const PostOptions = ({ user, post }: { user: any; post: any }) => {
   const Router = useRouter();
 
   const [isVisible, setIsVisible] = useState(false);
+  const [saves, setSaves] = useState(user.saves);
 
   const handleSave = (e: React.MouseEvent) => {
     e.preventDefault();
     axios.get("/api/posts/" + post._id + "/save").then(res => {
-      console.log(res.status); // TODO: Add Toast (Saved | Unsaved)
+      console.log(res.data.status); // TODO: Add Toast (Saved | Unsaved)
+      setSaves(res.data.saves);
       setIsVisible(false);
     });
   };
@@ -41,10 +43,7 @@ const PostOptions = ({ user, post }: { user: any; post: any }) => {
               }}
               className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
             />
-            <span>
-              {/* // TODO: Alternate based on user saves (Save|Unsave Post) */}
-              Save Post
-            </span>
+            <span>{saves.includes(post._id) ? "Unsave" : "Save"} Post</span>
           </button>
 
           {post.author._id === user._id && (
