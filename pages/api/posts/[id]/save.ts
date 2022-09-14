@@ -22,7 +22,9 @@ export default async function handler(
   const user = await User.findById(authData.user._id);
 
   if (user.saves.includes(post._id))
-    user.saves = user.saves.filter((id: any) => id !== post._id);
+    user.saves = user.saves.filter(
+      (id: any) => id.toString() !== post._id.toString()
+    );
   else user.saves.push(post._id);
 
   user.save((err: any, user: any) => {
