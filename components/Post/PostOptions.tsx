@@ -1,7 +1,24 @@
 import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const PostOptions = ({ user, post }: { user: any; post: any }) => {
+  const Router = useRouter();
+  const { id } = Router.query;
+
   const [isVisible, setIsVisible] = useState(false);
+
+  const handleSave = (e: React.MouseEvent) => {
+    e.preventDefault();
+    axios.get("/api/posts/" + id + "/save").then(res => {
+      console.log(res.status); // TODO: Add Toast (Saved | Unsaved)
+    });
+  };
+
+  const handleDelete = (e: React.MouseEvent) => {
+    e.preventDefault();
+    axios.get("/api/posts/" + id + "/delete").then(() => Router.reload);
+  };
 
   return (
     <div className="relative">
@@ -13,7 +30,10 @@ const PostOptions = ({ user, post }: { user: any; post: any }) => {
       </div>
       {isVisible && (
         <div className="absolute z-20 flex flex-col p-2 bg-white border rounded-lg shadow w-72 right-1 top-12 h-max">
-          <button className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-green-200">
+          <button
+            className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-green-200"
+            onClick={handleSave}
+          >
             <div
               style={{
                 backgroundImage: `url(${"/Assets/buttons3.png"})`,
@@ -21,7 +41,10 @@ const PostOptions = ({ user, post }: { user: any; post: any }) => {
               }}
               className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
             />
-            <span> Save Post</span>
+            <span>
+              {/* // TODO: Alternate based on user saves (Save|Unsave Post) */}
+              Save Post
+            </span>
           </button>
 
           {post.author._id === user._id && (
@@ -37,7 +60,10 @@ const PostOptions = ({ user, post }: { user: any; post: any }) => {
                 />
                 <span> Edit Post</span>
               </button>
-              <button className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-red-200">
+              <button
+                className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-red-200"
+                onClick={handleDelete}
+              >
                 <div
                   style={{
                     backgroundImage: `url(${"/Assets/buttons3.png"})`,
