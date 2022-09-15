@@ -16,6 +16,7 @@ const handler = nc({
   passport.authenticate("facebook", {
     assignProperty: "user",
     failureRedirect: "/login",
+    scope: ["email", "public_profile"],
   }),
   (req, res) => {
     jwt.sign(
