@@ -9,7 +9,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: "/api/auth/callback",
+      callbackURL: "https://odinbook-next.vercel.app/api/auth/callback",
       profileFields: [
         "id",
         "first_name",
