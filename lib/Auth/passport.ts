@@ -16,9 +16,9 @@ passport.use(
         "picture",
         "email",
         "last_name",
-        "middle_name",
-        "birthday",
-        "gender",
+        // "middle_name",
+        // "birthday",
+        // "gender",
       ],
     },
     //@ts-ignore
@@ -35,7 +35,7 @@ passport.use(
             email: profile.emails[0].value,
             picture: profile.photos[0].value,
           });
-          if (profile.username) newUser.nickname = profile.username;
+          // if (profile.username) newUser.nickname = profile.username;
           newUser.save((err: any) => {
             if (err) return cb(err);
             return cb(null, newUser);
