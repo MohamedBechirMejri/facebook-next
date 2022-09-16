@@ -17,6 +17,7 @@ const nextConfig = {
       "media2.giphy.com",
       "media1.giphy.com",
       "media0.giphy.com",
+      "pbs.twimg.com",
     ],
   },
 };
