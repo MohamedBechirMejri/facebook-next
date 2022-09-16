@@ -298,7 +298,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
             />
             <span>Comment</span>
           </button>
-          <button className="flex items-center gap-1 p-2 px-10 transition-all rounded-lg hover:bg-gray-100 active:scale-95">
+          <button className="items-center hidden gap-1 p-2 px-10 transition-all rounded-lg  hover:bg-gray-100 active:scale-95 sm:flex">
             {" "}
             <div
               style={{
