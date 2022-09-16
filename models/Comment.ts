@@ -55,10 +55,6 @@ const CommentSchema = new Schema(
         type: String,
         required: true,
       },
-      nickname: {
-        type: String,
-        unique: true,
-      },
       picture: {
         type: String,
       },
