@@ -10,7 +10,7 @@ const Chats = ({
   user?: any;
 }) => {
   return (
-    <div className="w-[360px] h-full shrink-0 px-4 py-2">
+    <div className="hidden w-[360px] h-full shrink-0 px-4 py-2 sm:block">
       <h1 className="flex items-center justify-between pb-4 text-2xl font-semibold">
         <span>Chats</span>
         <div className="flex items-center gap-4 px-4 pt-2">
