@@ -29,7 +29,7 @@ const Home = ({ user }: { user: any }) => {
       <Header user={user}>
         <div className="relative flex w-screen min-h-screen p-2 py-4 text-black">
           <h1 className="fixed text-3xl font-semibold top-24 left-12">Saved</h1>
-          <main className="mx-auto w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5] text-[#606266]">
+          <main className="mx-auto sm:w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5] text-[#606266] w-full">
             <div className="flex flex-col items-stretch gap-4">
               {posts && posts.length > 0 ? (
                 posts.map((p, i) =>
