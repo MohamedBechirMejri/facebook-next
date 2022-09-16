@@ -60,7 +60,7 @@ const Header = ({
           </p>
         </div>
         <div className="absolute top-0 right-0 flex items-center justify-center h-full gap-2 p-2 px-4">
-          <button className="bg-[#d8dadf] rounded-full w-10 h-10 sm:flex items-center justify-center hidden">
+          <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
             <Image src="/Assets/menu.svg" height={20} width={20} alt="" />
           </button>
           <Link href="/messages">
