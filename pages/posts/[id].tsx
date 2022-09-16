@@ -45,8 +45,6 @@ export const getServerSideProps = async ({
       model: User,
     });
 
-  console.log(p);
-
   const post = {
     _id: p._id.toString(),
     author: {

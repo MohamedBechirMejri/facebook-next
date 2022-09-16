@@ -23,7 +23,7 @@ const Reactions = ({
         }
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   };
 

@@ -219,9 +219,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                     );
                   }
                 })
-                .catch(err => {
-                  console.log(err);
-                });
+                .catch(err => {});
             }}
             onMouseEnter={() => setIsReacting(true)}
             onMouseLeave={() => setIsReacting(false)}

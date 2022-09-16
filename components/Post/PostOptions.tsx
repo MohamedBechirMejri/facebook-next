@@ -11,7 +11,7 @@ const PostOptions = ({ user, post }: { user: any; post: any }) => {
   const handleSave = (e: React.MouseEvent) => {
     e.preventDefault();
     axios.get("/api/posts/" + post._id + "/save").then(res => {
-      console.log(res.data.status); // TODO: Add Toast (Saved | Unsaved)
+      // console.log(res.data.status); // TODO: Add Toast (Saved | Unsaved)
       setSaves(res.data.saves);
       setIsVisible(false);
     });

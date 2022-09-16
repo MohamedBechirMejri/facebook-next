@@ -11,7 +11,6 @@ const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {
   allUsers = JSON.parse(allUsers);
 
   const [requests, setRequests] = useState(user.friendRequests);
-  console.log("requests: ", requests);
   const [friends, setFriends] = useState(user.friends.map((f: any) => f._id));
 
   const request = (action: string, u: any) => {

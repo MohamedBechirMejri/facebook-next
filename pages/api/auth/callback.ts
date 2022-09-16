@@ -6,7 +6,6 @@ import { setCookie } from "cookies-next";
 
 const handler = nc({
   onError: (err, req: NextApiRequest, res: NextApiResponse, next) => {
-    console.error(err.stack);
     res.status(500).json({ msg: "Something broke!", err });
   },
   onNoMatch: (req, res) => {
