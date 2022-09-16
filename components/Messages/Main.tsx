@@ -155,7 +155,7 @@ const Main = ({
     <main className="flex flex-col justify-between w-full h-full ">
       <div className="flex items-center justify-between p-4 border-b">
         <div className="flex items-center gap-4">
-          <div className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden transition-all active:scale-95 z-20 ">
+          <div className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden transition-all active:scale-95 z-20 shrink-0">
             <Image
               src={
                 // @ts-ignore
@@ -169,7 +169,7 @@ const Main = ({
               layout="fill"
             />
           </div>
-          <p className="text-xl font-bold">
+          <p className="text-xs font-bold sm:text-xl">
             {
               // @ts-ignore
               conversation.users[0]._id !== user._id
@@ -240,14 +240,14 @@ const Main = ({
                       <p
                         className={`p-2 px-4 bg-gray-200 ${
                           msg.image && "rounded-b-none"
-                        }  rounded-3xl`}
+                        }  rounded-3xl max-w-[75vw] break-words`}
                       >
                         {msg.text}
                       </p>
                     )}
                     {msg.image && (
                       <div
-                        className={`overflow-hidden rounded-lg rounded-t-none w-72 shrink-0 ${
+                        className={`overflow-hidden rounded-lg rounded-t-none sm:w-72 shrink-0 ${
                           msg.text && "rounded-b-none"
                         }`}
                       >
@@ -259,6 +259,8 @@ const Main = ({
                           style={{
                             borderBottomRightRadius: ".5rem",
                             borderBottomLeftRadius: ".5rem",
+                            borderTopRightRadius: msg.text ? "" : ".5rem",
+                            borderTopLeftRadius: msg.text ? "" : ".5rem",
                           }}
                         />
                       </div>
