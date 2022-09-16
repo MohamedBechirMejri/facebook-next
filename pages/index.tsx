@@ -23,7 +23,7 @@ const Home = ({ user }: { user: any }) => {
 
   const [isAddingPost, setIsAddingPost] = useState(false);
   return (
-    <div>
+    <>
       {isAddingPost && (
         <div
           className="fixed z-[70] w-screen h-screen bg-white opacity-60"
@@ -42,7 +42,7 @@ const Home = ({ user }: { user: any }) => {
         )}
         <div className="relative flex w-screen min-h-screen p-2 py-4 text-black">
           <LeftNav user={user} />
-          <main className="mx-auto w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5] text-[#606266]">
+          <main className="mx-auto w-screen sm:w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5] text-[#606266]">
             <div className="flex flex-col items-stretch justify-center gap-2 p-4 bg-white rounded-lg">
               <div className="flex items-center justify-center gap-2 pb-2">
                 <Link href="/user/id">
@@ -53,17 +53,17 @@ const Home = ({ user }: { user: any }) => {
                   </a>
                 </Link>
                 <p
-                  className="w-full p-2 px-4 text-gray-500 transition-all bg-gray-100 rounded-full cursor-pointer hover:bg-gray-200"
+                  className="w-full p-2 px-4 text-sm text-gray-500 transition-all bg-gray-100 rounded-full cursor-pointer sm:text-base hover:bg-gray-200"
                   onClick={() => {
                     setIsAddingPost(true);
                   }}
                 >
-                  What&#39;s on your mind, Username ?
+                  What&#39;s on your mind, {user.firstName} ?
                 </p>
               </div>
               <hr className="w-full" />
               <div className="flex items-center p-2 font-medium justify-evenly">
-                <button className="flex items-center gap-2 p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
+                <button className="flex items-center flex-shrink-0 gap-2 p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
                   <Image
                     src="/Assets/live.svg"
                     height={24}
@@ -73,9 +73,9 @@ const Home = ({ user }: { user: any }) => {
                       filter: " ",
                     }}
                   />
-                  Live video
+                  <span className="hidden sm:block">Live video</span>
                 </button>{" "}
-                <button className="flex items-center gap-2 p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
+                <button className="flex items-center flex-shrink-0 gap-2 p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
                   <Image
                     src="/Assets/photovideo.svg"
                     height={24}
@@ -85,9 +85,9 @@ const Home = ({ user }: { user: any }) => {
                       filter: " ",
                     }}
                   />
-                  Photo/video
+                  <span className="hidden sm:block">Photo/video</span>
                 </button>{" "}
-                <button className="flex items-center gap-2 p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
+                <button className="flex items-center flex-shrink-0 gap-2 p-2 px-6 transition-all rounded-lg hover:bg-gray-200">
                   <Image
                     src="/Assets/feelingactivity.svg"
                     height={24}
@@ -97,7 +97,7 @@ const Home = ({ user }: { user: any }) => {
                       filter: " ",
                     }}
                   />
-                  Feeling/Activity
+                  <span className="hidden sm:block">Feeling/Activity</span>
                 </button>
               </div>
             </div>
@@ -126,7 +126,7 @@ const Home = ({ user }: { user: any }) => {
           <RightNav user={user} />
         </div>
       </Header>
-    </div>
+    </>
   );
 };
 
