@@ -10,7 +10,7 @@ import User from "../../models/User";
 const PostPage = ({ user, post }: { user: any; post: any }) => {
   return (
     <Header user={user}>
-      <div className="mx-auto my-4 w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5] text-[#606266]">
+      <div className="mx-auto my-4 sm:w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5] text-[#606266]">
         <PostComponent post={post} user={user} />
       </div>
     </Header>
