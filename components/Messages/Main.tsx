@@ -63,7 +63,7 @@ const Main = ({
     const msgs = Ref.current;
     // @ts-ignore
     msgs.scrollTop = msgs.scrollHeight;
-  }, [latestMessage]);
+  }, [conversation]);
 
   useEffect(() => {
     axios.get("/api/conversations/" + router.query.id).then(res => {
@@ -84,7 +84,7 @@ const Main = ({
             latestMessage: new Date(),
             users: [conversation.users[0]._id, conversation.users[1]._id],
           });
-        } else setLatestMessage(Doc.data()!.latestMessage);
+        } else setLatestMessage(Doc.data()!.latestMessage.toString());
       }
     );
     return () => {
