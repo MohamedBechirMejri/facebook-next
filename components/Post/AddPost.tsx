@@ -31,7 +31,7 @@ const AddPost = ({
   };
 
   return (
-    <div className="fixed z-[80] w-[500px] h-[428px] bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-2xl border grid grid-rows-[repeat(20,minmax(0,1fr))] ">
+    <div className="fixed z-[80] sm:w-[500px] sm:h-[428px] py-4 bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-2xl border grid grid-rows-[repeat(20,minmax(0,1fr))] w-[99vw]">
       <form className="flex items-center justify-between [grid-area:1/1/4/2] px-4 w-full">
         <button
           className="flex items-center gap-2 p-2 transition-all rounded-lg opacity-0 cursor-default hover:bg-gray-200"
