@@ -21,7 +21,7 @@ const Header = ({
               </div>
             </a>
           </Link>
-          <div className="rounded-full bg-[#f0f2f5] flex items-center justify-center p-1 px-2 transition-all">
+          <div className="rounded-full bg-[#f0f2f5] items-center justify-center p-1 px-2 transition-all hidden sm:flex">
             <div className="relative w-8 h-1/2">
               <Image src="/Assets/search.svg" layout="fill" alt="" />
             </div>
@@ -60,7 +60,7 @@ const Header = ({
           </p>
         </div>
         <div className="absolute top-0 right-0 flex items-center justify-center h-full gap-2 p-2 px-4">
-          <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
+          <button className="bg-[#d8dadf] rounded-full w-10 h-10 sm:flex items-center justify-center hidden">
             <Image src="/Assets/menu.svg" height={20} width={20} alt="" />
           </button>
           <Link href="/messages">
@@ -73,7 +73,7 @@ const Header = ({
               />
             </a>
           </Link>
-          <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
+          <button className="bg-[#d8dadf] rounded-full w-10 h-10 sm:flex items-center justify-center hidden">
             <Image
               src="/Assets/notifications.svg"
               height={20}
