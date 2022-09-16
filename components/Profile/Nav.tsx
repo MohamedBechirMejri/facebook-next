@@ -6,7 +6,7 @@ const Nav = () => {
   const router = useRouter();
 
   return (
-    <nav className="flex items-center w-full p-2 px-8 rounded-lg text-[#606266] relative ">
+    <nav className="items-center w-full p-2 px-8 rounded-lg text-[#606266] relative hidden sm:flex">
       <div className="flex flex-col h-full ">
         <Link href={"/users/" + router.query.id}>
           <a className="h-full p-3 font-semibold capitalize transition-all rounded-lg  text-[hsl(214,89%,52%)]">
