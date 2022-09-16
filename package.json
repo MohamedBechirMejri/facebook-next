@@ -16,7 +16,7 @@
     "firebase": "^9.10.0",
     "giphy-api": "^2.0.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.5.3",
+    "mongoose": "^6.6.1",
     "next": "12.3.0",
     "next-connect": "^0.13.0",
     "passport-facebook": "^3.0.0",
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
-    "@types/node": "18.7.13",
+    "@types/node": "18.7.18",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "@types/uniqid": "^5.3.2",
