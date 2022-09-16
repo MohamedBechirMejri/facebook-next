@@ -25,7 +25,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             className="w-full h-full"
           />
           {user._id === profile._id && (
-            <button className="absolute z-[70] flex items-center justify-center gap-2 p-2 px-3 text-sm font-semibold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200 active:scale-95">
+            <button className="absolute z-[70] flex items-center justify-center gap-2 p-2 px-3 text-sm font-semibold transition-all bg-white rounded-lg bottom-3 right-3 hover:bg-gray-200 active:scale-95 sm:-translate-y-0 -translate-y-10">
               <div
                 style={{
                   backgroundImage: `url(/Assets/buttons.png)`,
@@ -37,8 +37,8 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             </button>
           )}
         </div>
-        <div className="z-10 flex items-end justify-between w-full px-8 pb-4 -mt-10 ">
-          <div className="flex items-end gap-6">
+        <div className="z-50 flex items-end justify-between w-full px-8 pb-4 -mt-10 ">
+          <div className="flex flex-col items-center w-full gap-6 sm:items-end sm:flex-row">
             <div className="w-40 h-40 overflow-hidden rounded-full ring-4 ring-white">
               <Image src={profile.picture} height={1000} width={1000} alt="" />
             </div>
@@ -107,16 +107,16 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
           <div className="w-full h-full bg-[#ccced2]" />
         </div>
         <Nav />
-        <div className="flex items-start justify-center p-4 px-8">
-          <div className="sticky flex flex-col w-full gap-3 mr-4 top-20">
+        <div className="flex flex-col items-start justify-center p-4 px-8 sm:flex-row">
+          <div className="flex flex-col w-full gap-3 mr-4 sm:sticky top-20 ">
             <div className="p-4 bg-white border rounded-lg shadow">
               <h1 className="text-lg font-semibold">Intro</h1>
             </div>
             <div className="p-3 bg-white border rounded-lg shadow">
               <h1 className="flex items-center justify-between w-full pb-2 text-lg font-semibold">
-                <span>Photos</span>
+                <span className="text-sm lg-text-lg">Photos</span>
                 <Link href={"/users/" + user._id + "/photos"}>
-                  <a className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg">
+                  <a className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg text-sm lg-text-base">
                     See all photos
                   </a>
                 </Link>
@@ -147,51 +147,53 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                   )}
               </div>
             </div>
-            <div className="p-3 bg-white border rounded-lg shadow">
-              <h1 className="flex items-center justify-between w-full pb-2 text-lg font-semibold">
-                <span className="flex flex-col mb-2">
-                  <span>Friends </span>
-                  <span
-                    className={` text-base text-gray-500 ${
-                      !profile.friends.length && " opacity-0 "
-                    }`}
-                  >
-                    {profile.friends.length} friend
-                    {profile.friends.length !== 1 && "s"}
+            {profile.friends.length > 0 && (
+              <div className="p-3 bg-white border rounded-lg shadow">
+                <h1 className="flex items-center justify-between w-full pb-2 text-lg font-semibold">
+                  <span className="flex flex-col mb-2">
+                    <span className="text-sm lg-text-lg">Friends </span>
+                    <span
+                      className={` text-base text-gray-500 ${
+                        !profile.friends.length && " opacity-0 "
+                      }`}
+                    >
+                      {profile.friends.length} friend
+                      {profile.friends.length !== 1 && "s"}
+                    </span>
                   </span>
-                </span>
-                <Link href={"/users/" + user._id + "/friends"}>
-                  <a className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg">
-                    See all friends
-                  </a>
-                </Link>
-              </h1>
-              <div className="grid grid-cols-3 gap-1 m-1">
-                {profile.friends.map((friend: any, i: number) => {
-                  return i < 10 ? (
-                    <Link key={i} href={"/users/" + friend._id}>
-                      <a className="transition-all hover:contrast-75 active:scale-95">
-                        <Image
-                          src={friend.picture}
-                          height={1000}
-                          width={1000}
-                          alt=""
-                          style={{
-                            borderRadius: ".5rem",
-                          }}
-                        />
-                      </a>
-                    </Link>
-                  ) : null;
-                })}
+                  <Link href={"/users/" + user._id + "/friends"}>
+                    <a className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg text-sm lg-text-base">
+                      See all friends
+                    </a>
+                  </Link>
+                </h1>
+                <div className="grid grid-cols-3 gap-1 m-1">
+                  {profile.friends.map((friend: any, i: number) => {
+                    return i < 10 ? (
+                      <Link key={i} href={"/users/" + friend._id}>
+                        <a className="transition-all hover:contrast-75 active:scale-95">
+                          <Image
+                            src={friend.picture}
+                            height={1000}
+                            width={1000}
+                            alt=""
+                            style={{
+                              borderRadius: ".5rem",
+                            }}
+                          />
+                        </a>
+                      </Link>
+                    ) : null;
+                  })}
+                </div>
               </div>
-            </div>
+            )}
             {/* <div>
               Privacy · Terms · Advertising · Ad Choices · Cookies · · Meta ©
               2022
             </div> */}
           </div>
-          <div className="w-full ml-4">
+          <div className="w-full mt-8 sm:ml-4 sm:mt-0">
             <div className="flex items-center justify-between w-full p-2 px-4 bg-white border rounded-lg shadow">
               <h1 className="text-lg font-semibold">Posts</h1>
               <button className="flex items-center justify-center gap-2 p-2 px-3 font-semibold tracking-tight transition-all bg-gray-200 rounded-lg hover:bg-gray-300 active:scale-95">
