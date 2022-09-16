@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import UserOptions from "./Header/UserOptions";
+import Menu from "./Header/Menu";
 
 const Header = ({
   children,
@@ -60,9 +61,7 @@ const Header = ({
           </p>
         </div>
         <div className="absolute top-0 right-0 flex items-center justify-center h-full gap-2 p-2 px-4">
-          <button className="bg-[#d8dadf] rounded-full w-10 h-10 flex items-center justify-center">
-            <Image src="/Assets/menu.svg" height={20} width={20} alt="" />
-          </button>
+          <Menu user={user} />
           <Link href="/messages">
             <a className="bg-[#d8dadf] hover:bg-[#c4c5c9] rounded-full w-10 h-10 flex items-center justify-center transition-all active:scale-95">
               <Image
