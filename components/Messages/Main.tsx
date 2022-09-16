@@ -16,13 +16,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import {
-  getFirestore,
-  onSnapshot,
-  setDoc,
-  updateDoc,
-  doc,
-} from "firebase/firestore";
+import { getFirestore, onSnapshot, setDoc, doc } from "firebase/firestore";
 import uniqid from "uniqid";
 import EmojiOverlay from "./EmojiOverlay";
 import GifOverlay from "./GifOverlay";
@@ -69,7 +63,7 @@ const Main = ({
     const msgs = Ref.current;
     // @ts-ignore
     msgs.scrollTop = msgs.scrollHeight;
-  }, [conversation]);
+  }, [latestMessage]);
 
   useEffect(() => {
     axios.get("/api/conversations/" + router.query.id).then(res => {
