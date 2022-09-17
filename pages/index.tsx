@@ -102,7 +102,7 @@ const Home = ({ user }: { user: any }) => {
               </div>
             </div>
             <div className="flex flex-col items-stretch gap-4">
-              {posts && posts.length > 10 ? (
+              {posts && posts.length > 0 ? (
                 posts.map((p, i) =>
                   p.author._id === user._id ||
                   user.friends.map((f: any) => f._id).includes(p.author._id) ? (
