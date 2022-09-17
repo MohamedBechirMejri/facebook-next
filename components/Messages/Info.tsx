@@ -52,7 +52,7 @@ const Info = ({
 
   return (
     conversation && (
-      <div className="hidden w-[360px] h-full shrink-0 sm:flex p-2 items-center flex-col">
+      <div className="hidden w-[360px] h-full shrink-0 xl:flex p-2 items-center flex-col">
         <div className="w-24 shrink-0">
           <Image
             src={
