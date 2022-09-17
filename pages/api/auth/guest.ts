@@ -7,7 +7,10 @@ import User from "../../../models/User";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();
 
-  const dummyAccounts = ["6323c08f5535cade8b00d2bf"];
+  const dummyAccounts = [
+    "63256014f346205125e987c4",
+    "63256070f346205125e987c5",
+  ];
 
   const guestId =
     dummyAccounts[Math.floor(Math.random() * dummyAccounts.length)];
