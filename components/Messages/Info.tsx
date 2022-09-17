@@ -58,8 +58,6 @@ const Info = ({
   return (
     conversation && (
       <div className="fixed flex flex-col w-[90%] bg-white xl:w-[360px] z-50 h-max xl:h-full xl:static border-8 rounded-lg xl:border-none xl:rounded-none top-1/2 left-1/2 -translate-x-1/2 xl:-translate-x-0 -translate-y-1/2 xl:-translate-y-0 [box-shadow:0_0_0_100vh_#00000033] px-2 xl:shadow-none">
-        {/* //* */}
-
         <div className="flex w-full h-[35%] shrink-0 px-4 py-2 xl:hidden flex-col">
           <h1 className="flex items-center justify-between pb-4 text-2xl font-semibold">
             <span>Chats</span>
@@ -106,8 +104,6 @@ const Info = ({
             </div>
           </div>
         </div>
-
-        {/* //* */}
 
         <hr />
 
@@ -200,7 +196,7 @@ const Info = ({
             </div>
           )}
           {isSettingEmoji && (
-            <div className="fixed flex flex-col items-center justify-center gap-4 pb-4 -translate-x-1/2 -translate-y-1/2 bg-white border rounded-lg shadow w-max h-max top-1/2 left-1/2">
+            <div className="fixed flex flex-col items-center justify-center gap-4 pb-4 -translate-x-1/2 -translate-y-1/2 bg-white border rounded-lg shadow xl:w-max h-max top-1/2 left-1/2">
               <EmojiPicker
                 onEmojiClick={onEmojiClick}
                 autoFocusSearch={false}
