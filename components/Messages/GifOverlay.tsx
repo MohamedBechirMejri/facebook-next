@@ -42,7 +42,7 @@ const GifOverlay = ({
       </button>
 
       {isVisible && (
-        <div className="absolute z-20 flex flex-col overflow-scroll bg-white border rounded-lg shadow -top-[720%] w-[20rem] -left-0 h-[25rem]">
+        <div className="absolute z-20 flex flex-col overflow-scroll bg-white border rounded-lg shadow -top-[720%] w-full xl:w-[20rem] -left-0 h-[25rem]">
           <div className="sticky top-0 z-10 w-full p-2 px-4 bg-white">
             <input
               type="search"
