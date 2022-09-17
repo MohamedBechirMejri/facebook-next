@@ -41,6 +41,12 @@
 - [ ] Notifications
 - [ ] Steal People's Data :P (jk)
 
+<h3 style='width:100%;text-align:center'>
+
+[Demo](https://odinbook-next.vercel.app)
+
+</h3>
+
 <h2 style='width:100%;text-align:center'>How To Use</h2>
 
 - Clone this Repo
