@@ -20,7 +20,7 @@ const Messages = ({ user }: { user: any }) => {
     null as ConversationType | null
   );
 
-  const [showInfo, setShowInfo] = useState(true);
+  const [showInfo, setShowInfo] = useState(false);
 
   useEffect(() => {
     axios.get("/api/conversations/" + router.query.id).then(res => {
