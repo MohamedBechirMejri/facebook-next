@@ -42,6 +42,7 @@ const Messages = ({ user }: { user: any }) => {
           />
           {showInfo && (
             <Info
+              conversations={conversations}
               conversation={conversation}
               setConversation={setConversation}
               user={user}
