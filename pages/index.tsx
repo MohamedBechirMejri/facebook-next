@@ -102,7 +102,7 @@ const Home = ({ user }: { user: any }) => {
               </div>
             </div>
             <div className="flex flex-col items-stretch gap-4">
-              {posts && posts.length > 0 ? (
+              {posts && posts.length > 10 ? (
                 posts.map((p, i) =>
                   p.author._id === user._id ||
                   user.friends.map((f: any) => f._id).includes(p.author._id) ? (
@@ -110,16 +110,14 @@ const Home = ({ user }: { user: any }) => {
                   ) : null
                 )
               ) : (
-                <L49
-                  style={{
-                    height: "7rem",
-                    width: "7rem",
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                  }}
-                />
+                <div className="absolute flex flex-col items-center justify-center gap-2 font-medium -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                  <p>Your Feed Is Empty!</p>
+                  <Link href="/friends">
+                    <a className="block p-2 font-medium text-white transition-all bg-blue-500 rounded-lg hover:bg-blue-600 active:scale-95 w-max">
+                      Find Some Friends
+                    </a>
+                  </Link>
+                </div>
               )}
             </div>
           </main>
