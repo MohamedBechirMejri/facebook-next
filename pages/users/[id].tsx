@@ -37,7 +37,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             </button>
           )}
         </div>
-        <div className="z-50 flex items-end justify-between w-full px-8 pb-4 -mt-10 ">
+        <div className="z-50 flex flex-col items-end justify-between w-full px-8 pb-4 -mt-10 xl:flex-row">
           <div className="flex flex-col items-center w-full gap-6 sm:items-end sm:flex-row">
             <div className="w-40 h-40 overflow-hidden rounded-full ring-4 ring-white">
               <Image src={profile.picture} height={1000} width={1000} alt="" />
@@ -91,7 +91,10 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
           {user._id !== profile._id && (
             <div className="relative flex justify-center gap-2">
               <AddFriend user={user} profile={profile} />
-              <button className="p-[0.35rem] px-3 font-medium tracking-tight bg-[#e4e6eb] hover:bg-[#d8dadf] rounded-lg transition-all flex items-center justify-center gap-2">
+              <a
+                href={"/api/users/" + profile._id + "/message"}
+                className="p-[0.35rem] px-3 font-medium tracking-tight bg-[#e4e6eb] hover:bg-[#d8dadf] rounded-lg transition-all flex items-center justify-center gap-2"
+              >
                 <div
                   style={{
                     backgroundImage: `url(/Assets/message.png)`,
@@ -99,7 +102,7 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                   className="w-[16px] h-[16px] bg-no-repeat inline-block bg-auto "
                 />
                 Message
-              </button>
+              </a>
             </div>
           )}
         </div>
