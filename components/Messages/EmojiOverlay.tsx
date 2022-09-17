@@ -32,13 +32,14 @@ const EmojiOverlay = ({
       </button>
 
       {isVisible && (
-        <div className="absolute z-20 flex flex-col bg-white border rounded-lg shadow w-max right-16 h-max -top-[810%]">
+        <div className="absolute z-20 flex flex-col bg-white border rounded-lg shadow xl:w-[25rem] w-[96%] right-1/2 translate-x-1/2 xl:translate-x-0 xl:right-16 h-max -top-[810%]">
           <EmojiPicker
             onEmojiClick={onEmojiClick}
             autoFocusSearch={false}
             theme={Theme.LIGHT}
             // lazyLoadEmojis={true}
-            // showPreview={false}
+            // previewConfig={{ showPreview: false }}
+            //
             // skinTonesDisabled
             // searchPlaceHolder="Filter"
             // defaultSkinTone={SkinTones.MEDIUM}
