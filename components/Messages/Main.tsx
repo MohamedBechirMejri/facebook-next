@@ -16,7 +16,13 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import { getFirestore, onSnapshot, setDoc, doc } from "firebase/firestore";
+import {
+  getFirestore,
+  onSnapshot,
+  setDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import uniqid from "uniqid";
 import EmojiOverlay from "./EmojiOverlay";
 import GifOverlay from "./GifOverlay";
@@ -92,6 +98,14 @@ const Main = ({
     };
   }, [conversation]);
 
+  const pingSocket = () => {
+    const db = getFirestore();
+
+    updateDoc(doc(db, "conversations", conversation._id), {
+      latestMessage: new Date(),
+    });
+  };
+
   const sendMessage = () => {
     if (!messageText && !imageLink) return;
 
@@ -104,7 +118,7 @@ const Main = ({
         setMessageText("");
         setIsUploading(false);
         setImageLink("");
-        setConversation(res.data.conversation);
+        pingSocket();
       });
   };
   const sendEmoji = () => {
@@ -113,7 +127,7 @@ const Main = ({
         emoji: { text: conversation?.emoji, size: "5rem" },
       })
       .then(res => {
-        setConversation(res.data.conversation);
+        pingSocket();
       });
   };
 
@@ -283,12 +297,12 @@ const Main = ({
           <StickersOverlay
             theme={conversation.theme}
             id={router.query.id}
-            setConversation={setConversation}
+            pingSocket={pingSocket}
           />
           <GifOverlay
             theme={conversation.theme}
             id={router.query.id}
-            setConversation={setConversation}
+            pingSocket={pingSocket}
           />
         </div>
         <div className="flex items-center w-full h-10 px-4 overflow-hidden transition-all bg-gray-200 rounded-full">

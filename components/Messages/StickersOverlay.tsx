@@ -8,11 +8,11 @@ const giphy = require("giphy-api")(process.env.NEXT_PUBLIC_GIPHY_API_KEY);
 const StickersOverlay = ({
   theme,
   id,
-  setConversation,
+  pingSocket,
 }: {
   theme: string;
   id: any;
-  setConversation: any;
+  pingSocket: any;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [gifs, setGifs] = useState([]);
@@ -34,7 +34,7 @@ const StickersOverlay = ({
         image: imageLink,
       })
       .then(res => {
-        setConversation(res.data.conversation);
+        pingSocket();
       });
   };
 
