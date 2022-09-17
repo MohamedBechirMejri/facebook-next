@@ -46,6 +46,7 @@ const Messages = ({ user }: { user: any }) => {
               conversation={conversation}
               setConversation={setConversation}
               user={user}
+              setShowInfo={setShowInfo}
             />
           )}
         </div>

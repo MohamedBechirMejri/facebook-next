@@ -16,11 +16,13 @@ const Info = ({
   conversations,
   setConversation,
   user,
+  setShowInfo,
 }: {
   conversation: any;
   conversations: any;
   setConversation: any;
   user: any;
+  setShowInfo: any;
 }) => {
   const router = useRouter();
 
@@ -63,7 +65,10 @@ const Info = ({
             <span>Chats</span>
             <div className="flex items-center gap-4 pt-2">
               <FriendsOverlayMobile user={user} />
-              <button className="relative p-4 text-white transition-all bg-red-300 rounded-full hover:bg-red-400 active:scale-95">
+              <button
+                className="relative p-4 text-white transition-all bg-red-300 rounded-full hover:bg-red-400 active:scale-95"
+                onClick={() => setShowInfo(false)}
+              >
                 <p className="absolute font-mono -translate-x-1/2 -translate-y-1/2 top-[45%] left-1/2 [-webkit-text-stroke:thin_black]">
                   x
                 </p>
