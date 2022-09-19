@@ -19,6 +19,9 @@ const handler = nc({
     scope: ["email", "public_profile"],
   }),
   (req, res) => {
+    // @ts-ignore
+    if (!req.user.email) return res.redirect("/api/auth");
+
     jwt.sign(
       // @ts-ignore
       { user: req.user },
