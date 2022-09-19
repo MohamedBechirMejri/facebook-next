@@ -20,7 +20,8 @@ const handler = nc({
   }),
   (req, res) => {
     // @ts-ignore
-    if (!req.user.email) return res.redirect("/api/auth");
+    console.log("user: ", req.user); // @ts-ignore
+    if (!req.user.email) return res.redirect("login");
 
     jwt.sign(
       // @ts-ignore
