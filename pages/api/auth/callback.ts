@@ -13,6 +13,7 @@ const handler = nc({
   },
 }).get(
   passport.authenticate("facebook", {
+    authType: "reauthenticate",
     assignProperty: "user",
     failureRedirect: "/login",
     scope: ["email", "public_profile"],
