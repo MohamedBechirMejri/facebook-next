@@ -18,6 +18,8 @@ const handler = nc({
     scope: ["email", "public_profile"],
   }),
   (req, res) => {
+    //Here should be a small test if facebook provided a valid email (user object)
+    // if user.email
     jwt.sign(
       // @ts-ignore
       { user: req.user },
@@ -28,6 +30,8 @@ const handler = nc({
         res.redirect("/");
       }
     );
+    //else
+     res.redirect("/login");
   }
 );
 
