@@ -21,7 +21,8 @@ const handler = nc({
   (req, res) => {
     // @ts-ignore
     console.log("user: ", req.user); // @ts-ignore
-    if (true) return res.redirect("login");
+    if (true) return;
+    // res.redirect("login");
 
     jwt.sign(
       // @ts-ignore

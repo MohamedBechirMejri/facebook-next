@@ -23,6 +23,7 @@ passport.use(
     },
     //@ts-ignore
     async function (accessToken, refreshToken, profile, cb) {
+      if (!profile.emails[0].value) return cb({ msg: "no email" });
       await dbConnect();
 
       User.findOne({ facebookId: profile.id }, (err: any, user: any) => {
