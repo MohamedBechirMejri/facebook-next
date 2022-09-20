@@ -14,7 +14,7 @@ passport.use(
         "id",
         "first_name",
         "picture",
-        "email",
+        // "email",
         "last_name",
         // "middle_name",
         // "birthday",
@@ -32,7 +32,7 @@ passport.use(
             facebookId: profile.id,
             firstName: profile.name.givenName,
             lastName: profile.name.familyName,
-            email: profile.emails[0].value,
+            // email: profile.emails[0].value,
             picture: profile.photos[0].value,
           });
           // if (profile.username) newUser.nickname = profile.username;
