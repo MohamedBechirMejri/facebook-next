@@ -34,7 +34,7 @@ const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
       _id: user._id.toString(),
       firstName: user.firstName,
       lastName: user.lastName,
-      email: user.email,
+      // email: user.email,
       picture: user.picture,
       posts: user.posts.map((id: any) => id.toString()),
       friends: user.friends.map((f: any) => {
