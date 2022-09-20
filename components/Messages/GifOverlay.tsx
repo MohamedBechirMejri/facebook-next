@@ -2,7 +2,10 @@ import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import GifSvg from "./SVGs/Gif";
-const giphy = require("giphy-api")(process.env.NEXT_PUBLIC_GIPHY_API_KEY);
+const giphy = require("giphy-api")({
+  https: true,
+  apiKey: process.env.NEXT_PUBLIC_GIPHY_API_KEY,
+});
 
 const GifOverlay = ({
   theme,
