@@ -1204,10 +1204,10 @@ electron-to-chromium@^1.4.251:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.256.tgz#c735032f412505e8e0482f147a8ff10cfca45bf4"
   integrity sha512-x+JnqyluoJv8I0U9gVe+Sk2st8vF0CzMt78SXxuoWCooLLY2k5VerIBdpvG7ql6GKI4dzNnPjmqgDJ76EdaAKw==
 
-emoji-picker-react@^4.0.7:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/emoji-picker-react/-/emoji-picker-react-4.0.7.tgz#5400313352e908c9c4e6378bf28aeb55ce44af1d"
-  integrity sha512-cPLFHnSesLARDF0ZIee31BjW3mX5sWqbY/yvB7CMoEleg7Snj9DQZ9d7wqDsFZmrAGRO1aYyrYloK4roV5ITIQ==
+emoji-picker-react@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/emoji-picker-react/-/emoji-picker-react-4.0.8.tgz#50fdaf170ccab6f8a068e6302c5d5693b08d3c98"
+  integrity sha512-gAWE52RlblWnao2yMAa9FG/7UdXKNdmZ9SWVU9GrTPlh3wjgqfTkwo2HH72hWckZ8f5bY1n7kh496BM4Ol2Msw==
   dependencies:
     clsx "^1.2.1"
     eslint-plugin-jsx-a11y "^6.6.1"
