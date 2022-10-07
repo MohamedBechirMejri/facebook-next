@@ -1205,15 +1205,12 @@ electron-to-chromium@^1.4.251:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.256.tgz#c735032f412505e8e0482f147a8ff10cfca45bf4"
   integrity sha512-x+JnqyluoJv8I0U9gVe+Sk2st8vF0CzMt78SXxuoWCooLLY2k5VerIBdpvG7ql6GKI4dzNnPjmqgDJ76EdaAKw==
 
-emoji-picker-react@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/emoji-picker-react/-/emoji-picker-react-4.0.8.tgz#50fdaf170ccab6f8a068e6302c5d5693b08d3c98"
-  integrity sha512-gAWE52RlblWnao2yMAa9FG/7UdXKNdmZ9SWVU9GrTPlh3wjgqfTkwo2HH72hWckZ8f5bY1n7kh496BM4Ol2Msw==
+emoji-picker-react@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/emoji-picker-react/-/emoji-picker-react-4.1.1.tgz#e8e7c32ac24e96d9269ee2479020833dddf4f0b2"
+  integrity sha512-kBoWplCDJlVfQa2t2txPJLST6U4OW8enFckBOUg7I7bYGgBz1xHPmic4+SwV5i6kGi2YgT+YS5F0hBJd71cWjQ==
   dependencies:
     clsx "^1.2.1"
-    eslint-plugin-jsx-a11y "^6.6.1"
-    eslint-plugin-react "^7.31.8"
-    eslint-plugin-react-hooks "^4.6.0"
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -1340,7 +1337,7 @@ eslint-plugin-import@^2.26.0:
     resolve "^1.22.0"
     tsconfig-paths "^3.14.1"
 
-eslint-plugin-jsx-a11y@^6.5.1, eslint-plugin-jsx-a11y@^6.6.1:
+eslint-plugin-jsx-a11y@^6.5.1:
   version "6.6.1"
   resolved "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.6.1.tgz"
   integrity sha512-sXgFVNHiWffBq23uiS/JaP6eVR622DqwB4yTzKvGZGcPq6/yZ3WmOZfuBks/vHWo9GaFOqC2ZK4i6+C35knx7Q==
@@ -1359,12 +1356,12 @@ eslint-plugin-jsx-a11y@^6.5.1, eslint-plugin-jsx-a11y@^6.6.1:
     minimatch "^3.1.2"
     semver "^6.3.0"
 
-eslint-plugin-react-hooks@^4.5.0, eslint-plugin-react-hooks@^4.6.0:
+eslint-plugin-react-hooks@^4.5.0:
   version "4.6.0"
   resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.6.0.tgz"
   integrity sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==
 
-eslint-plugin-react@^7.31.7, eslint-plugin-react@^7.31.8:
+eslint-plugin-react@^7.31.7:
   version "7.31.8"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.31.8.tgz#3a4f80c10be1bcbc8197be9e8b641b2a3ef219bf"
   integrity sha512-5lBTZmgQmARLLSYiwI71tiGVTLUuqXantZM6vlSY39OaDSV0M7+32K5DnLkmFrwTe+Ksz0ffuLUC91RUviVZfw==
