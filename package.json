@@ -15,7 +15,7 @@
     "emoji-picker-react": "^4.4.7",
     "firebase": "^9.15.0",
     "giphy-api": "^2.0.2",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.1",
     "next": "^13",
     "next-connect": "^0.13.0",
