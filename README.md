@@ -53,9 +53,7 @@
 - Install Dependencies
 
   ```bash
-  yarn
-  # or
-  npm install
+  pnpm install
   ```
 
 - Add `env.local` file in the root folder:
@@ -63,8 +61,6 @@
   ```bash
   MONGODB_URI=''
   REACT_EDITOR='code'
-  FACEBOOK_APP_ID=''
-  FACEBOOK_APP_SECRET=''
   JWT_SECRET=''
   NEXT_PUBLIC_FIREBASE_API_KEY=''
   NEXT_PUBLIC_GIPHY_API_KEY=''
@@ -73,9 +69,7 @@
 - Run Development Server
 
   ```bash
-  yarn dev
-  # or
-  npm run dev
+  pnpm dev
   ```
 
 <h2 style='width:100%;text-align:center'>License</h2>
