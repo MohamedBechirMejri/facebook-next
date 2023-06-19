@@ -45,11 +45,9 @@ export default async function handler(
   await receiver.save();
   await sender.save();
 
-  return res
-    .status(200)
-    .json({
-      requests: sender.friendRequests,
-      friends: sender.friends,
-      blocks: sender.blocks,
-    });
+  return res.status(200).json({
+    requests: sender.friendRequests,
+    friends: sender.friends,
+    blocks: sender.blocks,
+  });
 }

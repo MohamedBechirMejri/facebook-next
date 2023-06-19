@@ -56,14 +56,17 @@ const Menu = ({ user }: { user: any }) => {
           </Link> */}
 
           {navLinks.map(navlink => (
-            <Link href={navlink.href} key={navlink.label} className={
-                  "text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all "
-                }
-              >
-                <span className="relative w-10 h-10 overflow-hidden rounded-full">
-                  <Image src={navlink.icon} alt="" layout="fill" />
-                </span>
-                <span>{navlink.label}</span>
+            <Link
+              href={navlink.href}
+              key={navlink.label}
+              className={
+                "text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all "
+              }
+            >
+              <span className="relative w-10 h-10 overflow-hidden rounded-full">
+                <Image src={navlink.icon} alt="" layout="fill" />
+              </span>
+              <span>{navlink.label}</span>
             </Link>
           ))}
         </div>
