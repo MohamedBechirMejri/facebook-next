@@ -51,6 +51,13 @@ const Login = () => {
           >
             Create new account
           </button>
+          <Link
+            href="/api/auth/guest"
+            className="flex items-center justify-center rounded-lg text-lg font-semibold tracking-widest  text-[#36a420] transition-all active:scale-95 mt-2 hover:underline"
+            onClick={() => setIsSignupVisible(true)}
+          >
+            Use Demo Account
+          </Link>
         </div>
       </div>
 
