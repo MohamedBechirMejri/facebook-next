@@ -1,10 +1,10 @@
 import type { GetServerSideProps } from "next";
-import Header from "../components/Header";
-import Post from "../components/Post/Post";
-import PostType from "../types/PostType";
+import Header from "~/components/Header";
+import Post from "~/components/Post/Post";
+import PostType from "~/types/PostType";
 import { L49 } from "react-isloading";
 import { useEffect, useState } from "react";
-import getUser from "../lib/Auth/getUser";
+import getUser from "~/lib/Auth/getUser";
 import axios from "axios";
 
 const Home = ({ user }: { user: any }) => {

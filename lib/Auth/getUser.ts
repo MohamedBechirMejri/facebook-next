@@ -1,9 +1,9 @@
 import { getCookie } from "cookies-next";
 import type { NextApiRequest, NextApiResponse } from "next";
-import User from "../../models/User";
+import User from "~/models/User";
 import dbConnect from "../dbConnect";
 const jwt = require("jsonwebtoken");
-import Conversation from "../../models/Conversation";
+import Conversation from "~/models/Conversation";
 
 const getUser = async (req: NextApiRequest, res: NextApiResponse) => {
   const token = await getCookie("token", {

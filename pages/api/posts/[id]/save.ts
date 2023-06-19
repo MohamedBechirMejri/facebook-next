@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import getUser from "../../../../lib/Auth/getUser";
-import dbConnect from "../../../../lib/dbConnect";
-import Post from "../../../../models/Post";
-import User from "../../../../models/User";
+import getUser from "~/lib/Auth/getUser";
+import dbConnect from "~/lib/dbConnect";
+import Post from "~/models/Post";
+import User from "~/models/User";
 
 export default async function handler(
   req: NextApiRequest,

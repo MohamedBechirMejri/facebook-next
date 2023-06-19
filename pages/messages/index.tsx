@@ -1,11 +1,11 @@
-import Header from "../../components/Header";
-import getUser from "../../lib/Auth/getUser";
+import Header from "~/components/Header";
+import getUser from "~/lib/Auth/getUser";
 import type { NextApiResponse, NextApiRequest } from "next";
-import Chats from "../../components/Messages/Chats";
+import Chats from "~/components/Messages/Chats";
 import { L49 } from "react-isloading";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import FriendsOverlay from "../../components/Messages/FriendsOverlayMobile";
+import FriendsOverlay from "~/components/Messages/FriendsOverlayMobile";
 import Image from "next/image";
 
 const Messages = ({ user }: { user: any }) => {

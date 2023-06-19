@@ -1,15 +1,14 @@
 import type { GetServerSideProps, NextApiRequest, NextApiResponse } from "next";
-import Header from "../components/Header";
+import Header from "~/components/Header";
 import Link from "next/link";
 import Image from "next/image";
-import Post from "../components/Post/Post";
-import PostType from "../types/PostType";
-import { L49 } from "react-isloading";
-import LeftNav from "../components/Index/LeftNav";
-import AddPost from "../components/Post/AddPost";
+import Post from "~/components/Post/Post";
+import PostType from "~/types/PostType";
+import LeftNav from "~/components/Index/LeftNav";
+import AddPost from "~/components/Post/AddPost";
 import { useEffect, useState } from "react";
-import getUser from "../lib/Auth/getUser";
-import RightNav from "../components/Index/RightNav";
+import getUser from "~/lib/Auth/getUser";
+import RightNav from "~/components/Index/RightNav";
 import axios from "axios";
 
 const Home = ({ user }: { user: any }) => {

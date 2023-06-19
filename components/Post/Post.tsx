@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import PostType from "../../types/PostType";
+import PostType from "~/types/PostType";
 import Comments from "./Comments";
 import Reactions from "./Reactions";
 import PostOptions from "./PostOptions";

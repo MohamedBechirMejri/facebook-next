@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import CommentType from "../../types/CommentType";
-import PostType from "../../types/PostType";
+import CommentType from "~/types/CommentType";
+import PostType from "~/types/PostType";
 
 const Comments = ({
   post,

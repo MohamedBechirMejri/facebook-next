@@ -1,10 +1,10 @@
 import type { GetServerSideProps, NextApiRequest, NextApiResponse } from "next";
-import Header from "../components/Header";
+import Header from "~/components/Header";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import getUser from "../lib/Auth/getUser";
-import User from "../models/User";
+import getUser from "~/lib/Auth/getUser";
+import User from "~/models/User";
 import axios from "axios";
 
 const Home = ({ user, allUsers }: { user: any; allUsers: any }) => {

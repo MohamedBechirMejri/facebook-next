@@ -1,11 +1,11 @@
-import Header from "../../components/Header";
-import getUser from "../../lib/Auth/getUser";
+import Header from "~/components/Header";
+import getUser from "~/lib/Auth/getUser";
 import type { NextApiResponse, NextApiRequest } from "next";
 import { useEffect, useState } from "react";
-import Info from "../../components/Messages/Info";
-import Chats from "../../components/Messages/Chats";
-import Main from "../../components/Messages/Main";
-import ConversationType from "../../types/ConversationType";
+import Info from "~/components/Messages/Info";
+import Chats from "~/components/Messages/Chats";
+import Main from "~/components/Messages/Main";
+import ConversationType from "~/types/ConversationType";
 import axios from "axios";
 import { useRouter } from "next/router";
 

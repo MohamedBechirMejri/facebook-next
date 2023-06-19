@@ -2,8 +2,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 import jwt from "jsonwebtoken";
 import { setCookie } from "cookies-next";
-import dbConnect from "../../../lib/dbConnect";
-import User from "../../../models/User";
+import dbConnect from "~/lib/dbConnect";
+import User from "~/models/User";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await dbConnect();

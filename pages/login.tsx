@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Signup from "~/components/Signup";
 const Login = () => {
   return (
     <div className="w-screen min-h-screen bg-[#f0f2f5] text-black [font-family:Helvetica] flex flex-col justify-center items-center">
@@ -45,8 +46,10 @@ const Login = () => {
           >
             Create new account
           </Link>
-        </div>{" "}
+        </div>
       </div>
+
+      <Signup />
     </div>
   );
 };

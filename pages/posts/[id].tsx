@@ -1,11 +1,11 @@
-import Header from "../../components/Header";
-import PostComponent from "../../components/Post/Post";
+import Header from "~/components/Header";
+import PostComponent from "~/components/Post/Post";
 import type { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from "../../lib/dbConnect";
-import Post from "../../models/Post";
-import getUser from "../../lib/Auth/getUser";
-import Comment from "../../models/Comment";
-import User from "../../models/User";
+import dbConnect from "~/lib/dbConnect";
+import Post from "~/models/Post";
+import getUser from "~/lib/Auth/getUser";
+import Comment from "~/models/Comment";
+import User from "~/models/User";
 
 const PostPage = ({ user, post }: { user: any; post: any }) => {
   return (
