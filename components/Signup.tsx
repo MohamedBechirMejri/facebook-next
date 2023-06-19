@@ -1,11 +1,31 @@
-export default function Signup() {
+export default function Signup({
+  setIsSignupVisible,
+}: {
+  setIsSignupVisible: any;
+}) {
   return (
     <div className="fixed inset-0">
       <div className="absolute inset-0 bg-gray-400 bg-opacity-50" />
       <div className="bg-white absolute top-1/2 left-1/2 w-[min(94svw,30rem)] -translate-x-1/2 -translate-y-1/2 shadow rounded-md border">
-        <div className="p-4 border-b">
+        <div className="p-4 border-b relative">
           <h1 className="text-3xl font-bold">Sign Up</h1>
           <p className="text-gray-500 text-sm">It's quick and easy.</p>
+
+          <button
+            className="absolute top-5 right-5 text-gray-500 hover:text-black transition-all "
+            onClick={() => setIsSignupVisible(false)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 hover:text-black transition-all"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
         <div className="p-4 flex flex-col gap-2">
           <div className="flex gap-4">
@@ -94,7 +114,7 @@ export default function Signup() {
               <input type="radio" className="w-4 h-4" name="sex" value="male" />
             </label>
             <label className="flex items-center gap-2 p-2 border rounded-md justify-between">
-              <p></p>
+              <p>-------</p>
               <input
                 type="radio"
                 className="w-4 h-4"

@@ -1,7 +1,13 @@
+import { is } from "date-fns/locale";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+
 import Signup from "~/components/Signup";
+
 const Login = () => {
+  const [isSignupVisible, setIsSignupVisible] = useState(false);
+
   return (
     <div className="w-screen min-h-screen bg-[#f0f2f5] text-black [font-family:Helvetica] flex flex-col justify-center items-center">
       <div className="flex flex-col items-center justify-center w-full h-full gap-24 sm:p-8 xl:flex-row ">
@@ -40,16 +46,16 @@ const Login = () => {
             forgot password?
           </Link>
           <hr className="w-full bg-black" />
-          <Link
-            href="/signup"
+          <button
             className="flex items-center justify-center gap-2 bg-[#42b72a] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest  hover:bg-[#36a420] transition-all active:scale-95"
+            onClick={() => setIsSignupVisible(true)}
           >
             Create new account
-          </Link>
+          </button>
         </div>
       </div>
 
-      <Signup />
+      {isSignupVisible && <Signup setIsSignupVisible={setIsSignupVisible} />}
     </div>
   );
 };
