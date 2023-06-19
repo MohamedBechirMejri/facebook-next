@@ -36,19 +36,19 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
     <div className="flex flex-col items-stretch justify-center gap-2 py-4 overflow-hidden bg-white rounded-lg animate-reveal">
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <Link href={post.author.nickname || "/users/" + post.author._id}>
-            <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
-              <div className="relative w-10 h-10 overflow-hidden rounded-full">
-                <Image
-                  src={
-                    post.author.picture ||
-                    "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
-                  }
-                  alt=""
-                  layout="fill"
-                />
-              </div>
-            </a>
+          <Link
+            href={post.author.nickname || "/users/" + post.author._id}
+            className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all"
+          >
+            <div className="relative w-10 h-10 overflow-hidden rounded-full">
+              <Image
+                src={
+                  post.author.picture ||
+                  "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
+                }
+                alt=""
+              />
+            </div>
           </Link>
           <div>
             <h1 className="font-bold">
@@ -60,12 +60,11 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                     ? "/pages/" + post.page._id
                     : post.author.nickname || "/users/" + post.author._id
                 }
+                className="hover:underline"
               >
-                <a className="hover:underline">
-                  {post.group?.name ||
-                    post.page?.name ||
-                    post.author.firstName + " " + post.author.lastName}
-                </a>
+                {post.group?.name ||
+                  post.page?.name ||
+                  post.author.firstName + " " + post.author.lastName}
               </Link>
             </h1>
             <p className="flex items-center gap-1 text-xs">
@@ -75,16 +74,14 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                     href={post.author.nickname || "/users/" + post.author._id}
                   >
                     {" "}
-                    <a>{post.author.firstName + " " + post.author.lastName}</a>
+                    {post.author.firstName + " " + post.author.lastName}
                   </Link>{" "}
                   ·
                 </span>
               )}
               <span>
-                <Link href={"/posts/" + post._id}>
-                  <a className="hover:underline">
-                    {formatDistanceToNow(new Date(post.createdAt))} ago
-                  </a>
+                <Link href={"/posts/" + post._id} className="hover:underline">
+                  {formatDistanceToNow(new Date(post.createdAt))} ago
                 </Link>
               </span>{" "}
               ·{" "}
@@ -120,12 +117,13 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
       </div>
       <p className="p-6 py-4 text-justify">{post.text}</p>
       {post.image && (
-        <Link href="/posts/id">
-          <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
-            <div className="w-[590px] ">
-              <Image src={post.image} alt="" height={700} width={700} />
-            </div>
-          </a>
+        <Link
+          href="/posts/id"
+          className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all"
+        >
+          <div className="w-[590px] ">
+            <Image src={post.image} alt="" height={700} width={700} />
+          </div>
         </Link>
       )}
       <div className="px-4">

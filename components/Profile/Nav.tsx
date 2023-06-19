@@ -8,10 +8,11 @@ const Nav = () => {
   return (
     <nav className="items-center w-full p-2 px-8 rounded-lg text-[#606266] relative hidden sm:flex">
       <div className="flex flex-col h-full ">
-        <Link href={"/users/" + router.query.id}>
-          <a className="h-full p-3 font-semibold capitalize transition-all rounded-lg  text-[hsl(214,89%,52%)]">
-            posts
-          </a>
+        <Link
+          href={"/users/" + router.query.id}
+          className="h-full p-3 font-semibold capitalize transition-all rounded-lg  text-[hsl(214,89%,52%)]"
+        >
+          posts
         </Link>
         <div className="w-full h-[3px] bg-[#1876f2] rounded-full" />
       </div>
@@ -22,10 +23,9 @@ const Nav = () => {
               "/users/" + router.query.id
               // + "/"   +  link
             }
+            className="h-full p-3 font-semibold capitalize transition-all rounded-lg hover:bg-gray-200 active:bg-gray-300"
           >
-            <a className="h-full p-3 font-semibold capitalize transition-all rounded-lg hover:bg-gray-200 active:bg-gray-300">
-              {link}
-            </a>
+            {link}
           </Link>
         </div>
       ))}

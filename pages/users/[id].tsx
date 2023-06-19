@@ -67,20 +67,20 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                 <div className="flex items-center">
                   {profile.friends.map((friend: any, i: number) => {
                     return i < 10 ? (
-                      <Link key={i} href={"/users/" + friend._id}>
-                        <a
-                          className="block w-8 h-8 -mr-1 overflow-hidden transition-all border-2 border-white rounded-full active:scale-95"
-                          style={{
-                            zIndex: i,
-                          }}
-                        >
-                          <Image
-                            src={friend.picture}
-                            height={1000}
-                            width={1000}
-                            alt=""
-                          />
-                        </a>
+                      <Link
+                        key={i}
+                        href={"/users/" + friend._id}
+                        className="block w-8 h-8 -mr-1 overflow-hidden transition-all border-2 border-white rounded-full active:scale-95"
+                        style={{
+                          zIndex: i,
+                        }}
+                      >
+                        <Image
+                          src={friend.picture}
+                          height={1000}
+                          width={1000}
+                          alt=""
+                        />
                       </Link>
                     ) : null;
                   })}
@@ -118,10 +118,11 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
             <div className="p-3 bg-white border rounded-lg shadow">
               <h1 className="flex items-center justify-between w-full pb-2 text-lg font-semibold">
                 <span className="text-sm lg-text-lg">Photos</span>
-                <Link href={"/users/" + user._id + "/photos"}>
-                  <a className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg text-sm lg-text-base">
-                    See all photos
-                  </a>
+                <Link
+                  href={"/users/" + user._id + "/photos"}
+                  className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg text-sm lg-text-base"
+                >
+                  See all photos
                 </Link>
               </h1>
               <div className="grid grid-cols-3 gap-1 m-1">
@@ -129,22 +130,24 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                   .filter((p: any) => p.image)
                   .map((p: any, i: number) =>
                     i > 5 ? null : (
-                      <Link href={"/posts/" + p._id} key={p._id}>
-                        <a className="transition-all hover:contrast-75">
-                          <Image
-                            src={p.image}
-                            height={1000}
-                            width={1000}
-                            alt=""
-                            style={{
-                              borderTopLeftRadius: i === 0 ? ".5rem" : "",
-                              borderTopRightRadius: i === 2 ? ".5rem" : "",
-                              borderBottomLeftRadius: i === 3 ? ".5rem" : "",
-                              borderBottomRightRadius:
-                                i === 5 || i + 1 === undefined ? ".5rem" : "",
-                            }}
-                          />
-                        </a>
+                      <Link
+                        href={"/posts/" + p._id}
+                        key={p._id}
+                        className="transition-all hover:contrast-75"
+                      >
+                        <Image
+                          src={p.image}
+                          height={1000}
+                          width={1000}
+                          alt=""
+                          style={{
+                            borderTopLeftRadius: i === 0 ? ".5rem" : "",
+                            borderTopRightRadius: i === 2 ? ".5rem" : "",
+                            borderBottomLeftRadius: i === 3 ? ".5rem" : "",
+                            borderBottomRightRadius:
+                              i === 5 || i + 1 === undefined ? ".5rem" : "",
+                          }}
+                        />
                       </Link>
                     )
                   )}
@@ -164,27 +167,30 @@ const UserProfile = ({ user, profile }: { user: any; profile: any }) => {
                       {profile.friends.length !== 1 && "s"}
                     </span>
                   </span>
-                  <Link href={"/users/" + user._id + "/friends"}>
-                    <a className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg text-sm lg-text-base">
-                      See all friends
-                    </a>
+                  <Link
+                    href={"/users/" + user._id + "/friends"}
+                    className="font-normal text-[#216FDB] hover:bg-[#f2f2f2] transition-all p-1 px-2 rounded-lg text-sm lg-text-base"
+                  >
+                    See all friends
                   </Link>
                 </h1>
                 <div className="grid grid-cols-3 gap-1 m-1">
                   {profile.friends.map((friend: any, i: number) => {
                     return i < 10 ? (
-                      <Link key={i} href={"/users/" + friend._id}>
-                        <a className="transition-all hover:contrast-75 active:scale-95">
-                          <Image
-                            src={friend.picture}
-                            height={1000}
-                            width={1000}
-                            alt=""
-                            style={{
-                              borderRadius: ".5rem",
-                            }}
-                          />
-                        </a>
+                      <Link
+                        key={i}
+                        href={"/users/" + friend._id}
+                        className="transition-all hover:contrast-75 active:scale-95"
+                      >
+                        <Image
+                          src={friend.picture}
+                          height={1000}
+                          width={1000}
+                          alt=""
+                          style={{
+                            borderRadius: ".5rem",
+                          }}
+                        />
                       </Link>
                     ) : null;
                   })}

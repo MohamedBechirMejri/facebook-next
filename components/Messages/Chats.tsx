@@ -50,13 +50,15 @@ const Chats = ({
           const { firstName, lastName, picture } =
             c.users[0]._id === user._id ? c.users[1] : c.users[0];
           return (
-            <Link href={"/messages/" + c._id} key={c._id}>
-              <a className="flex items-center justify-start gap-4 p-2 transition-all rounded-lg hover:bg-gray-200">
-                <div className="relative overflow-hidden rounded-full w-14 h-14">
-                  <Image src={picture} layout="fill" alt="" />
-                </div>
-                <h2 className="font-medium">{firstName + " " + lastName}</h2>
-              </a>
+            <Link
+              href={"/messages/" + c._id}
+              key={c._id}
+              className="flex items-center justify-start gap-4 p-2 transition-all rounded-lg hover:bg-gray-200"
+            >
+              <div className="relative overflow-hidden rounded-full w-14 h-14">
+                <Image src={picture} layout="fill" alt="" />
+              </div>
+              <h2 className="font-medium">{firstName + " " + lastName}</h2>
             </Link>
           );
         })}

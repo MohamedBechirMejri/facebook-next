@@ -43,8 +43,7 @@ const Menu = ({ user }: { user: any }) => {
           <h1 className="w-full p-2 text-2xl font-semibold text-center">
             Menu
           </h1>
-          {/* <Link href={"/users/" + user._id}>
-            <a className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-green-200">
+          {/* <Link href={"/users/" + user._id} className="flex items-center gap-2 p-2 text-left transition-all rounded-lg hover:bg-gray-100 active:bg-green-200">
               <div
                 className="bg-[#d8dadf] rounded-full w-10 h-10 relative overflow-hidden transition-all active:scale-95 z-20 "
                 onClick={() => setIsVisible(!isVisible)}
@@ -54,13 +53,10 @@ const Menu = ({ user }: { user: any }) => {
               <span className="font-bold">
                 {user.firstName + " " + user.lastName}
               </span>
-            </a>
           </Link> */}
 
           {navLinks.map(navlink => (
-            <Link href={navlink.href} key={navlink.label}>
-              <a
-                className={
+            <Link href={navlink.href} key={navlink.label} className={
                   "text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all "
                 }
               >
@@ -68,7 +64,6 @@ const Menu = ({ user }: { user: any }) => {
                   <Image src={navlink.icon} alt="" layout="fill" />
                 </span>
                 <span>{navlink.label}</span>
-              </a>
             </Link>
           ))}
         </div>

@@ -17,31 +17,28 @@ const Login = () => {
         </div>
         <div className="bg-white rounded-lg p-4 flex flex-col gap-4 shadow-lg text-white font-bold items-center py-8 sm:min-w-[25rem] border">
           <h1 className="text-2xl text-black">Login </h1>
-          <Link href="/api/auth">
-            <a className="flex items-center justify-center gap-2 bg-[#2374f2] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest  hover:bg-[#166fe5] transition-all active:scale-95">
-              <Image
-                src="/Assets/logo-white.svg"
-                height={34}
-                width={34}
-                alt=""
-              />
-              <span>Continue with Facebook</span>
-            </a>
+          <Link
+            href="/api/auth"
+            className="flex items-center justify-center gap-2 bg-[#2374f2] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest  hover:bg-[#166fe5] transition-all active:scale-95"
+          >
+            <Image src="/Assets/logo-white.svg" height={34} width={34} alt="" />
+            <span>Continue with Facebook</span>
           </Link>
           <hr className="w-full bg-black" />
-          <Link href="/api/auth/guest">
-            <a className="flex items-center justify-center gap-2 bg-[#42b72a] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest  hover:bg-[#36a420] transition-all active:scale-95">
-              <Image
-                src="/Assets/guest-icon.png"
-                height={34}
-                width={34}
-                alt=""
-                style={{
-                  filter: "invert(1)",
-                }}
-              />
-              <span>Continue as guest</span>
-            </a>
+          <Link
+            href="/api/auth/guest"
+            className="flex items-center justify-center gap-2 bg-[#42b72a] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest  hover:bg-[#36a420] transition-all active:scale-95"
+          >
+            <Image
+              src="/Assets/guest-icon.png"
+              height={34}
+              width={34}
+              alt=""
+              style={{
+                filter: "invert(1)",
+              }}
+            />
+            <span>Continue as guest</span>
           </Link>
         </div>{" "}
       </div>

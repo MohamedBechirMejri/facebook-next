@@ -85,10 +85,9 @@ const Comments = ({
                 <div className="px-4 p-2 rounded-[18px] bg-[#f0f2f5]  ">
                   <Link
                     href={comment.user.nickname || "/users/" + comment.user._id}
+                    className="font-bold transition-all hover:underline"
                   >
-                    <a className="font-bold transition-all hover:underline">
-                      {comment.user.firstName + " " + comment.user.lastName}
-                    </a>
+                    {comment.user.firstName + " " + comment.user.lastName}
                   </Link>
                   <p className="">{comment.text}</p>
                 </div>{" "}

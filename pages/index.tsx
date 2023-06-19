@@ -45,12 +45,13 @@ const Home = ({ user }: { user: any }) => {
           <main className="mx-auto w-screen sm:w-[590px] flex flex-col justify-start items-stretch gap-4 pb-64 z-40 bg-[#f0f2f5] text-[#606266]">
             <div className="flex flex-col items-stretch justify-center gap-2 p-4 bg-white rounded-lg">
               <div className="flex items-center justify-center gap-2 pb-2">
-                <Link href="/user/id">
-                  <a className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all">
-                    <div className="relative w-10 h-10 overflow-hidden rounded-full">
-                      <Image src={user.picture} alt="" layout="fill" />
-                    </div>
-                  </a>
+                <Link
+                  href="/user/id"
+                  className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all"
+                >
+                  <div className="relative w-10 h-10 overflow-hidden rounded-full">
+                    <Image src={user.picture} alt="" layout="fill" />
+                  </div>
                 </Link>
                 <p
                   className="w-full p-2 px-4 text-sm text-gray-500 transition-all bg-gray-100 rounded-full cursor-pointer sm:text-base hover:bg-gray-200"
@@ -112,10 +113,11 @@ const Home = ({ user }: { user: any }) => {
               ) : (
                 <div className="absolute flex flex-col items-center justify-center gap-2 font-medium -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
                   <p>Your Feed Is Empty!</p>
-                  <Link href="/friends">
-                    <a className="block p-2 font-medium text-white transition-all bg-blue-500 rounded-lg hover:bg-blue-600 active:scale-95 w-max">
-                      Find Some Friends
-                    </a>
+                  <Link
+                    href="/friends"
+                    className="block p-2 font-medium text-white transition-all bg-blue-500 rounded-lg hover:bg-blue-600 active:scale-95 w-max"
+                  >
+                    Find Some Friends
                   </Link>
                 </div>
               )}

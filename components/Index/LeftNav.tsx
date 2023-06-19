@@ -77,17 +77,17 @@ const LeftNav = ({ user }: { user: any }) => {
     <nav className="h-full w-[320px] overflow-y-scroll m-0 fixed left-4 top-16 pb-24 noscroll hidden lg:block">
       {navLinks.map(navlink =>
         /users|friends|saved|messages/gm.test(navlink.href) ? ( // <-- regex
-          <Link href={navlink.href} key={navlink.label}>
-            <a
-              className={
-                "text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all after:block after:w-2 after:h-2 after:bg-green-400 relative after:absolute after:right-4 after:rounded-full"
-              }
-            >
-              <span className="relative w-10 h-10 overflow-hidden rounded-full">
-                <Image src={navlink.icon} alt="" layout="fill" />
-              </span>
-              <span>{navlink.label}</span>
-            </a>
+          <Link
+            href={navlink.href}
+            key={navlink.label}
+            className={
+              "text-black flex items-center justify-start gap-3 hover:bg-[#e4e6e9] p-2 rounded-lg transition-all after:block after:w-2 after:h-2 after:bg-green-400 relative after:absolute after:right-4 after:rounded-full"
+            }
+          >
+            <span className="relative w-10 h-10 overflow-hidden rounded-full">
+              <Image src={navlink.icon} alt="" layout="fill" />
+            </span>
+            <span>{navlink.label}</span>
           </Link>
         ) : (
           <p

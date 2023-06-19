@@ -89,15 +89,17 @@ const Info = ({
                 const { firstName, lastName, picture } =
                   c.users[0]._id === user._id ? c.users[1] : c.users[0];
                 return (
-                  <Link href={"/messages/" + c._id} key={c._id}>
-                    <a className="flex items-center justify-start gap-4 p-2 transition-all rounded-lg hover:bg-gray-200">
-                      <div className="relative overflow-hidden rounded-full w-14 h-14 shrink-0">
-                        <Image src={picture} layout="fill" alt="" />
-                      </div>
-                      <h2 className="font-medium">
-                        {firstName + " " + lastName}
-                      </h2>
-                    </a>
+                  <Link
+                    href={"/messages/" + c._id}
+                    key={c._id}
+                    className="flex items-center justify-start gap-4 p-2 transition-all rounded-lg hover:bg-gray-200"
+                  >
+                    <div className="relative overflow-hidden rounded-full w-14 h-14 shrink-0">
+                      <Image src={picture} layout="fill" alt="" />
+                    </div>
+                    <h2 className="font-medium">
+                      {firstName + " " + lastName}
+                    </h2>
                   </Link>
                 );
               })}
@@ -148,16 +150,15 @@ const Info = ({
                     ? conversation.users[0]._id
                     : conversation.users[1]._id
                 }`}
+              className="p-[.2rem] px-2 pt-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all"
             >
-              <a className="p-[.2rem] px-2 pt-2 bg-gray-200 rounded-full hover:bg-gray-300 transition-all">
-                <div
-                  style={{
-                    backgroundImage: `url(${"/Assets/buttons7.png"})`,
-                    backgroundPosition: "0px -149px",
-                  }}
-                  className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
-                />
-              </a>
+              <div
+                style={{
+                  backgroundImage: `url(${"/Assets/buttons7.png"})`,
+                  backgroundPosition: "0px -149px",
+                }}
+                className="w-[20px] h-[20px] bg-no-repeat inline-block bg-auto"
+              />
             </Link>
             <p className="text-sm">Profile</p>
           </div>
@@ -286,15 +287,13 @@ const Info = ({
             </div>
           </div>
 
-          <Link href={"/api/conversations/" + conversation._id + "/delete"}>
-            <a
+          <Link href={"/api/conversations/" + conversation._id + "/delete"}
               className="block w-full p-4 font-bold text-center text-red-500 transition-all bg-white cursor-pointer hover:bg-red-200 rounded-xl active:bg-red-300"
               style={{
                 transform: isCustomizeOpen ? "" : " translateY(-130%)",
               }}
             >
               <span> Delete chat </span>
-            </a>
           </Link>
         </div>
       </div>
