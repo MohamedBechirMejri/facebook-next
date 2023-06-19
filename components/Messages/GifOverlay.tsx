@@ -1,5 +1,5 @@
 import axios from "axios";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useEffect, useState } from "react";
 import GifSvg from "./SVGs/Gif";
 const giphy = require("giphy-api")({

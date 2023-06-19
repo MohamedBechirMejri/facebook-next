@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextApiRequest, NextApiResponse } from "next";
 import Header from "~/components/Header";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useState } from "react";
 import getUser from "~/lib/Auth/getUser";
 import User from "~/models/User";

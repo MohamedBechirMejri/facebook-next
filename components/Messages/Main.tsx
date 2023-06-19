@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useEffect, useRef, useState } from "react";
 import CallSvg from "./SVGs/Call";
 import VideoSvg from "./SVGs/Video";

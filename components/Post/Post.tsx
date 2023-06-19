@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import PostType from "~/types/PostType";
@@ -47,6 +47,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
                   "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
                 }
                 alt=""
+                layout="fill"
               />
             </div>
           </Link>

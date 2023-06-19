@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextApiRequest, NextApiResponse } from "next";
 import Header from "~/components/Header";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Post from "~/components/Post/Post";
 import PostType from "~/types/PostType";
 import LeftNav from "~/components/Index/LeftNav";

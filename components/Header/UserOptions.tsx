@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useState } from "react";
 import Link from "next/link";
 import { deleteCookie } from "cookies-next";

@@ -3,7 +3,7 @@ import Header from "~/components/Header";
 import getUser from "~/lib/Auth/getUser";
 import dbConnect from "~/lib/dbConnect";
 import User from "~/models/User";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Nav from "~/components/Profile/Nav";
 import Post from "~/components/Post/Post";
 import PostType from "~/types/PostType";

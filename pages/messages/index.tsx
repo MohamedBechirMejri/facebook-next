@@ -6,7 +6,7 @@ import { L49 } from "react-isloading";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import FriendsOverlay from "~/components/Messages/FriendsOverlayMobile";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const Messages = ({ user }: { user: any }) => {
   const router = useRouter();
