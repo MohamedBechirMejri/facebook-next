@@ -20,7 +20,7 @@ const Login = () => {
           <input
             type="text"
             className="flex items-center justify-center gap-2 bg-white px-3  p-2 rounded-lg text-lg transition-all focus:border-[#2374f2] w-full border border-gray-300 outline-none text-black font-normal"
-            placeholder="Email or phone number"
+            placeholder="Email"
           />
           <input
             type="password"
