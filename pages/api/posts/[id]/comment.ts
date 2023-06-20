@@ -59,11 +59,14 @@ export default async function handler(
         // else return res.status(200).json({ message: "Post created", post });
       });
 
-      Post.populate(post, { path: "comments" }, (err: any, post: any) => {
-        if (err)
-          return res.status(500).json({ message: "Something went wrong" });
-        else return res.status(200).json({ message: "Post created", post });
-      });
+      (async () => {
+        try {
+          let p = await Post.populate(post, { path: "comments" });
+          return res.status(200).json({ message: "Post created", post: p });
+        } catch (err) {
+          return res.status(500).json({ message: "Something went wrong", err });
+        }
+      })();
     }
   });
 }
