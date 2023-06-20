@@ -27,12 +27,16 @@ export default async function handler(
     );
   else user.saves.push(post._id);
 
-  user.save((err: any, user: any) => {
-    if (err) return res.status(500).json({ message: "Something went wrong" });
-    return res.status(200).json({
-      message: "Done",
-      saves: user.saves,
-      status: user.saves.includes(post._id) ? "Saved!" : "Unsaved!",
-    });
-  });
+  (async () => {
+    try {
+      let u = await user.save();
+      return res.status(200).json({
+        message: "Done",
+        saves: u.saves,
+        status: u.saves.includes(post._id) ? "Saved!" : "Unsaved!",
+      });
+    } catch (err) {
+      return res.status(500).json({ message: "Something went wrong", err });
+    }
+  })();
 }
