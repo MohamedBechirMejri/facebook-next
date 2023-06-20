@@ -8,7 +8,7 @@ const RightNav = ({ user }: { user: any }) => {
         Contacts
       </h3>
       <div>
-        {user.friends.map((friend: any, i: number) => {
+        {user.friends?.map((friend: any, i: number) => {
           return (
             <a
               href={"/api/users/" + friend._id + "/message"}

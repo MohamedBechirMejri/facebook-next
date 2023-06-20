@@ -1,18 +1,20 @@
-import type { GetServerSideProps, NextApiRequest, NextApiResponse } from "next";
-import Header from "~/components/Header";
+import type { GetServerSideProps } from "next";
+
 import Link from "next/link";
 import Image from "next/legacy/image";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+import Header from "~/components/Header";
 import Post from "~/components/Post/Post";
 import PostType from "~/types/PostType";
 import LeftNav from "~/components/Index/LeftNav";
 import AddPost from "~/components/Post/AddPost";
-import { useEffect, useState } from "react";
 import getUser from "~/lib/Auth/getUser";
 import RightNav from "~/components/Index/RightNav";
-import axios from "axios";
 
 const Home = ({ user }: { user: any }) => {
-  user = user.user;
+  user = JSON.parse(user).user;
 
   const [posts, setPosts] = useState([] as PostType[]);
 
@@ -26,9 +28,7 @@ const Home = ({ user }: { user: any }) => {
       {isAddingPost && (
         <div
           className="fixed z-[70] w-screen h-screen bg-white opacity-60"
-          onClick={() => {
-            setIsAddingPost(false);
-          }}
+          onClick={() => setIsAddingPost(false)}
         />
       )}
       <Header user={user}>
@@ -69,9 +69,7 @@ const Home = ({ user }: { user: any }) => {
                     height={24}
                     width={24}
                     alt=""
-                    style={{
-                      filter: " ",
-                    }}
+                    style={{ filter: " " }}
                   />
                   <span className="hidden sm:block">Live video</span>
                 </button>{" "}
@@ -81,9 +79,7 @@ const Home = ({ user }: { user: any }) => {
                     height={24}
                     width={24}
                     alt=""
-                    style={{
-                      filter: " ",
-                    }}
+                    style={{ filter: " " }}
                   />
                   <span className="hidden sm:block">Photo/video</span>
                 </button>{" "}
@@ -93,9 +89,7 @@ const Home = ({ user }: { user: any }) => {
                     height={24}
                     width={24}
                     alt=""
-                    style={{
-                      filter: " ",
-                    }}
+                    style={{ filter: " " }}
                   />
                   <span className="hidden sm:block">Feeling/Activity</span>
                 </button>
@@ -105,7 +99,9 @@ const Home = ({ user }: { user: any }) => {
               {posts && posts.length > 0 ? (
                 posts.map((p, i) =>
                   p.author._id === user._id ||
-                  user.friends.map((f: any) => f._id).includes(p.author._id) ? (
+                  user.friends
+                    ?.map((f: any) => f._id)
+                    .includes(p.author._id) ? (
                     <Post key={i} post={p} user={user} />
                   ) : null
                 )
@@ -134,11 +130,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 
   // @ts-ignore
   user = await getUser(req, res);
-  return {
-    props: {
-      user,
-    },
-  };
+
+  return { props: { user: JSON.stringify(user) } };
 };
 
 export default Home;
