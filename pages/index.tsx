@@ -14,6 +14,8 @@ import getUser from "~/lib/Auth/getUser";
 import RightNav from "~/components/Index/RightNav";
 
 const Home = ({ user }: { user: any }) => {
+  if (!user) return <h1>Please refresh the page</h1>;
+
   user = JSON.parse(user).user;
 
   const [posts, setPosts] = useState([] as PostType[]);
