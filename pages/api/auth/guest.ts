@@ -26,7 +26,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     { expiresIn: "15d" },
     (err: any, token: any) => {
       setCookie("token", token, { req, res, maxAge: 60 * 60 * 24 * 15 });
-      res.redirect("/");
+      return res.redirect("/login");
     }
   );
 };
