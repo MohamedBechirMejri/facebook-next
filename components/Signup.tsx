@@ -9,7 +9,7 @@ export default function Signup({
       <div className="bg-white absolute top-1/2 left-1/2 w-[min(94svw,30rem)] -translate-x-1/2 -translate-y-1/2 shadow rounded-md border">
         <div className="p-4 border-b relative">
           <h1 className="text-3xl font-bold">Sign Up</h1>
-          <p className="text-gray-500 text-sm">It's quick and easy.</p>
+          <p className="text-gray-500 text-sm">It&#39s quick and easy.</p>
 
           <button
             className="absolute top-5 right-5 text-gray-500 hover:text-black transition-all "
@@ -59,7 +59,9 @@ export default function Signup({
               className="flex items-center justify-center gap-2 bg-white px-3  p-2 rounded-lg text-lg transition-all focus:border-[#2374f2] w-full border border-gray-300 outline-none text-black font-normal"
             >
               {Array.from(Array(31).keys()).map(day => (
-                <option value="day">{day + 1}</option>
+                <option key={`day#${day}`} value="day">
+                  {day + 1}
+                </option>
               ))}
             </select>
             <select
