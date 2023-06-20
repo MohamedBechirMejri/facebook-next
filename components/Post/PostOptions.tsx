@@ -19,7 +19,7 @@ const PostOptions = ({ user, post }: { user: any; post: any }) => {
 
   const handleDelete = (e: React.MouseEvent) => {
     e.preventDefault();
-    axios.get("/api/posts/" + post._id + "/delete").then(() => Router.reload);
+    axios.get("/api/posts/" + post._id + "/delete").then(() => Router.reload());
   };
 
   return (
