@@ -130,7 +130,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
       <div className="px-4">
         <div className="flex items-center justify-between pb-2 text-gray-500">
           <div className="flex gap-1">
-            <div>
+            <div className="flex">
               {reacts[1][1].length > 0 && (
                 <Image
                   src={
