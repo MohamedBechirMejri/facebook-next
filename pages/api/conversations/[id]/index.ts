@@ -70,16 +70,14 @@ export default async function handler(
 
     const message = new Message({ text, image, emoji, user: user.user._id });
 
-    message.save(async (err: any, msg: any) => {
-      if (err) {
-        res.status(500).json({ message: "Something went wrong" });
-        return;
-      } else {
+    message
+      .save()
+      .then((msg: any) => {
         conversation.messages.push(msg._id);
-
-        await conversation.save();
-
-        conversation = await Conversation.findById(id)
+        return conversation.save();
+      })
+      .then(() => {
+        return Conversation.findById(id)
           .populate({
             path: "users",
             model: User,
@@ -92,9 +90,12 @@ export default async function handler(
               model: User,
             },
           });
-
-        res.status(200).json({ conversation });
-      }
-    });
+      })
+      .then((conversation: any) => {
+        return res.status(200).json({ conversation });
+      })
+      .catch((err: any) => {
+        return res.status(500).json({ message: "Something went wrong", err });
+      });
   }
 }
