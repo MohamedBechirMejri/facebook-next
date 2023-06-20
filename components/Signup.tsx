@@ -84,7 +84,9 @@ export default function Signup({
                 "Nov",
                 "Dec",
               ].map(month => (
-                <option value="month">{month}</option>
+                <option key={month} value="month">
+                  {month}
+                </option>
               ))}
             </select>
             <select
@@ -96,7 +98,9 @@ export default function Signup({
                 .map(year => year + 1900)
                 .reverse()
                 .map(year => (
-                  <option value="year">{year}</option>
+                  <option key={`yr#${year}`} value="year">
+                    {year}
+                  </option>
                 ))}
             </select>
           </div>
