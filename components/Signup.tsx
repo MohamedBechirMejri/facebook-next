@@ -1,15 +1,43 @@
+import axios from "axios";
+import { useState } from "react";
+
 export default function Signup({
   setIsSignupVisible,
 }: {
   setIsSignupVisible: any;
 }) {
+  const [error, setError] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    axios
+      .post("/api/auth/signup", {
+        firstName,
+        lastName,
+        email,
+        password,
+      })
+      .then(() => {
+        window.location.href = "/login";
+      })
+      .catch(err => {
+        if (err.data.error) setError(err.data.error);
+      });
+  };
+
   return (
     <div className="fixed inset-0">
       <div className="absolute inset-0 bg-gray-400 bg-opacity-50" />
       <div className="bg-white absolute top-1/2 left-1/2 w-[min(94svw,30rem)] -translate-x-1/2 -translate-y-1/2 shadow rounded-md border">
         <div className="p-4 border-b relative">
           <h1 className="text-3xl font-bold">Sign Up</h1>
-          <p className="text-gray-500 text-sm">It&#39s quick and easy.</p>
+          <p className="text-gray-500 text-sm">It{"'"}s quick and easy.</p>
+          <p className="text-rose-500 pt-2 font-bold">{error}</p>
 
           <button
             className="absolute top-5 right-5 text-gray-500 hover:text-black transition-all "
@@ -33,22 +61,30 @@ export default function Signup({
               type="text"
               className="flex items-center justify-center gap-2 bg-white px-3  p-2 rounded-lg text-lg transition-all focus:border-[#2374f2] w-full border border-gray-300 outline-none text-black font-normal"
               placeholder="First Name"
+              value={firstName}
+              onChange={e => setFirstName(e.target.value)}
             />
             <input
               type="text"
               className="flex items-center justify-center gap-2 bg-white px-3  p-2 rounded-lg text-lg transition-all focus:border-[#2374f2] w-full border border-gray-300 outline-none text-black font-normal"
               placeholder="Last Name"
+              value={lastName}
+              onChange={e => setLastName(e.target.value)}
             />
           </div>
           <input
             type="email"
             className="flex items-center justify-center gap-2 bg-white px-3  p-2 rounded-lg text-lg transition-all focus:border-[#2374f2] w-full border border-gray-300 outline-none text-black font-normal"
             placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
           />
           <input
             type="password"
             className="flex items-center justify-center gap-2 bg-white px-3  p-2 rounded-lg text-lg transition-all focus:border-[#2374f2] w-full border border-gray-300 outline-none text-black font-normal"
             placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
           />
           <p className="text-gray-500 text-sm pt-2">Date of birth (optional)</p>
 
@@ -131,7 +167,10 @@ export default function Signup({
           </div>
         </div>
         <div className="p-4 flex items-center justify-center pt-0">
-          <button className="flex items-center justify-center gap-2 bg-[#42b72a] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest  hover:bg-[#36a420] transition-all active:scale-95 text-white">
+          <button
+            className="flex items-center justify-center gap-2 bg-[#42b72a] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest  hover:bg-[#36a420] transition-all active:scale-95 text-white"
+            onClick={handleSubmit}
+          >
             Sign Up
           </button>
         </div>

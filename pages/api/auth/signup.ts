@@ -11,6 +11,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const { firstName, lastName, email, password } = req.body;
 
+  console.log(req.body);
+
   const user = await User.findOne({ email });
 
   if (user) return res.status(401).json({ message: "User already exists" });
@@ -20,10 +22,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     lastName,
     email,
     password,
+    picture: "https://picsum.photos/500",
   });
 
   await newUser.save().catch((err: any) => {
-    return res.status(401).json({ message: "Invalid credentials", err });
+    console.log(err);
+
+    return res.status(401).json({ message: "Invalid credentials", error: err });
   });
 
   jwt.sign(
@@ -32,7 +37,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     { expiresIn: "15d" },
     (err: any, token: any) => {
       setCookie("token", token, { req, res, maxAge: 60 * 60 * 24 * 15 });
-      res.redirect("/");
+      return res.redirect("/login");
     }
   );
 };
