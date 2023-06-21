@@ -26,8 +26,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   });
 
   await newUser.save().catch((err: any) => {
-    console.log(err);
-
     return res.status(401).json({ message: "Invalid credentials", error: err });
   });
 

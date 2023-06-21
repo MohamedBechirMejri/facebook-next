@@ -26,7 +26,7 @@ export default function Signup({
         window.location.href = "/login";
       })
       .catch(err => {
-        if (err.data.error) setError(err.data.error);
+        setError(err.response.data.message);
       });
   };
 
