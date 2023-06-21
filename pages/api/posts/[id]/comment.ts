@@ -43,30 +43,22 @@ export default async function handler(
       angrys: [],
     },
   });
-  comment.save(async (err: any, comment: any) => {
-    if (err) {
-      res.status(500).json({ message: "Something went wrong" });
-      return;
-    } else {
-      // return res.status(200).json({ message: "Post created", comment });
-      const post = await Post.findById(id);
+  comment.save().then(async (comment: any) => {
+    const post = await Post.findById(id);
 
-      post.comments = [...post.comments, comment._id];
+    post.comments = [...post.comments, comment._id];
 
-      post.save((err: any, post: any) => {
-        if (err)
-          return res.status(500).json({ message: "Something went wrong" });
-        // else return res.status(200).json({ message: "Post created", post });
-      });
+    post.save().catch((err: any) => {
+      return res.status(500).json({ message: "Something went wrong", err });
+    });
 
-      (async () => {
-        try {
-          let p = await Post.populate(post, { path: "comments" });
-          return res.status(200).json({ message: "Post created", post: p });
-        } catch (err) {
-          return res.status(500).json({ message: "Something went wrong", err });
-        }
-      })();
-    }
+    (async () => {
+      try {
+        let p = await Post.populate(post, { path: "comments" });
+        return res.status(200).json({ message: "Comment Added", post: p });
+      } catch (err) {
+        return res.status(500).json({ message: "Something went wrong", err });
+      }
+    })();
   });
 }
