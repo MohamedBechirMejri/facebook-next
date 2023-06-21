@@ -1,3 +1,4 @@
+import axios from "axios";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -6,6 +7,22 @@ import Signup from "~/components/Signup";
 
 const Login = () => {
   const [isSignupVisible, setIsSignupVisible] = useState(false);
+  const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    axios
+      .post("/api/auth/login", { email, password })
+      .then(() => {
+        window.location.href = "/login";
+      })
+      .catch(err => {
+        setError(err.response.data.message);
+      });
+  };
 
   return (
     <div className="w-screen min-h-screen bg-[#f0f2f5] text-black [font-family:Helvetica] flex flex-col justify-center items-center">
@@ -22,22 +39,27 @@ const Login = () => {
           </p>
         </div>
         <div className="bg-white rounded-lg p-4 flex flex-col gap-4 shadow-lg text-white font-bold items-center py-8 min-w-[min(25rem,98svw)] border">
+          <p className="text-rose-500 font-bold">{error}</p>
           <input
             type="text"
             className="flex items-center justify-center gap-2 bg-white px-3  p-2 rounded-lg text-lg transition-all focus:border-[#2374f2] w-full border border-gray-300 outline-none text-black font-normal"
             placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
           />
           <input
             type="password"
             className="flex items-center justify-center gap-2 bg-white px-3  p-2 rounded-lg text-lg transition-all focus:border-[#2374f2] w-full border border-gray-300 outline-none text-black font-normal"
             placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
           />
-          <Link
-            href="/api/auth"
+          <button
             className="flex items-center justify-center gap-2 bg-[#2374f2] px-3  p-2 rounded-lg text-lg font-semibold tracking-widest hover:bg-[#166fe5] transition-all active:scale-95 w-full"
+            onClick={handleSubmit}
           >
             Login
-          </Link>{" "}
+          </button>{" "}
           <Link
             href="/restpassword"
             className="flex items-center justify-center text-[#2374f2] hover:underline transition-all active:scale-95 w-full text-center font-normal text-sm"
