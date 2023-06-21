@@ -119,7 +119,7 @@ const Post = ({ post, user }: { post: PostType; user: any }) => {
       <p className="p-6 py-4 text-justify">{post.text}</p>
       {post.image && (
         <Link
-          href="/posts/id"
+          href={`/posts/${post._id}`}
           className="text-black flex items-center justify-start gap-3 hover2:bg-[#e4e6e9] rounded-lg transition-all"
         >
           <div className="w-[590px] ">
