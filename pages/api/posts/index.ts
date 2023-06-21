@@ -35,19 +35,20 @@ export default async function handler(
       },
       image: image || null,
     });
-    post.save(async (err: any, post: any) => {
-      if (err) {
-        res.status(500).json({ message: "Something went wrong" });
-        return;
-      } else {
+
+    post
+      .save()
+      .then(async (post: any) => {
         const author = await User.findById(user.user._id);
         author.posts.push(post._id);
 
         await author.save();
 
         return res.status(200).json({ message: "Post created", post });
-      }
-    });
+      })
+      .catch((err: any) => {
+        return res.status(500).json({ message: "Something went wrong", err });
+      });
   }
 
   if (req.method === "GET") {

@@ -45,8 +45,12 @@ export default async function handler(
     post.reacts.loves.push(user.user._id);
   }
 
-  post.save((err: any, post: any) => {
-    if (err) return res.status(500).json({ message: "Something went wrong" });
-    return res.status(200).json({ message: "Done", post });
-  });
+  post
+    .save()
+    .then((post: any) => {
+      return res.status(200).json({ message: "Done", post });
+    })
+    .catch((err: any) => {
+      return res.status(500).json({ message: "Something went wrong", err });
+    });
 }
