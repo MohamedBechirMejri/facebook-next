@@ -68,8 +68,8 @@ devDependencies:
     specifier: 18.2.17
     version: 18.2.17
   '@types/uniqid':
-    specifier: ^5.3.2
-    version: 5.3.2
+    specifier: ^5.3.4
+    version: 5.3.4
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.32)
@@ -929,8 +929,8 @@ packages:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
     dev: true
 
-  /@types/uniqid@5.3.2:
-    resolution: {integrity: sha512-/NYoaZpWsnAJDsGYeMNDeG3p3fuUb4AiC7MfKxi5VSu18tXd08w6Ch0fKW94T4FeLXXZwZPoFgHA1O0rDYKyMQ==}
+  /@types/uniqid@5.3.4:
+    resolution: {integrity: sha512-AgC+o3/8/QEHuU3w5w2jZ8auQtjSJ/s8G8RfEk9CYLogK1RGXqxhHH0wOEAu8uHXjvj8oh/dRtfgok4IHKxh/Q==}
     dev: true
 
   /@types/webidl-conversions@7.0.0:
