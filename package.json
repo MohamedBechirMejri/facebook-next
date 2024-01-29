@@ -12,7 +12,7 @@
     "axios": "^1.6.7",
     "cookies-next": "^4.1.0",
     "date-fns": "^3.3.1",
-    "emoji-picker-react": "^4.7.7",
+    "emoji-picker-react": "^4.7.10",
     "firebase": "^10.7.2",
     "giphy-api": "^2.0.2",
     "jsonwebtoken": "^9.0.2",
