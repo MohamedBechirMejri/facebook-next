@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.3.1
     version: 3.3.1
   emoji-picker-react:
-    specifier: ^4.7.10
-    version: 4.7.10(react@18.2.0)
+    specifier: ^4.7.12
+    version: 4.7.12(react@18.2.0)
   firebase:
     specifier: ^10.8.0
     version: 10.8.0
@@ -1535,13 +1535,13 @@ packages:
     resolution: {integrity: sha512-/bKPPcgZVUziECqDc+0HkT87+0zhaWSZHNXqF8FLd2lQcptpmUFwoCSWjCdOng9Gdq+afKArPdEg/0ZW461Eng==}
     dev: true
 
-  /emoji-picker-react@4.7.10(react@18.2.0):
-    resolution: {integrity: sha512-vsrEmiwfz+h3zYN3ZR4sZ/ExRWooE3AAMBbgIGgSq5HbCNZoG4ri//WlhxoMhp8QI7X56d8Xyqo7vGGf5cy1Pw==}
+  /emoji-picker-react@4.7.12(react@18.2.0):
+    resolution: {integrity: sha512-SV625gwJHk3z2H62Iy03MISvP6jcSbYW6IqY23mWDX3rnfE0Mb9UfMdzf3pB2C9c1ruU9qe+L6S0deSZsab1cA==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>=16'
     dependencies:
-      flairup: 0.0.35
+      flairup: 0.0.37
       react: 18.2.0
     dev: false
 
@@ -2054,8 +2054,8 @@ packages:
       - '@react-native-async-storage/async-storage'
     dev: false
 
-  /flairup@0.0.35:
-    resolution: {integrity: sha512-nXDgTr2WT7UT7HJnNRHRnbo93xs5B3ar5lRWqIbJ6hiwWTSIex5xp56uhEzow6+S5hySoX0mEhzYbLtU3K3A+A==}
+  /flairup@0.0.37:
+    resolution: {integrity: sha512-GY7coNGpJQczEIfBsgByKhkclQZC2OosDyyGTfFfm2rXEzwq7MbWQgGo/GwM7TdU53Ow4rPznKPMC8Q3iympjQ==}
     dev: false
 
   /flat-cache@3.0.4:
