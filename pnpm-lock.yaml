@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.3.1
     version: 3.3.1
   emoji-picker-react:
-    specifier: ^4.7.15
-    version: 4.7.15(react@18.2.0)
+    specifier: ^4.7.16
+    version: 4.7.16(react@18.2.0)
   firebase:
     specifier: ^10.8.0
     version: 10.8.0
@@ -1535,8 +1535,8 @@ packages:
     resolution: {integrity: sha512-/bKPPcgZVUziECqDc+0HkT87+0zhaWSZHNXqF8FLd2lQcptpmUFwoCSWjCdOng9Gdq+afKArPdEg/0ZW461Eng==}
     dev: true
 
-  /emoji-picker-react@4.7.15(react@18.2.0):
-    resolution: {integrity: sha512-GJLHDak/AsQCbcwNR5i11XUghsFMJPc5Y1eyqzdns/Bz5PzAbNJxWJyAy8/ZMYk9e6VQ+97n6l2jWXw8g5gmhw==}
+  /emoji-picker-react@4.7.16(react@18.2.0):
+    resolution: {integrity: sha512-H8/aM7AUnfqkg9H1SFvzzeJ3JCOAwF8I28djX6eYt1CGxhlYGZLv1wN+Ryyg19WAfX6zW2Kf/65hl7b3gMPO2g==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>=16'
