@@ -59,8 +59,8 @@ devDependencies:
     specifier: ^9.0.5
     version: 9.0.5
   '@types/node':
-    specifier: 20.11.17
-    version: 20.11.17
+    specifier: 20.11.19
+    version: 20.11.19
   '@types/react':
     specifier: 18.2.55
     version: 18.2.55
@@ -603,7 +603,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.10
-      '@types/node': 20.11.17
+      '@types/node': 20.11.19
     dev: false
 
   /@grpc/proto-loader@0.7.10:
@@ -897,15 +897,15 @@ packages:
   /@types/jsonwebtoken@9.0.5:
     resolution: {integrity: sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA==}
     dependencies:
-      '@types/node': 20.11.17
+      '@types/node': 20.11.19
     dev: true
 
   /@types/node@16.18.36:
     resolution: {integrity: sha512-8egDX8dE50XyXWH6C6PRCNkTP106DuUrvdrednFouDSmCi7IOvrqr0frznfZaHifHH/3aq/7a7v9N4wdXMqhBQ==}
     dev: false
 
-  /@types/node@20.11.17:
-    resolution: {integrity: sha512-QmgQZGWu1Yw9TDyAP9ZzpFJKynYNeOvwMJmaxABfieQoVoiVOS6MN1WSpqpRcbeA5+RW82kraAVxCCJg+780Qw==}
+  /@types/node@20.11.19:
+    resolution: {integrity: sha512-7xMnVEcZFu0DikYjWOlRq7NTPETrm7teqUT2WkQjrTIkEgUyyGdWsj/Zg8bEJt5TNklzbPD1X3fqfsHw3SpapQ==}
     dependencies:
       undici-types: 5.26.5
 
@@ -3308,7 +3308,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.11.17
+      '@types/node': 20.11.19
       long: 5.2.3
     dev: false
 
