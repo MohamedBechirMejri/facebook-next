@@ -16,7 +16,7 @@ dependencies:
     version: 3.6.0
   emoji-picker-react:
     specifier: ^4.9.2
-    version: 4.9.2(react@18.2.0)
+    version: 4.9.2(react@18.3.0)
   firebase:
     specifier: ^10.11.0
     version: 10.11.0
@@ -31,22 +31,22 @@ dependencies:
     version: 8.3.2
   next:
     specifier: ^14.2.3
-    version: 14.2.3(react-dom@18.2.0)(react@18.2.0)
+    version: 14.2.3(react-dom@18.2.0)(react@18.3.0)
   next-connect:
     specifier: ^1.0.0
     version: 1.0.0
   react:
-    specifier: 18.2.0
-    version: 18.2.0
+    specifier: 18.3.0
+    version: 18.3.0
   react-colorful:
     specifier: ^5.6.1
-    version: 5.6.1(react-dom@18.2.0)(react@18.2.0)
+    version: 5.6.1(react-dom@18.2.0)(react@18.3.0)
   react-dom:
     specifier: 18.2.0
-    version: 18.2.0(react@18.2.0)
+    version: 18.2.0(react@18.3.0)
   react-isloading:
     specifier: ^1.0.6
-    version: 1.0.6(react-dom@18.2.0)(react@18.2.0)
+    version: 1.0.6(react-dom@18.2.0)(react@18.3.0)
   uniqid:
     specifier: ^5.4.0
     version: 5.4.0
@@ -62,8 +62,8 @@ devDependencies:
     specifier: 20.12.7
     version: 20.12.7
   '@types/react':
-    specifier: 18.2.79
-    version: 18.2.79
+    specifier: 18.3.0
+    version: 18.3.0
   '@types/react-dom':
     specifier: 18.2.25
     version: 18.2.25
@@ -683,13 +683,13 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@lottiefiles/react-lottie-player@3.5.3(react@18.2.0):
+  /@lottiefiles/react-lottie-player@3.5.3(react@18.3.0):
     resolution: {integrity: sha512-6pGbiTMjGnPddR1ur8M/TIDCiogZMc1aKIUbMEKXKAuNeYwZ2hvqwBJ+w5KRm88ccdcU88C2cGyLVsboFlSdVQ==}
     peerDependencies:
       react: 16 - 18
     dependencies:
       lottie-web: 5.12.2
-      react: 18.2.0
+      react: 18.3.0
     dev: false
 
   /@mongodb-js/saslprep@1.1.5:
@@ -921,11 +921,11 @@ packages:
   /@types/react-dom@18.2.25:
     resolution: {integrity: sha512-o/V48vf4MQh7juIKZU2QGDfli6p1+OOi5oXx36Hffpc9adsHeXjVp8rHuPkjd8VT8sOJ2Zp05HR7CdpGTIUFUA==}
     dependencies:
-      '@types/react': 18.2.79
+      '@types/react': 18.3.0
     dev: true
 
-  /@types/react@18.2.79:
-    resolution: {integrity: sha512-RwGAGXPl9kSXwdNTafkOEuFrTBD5SA2B3iEB96xi8+xu5ddUa/cpvyVCSNn+asgLCTHkb5ZxN8gbuibYJi4s1w==}
+  /@types/react@18.3.0:
+    resolution: {integrity: sha512-DiUcKjzE6soLyln8NNZmyhcQjVv+WsUIFSqetMN0p8927OztKT4VTfFTqsbAi5oAGIcgOmOajlfBqyptDDjZRw==}
     dependencies:
       '@types/prop-types': 15.7.5
       csstype: 3.1.2
@@ -1530,14 +1530,14 @@ packages:
     resolution: {integrity: sha512-+2OAGjUx68xElQhydpcbqH50hE8Vs2K6TkAeLhICYfndb67CVH0UsZaijmRUE3rHlIxU1u0jxwhgVe6fK3YANA==}
     dev: true
 
-  /emoji-picker-react@4.9.2(react@18.2.0):
+  /emoji-picker-react@4.9.2(react@18.3.0):
     resolution: {integrity: sha512-pdvLKpto0DMrjE+/8V9QeYjrMcOkJmqBn3GyCSG2zanY32rN2cnWzBUmzArvapAjzBvgf7hNmJP8xmsdu0cmJA==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>=16'
     dependencies:
       flairup: 0.0.38
-      react: 18.2.0
+      react: 18.3.0
     dev: false
 
   /emoji-regex@8.0.0:
@@ -2939,7 +2939,7 @@ packages:
       regexparam: 2.0.1
     dev: false
 
-  /next@14.2.3(react-dom@18.2.0)(react@18.2.0):
+  /next@14.2.3(react-dom@18.2.0)(react@18.3.0):
     resolution: {integrity: sha512-dowFkFTR8v79NPJO4QsBUtxv0g9BrS/phluVpMAt2ku7H+cbcBJlopXjkWlwxrk/xGqMemr7JkGPGemPrLLX7A==}
     engines: {node: '>=18.17.0'}
     hasBin: true
@@ -2963,9 +2963,9 @@ packages:
       caniuse-lite: 1.0.30001599
       graceful-fs: 4.2.11
       postcss: 8.4.31
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      styled-jsx: 5.1.1(react@18.2.0)
+      react: 18.3.0
+      react-dom: 18.2.0(react@18.3.0)
+      styled-jsx: 5.1.1(react@18.3.0)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.3
       '@next/swc-darwin-x64': 14.2.3
@@ -3322,23 +3322,23 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
-  /react-colorful@5.6.1(react-dom@18.2.0)(react@18.2.0):
+  /react-colorful@5.6.1(react-dom@18.2.0)(react@18.3.0):
     resolution: {integrity: sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 18.3.0
+      react-dom: 18.2.0(react@18.3.0)
     dev: false
 
-  /react-dom@18.2.0(react@18.2.0):
+  /react-dom@18.2.0(react@18.3.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
       react: ^18.2.0
     dependencies:
       loose-envify: 1.4.0
-      react: 18.2.0
+      react: 18.3.0
       scheduler: 0.23.0
     dev: false
 
@@ -3346,19 +3346,19 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
 
-  /react-isloading@1.0.6(react-dom@18.2.0)(react@18.2.0):
+  /react-isloading@1.0.6(react-dom@18.2.0)(react@18.3.0):
     resolution: {integrity: sha512-fSCnfWQ8sF+xkW1EM/tRo5y56LyugG9NhZN6xyXoUXmQtsEu6iUtkPmlkBtSwIOJqEfiuFC+1FVpKKO6TvFpsQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      '@lottiefiles/react-lottie-player': 3.5.3(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      '@lottiefiles/react-lottie-player': 3.5.3(react@18.3.0)
+      react: 18.3.0
+      react-dom: 18.2.0(react@18.3.0)
     dev: false
 
-  /react@18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+  /react@18.3.0:
+    resolution: {integrity: sha512-RPutkJftSAldDibyrjuku7q11d3oy6wKOyPe5K1HA/HwwrXcEqBdHsLypkC2FFYjP7bPUa6gbzSBhw4sY2JcDg==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
@@ -3670,7 +3670,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /styled-jsx@5.1.1(react@18.2.0):
+  /styled-jsx@5.1.1(react@18.3.0):
     resolution: {integrity: sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
@@ -3684,7 +3684,7 @@ packages:
         optional: true
     dependencies:
       client-only: 0.0.1
-      react: 18.2.0
+      react: 18.3.0
     dev: false
 
   /sucrase@3.32.0:
