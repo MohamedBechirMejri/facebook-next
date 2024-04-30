@@ -27,8 +27,8 @@ dependencies:
     specifier: ^9.0.2
     version: 9.0.2
   mongoose:
-    specifier: ^8.3.2
-    version: 8.3.2
+    specifier: ^8.3.3
+    version: 8.3.3
   next:
     specifier: ^14.2.3
     version: 14.2.3(react-dom@18.3.1)(react@18.3.1)
@@ -2872,8 +2872,8 @@ packages:
       mongodb-connection-string-url: 3.0.0
     dev: false
 
-  /mongoose@8.3.2:
-    resolution: {integrity: sha512-3JcpDjFI25cF/3xpu+4+9nM0lURQTNLcP86X83+LvuICdn453QQLmhSrUr2IPM/ffLiDE9KPl9slNb2s0hZPpg==}
+  /mongoose@8.3.3:
+    resolution: {integrity: sha512-3kSk0db9DM2tLttCdS6WNRqewPleamFEa4Vz/Qldc0dB4Zow/FiZxb9GExHTJjBZQ9T2xiGleQ3GzRrES3hhsA==}
     engines: {node: '>=16.20.1'}
     dependencies:
       bson: 6.6.0
