@@ -27,8 +27,8 @@ dependencies:
     specifier: ^9.0.2
     version: 9.0.2
   mongoose:
-    specifier: ^8.3.5
-    version: 8.3.5
+    specifier: ^8.4.0
+    version: 8.4.0
   next:
     specifier: ^14.2.3
     version: 14.2.3(react-dom@18.3.1)(react@18.3.1)
@@ -1281,8 +1281,8 @@ packages:
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
     dev: true
 
-  /bson@6.6.0:
-    resolution: {integrity: sha512-BVINv2SgcMjL4oYbBuCQTpE3/VKOSxrOA8Cj/wQP7izSzlBGVomdm+TcUd0Pzy0ytLSSDweCKQ6X3f5veM5LQA==}
+  /bson@6.7.0:
+    resolution: {integrity: sha512-w2IquM5mYzYZv6rs3uN2DZTOBe2a0zXLj53TGDqwF4l6Sz/XsISrisXOJihArF9+BZ6Cq/GjVht7Sjfmri7ytQ==}
     engines: {node: '>=16.20.1'}
     dev: false
 
@@ -2857,8 +2857,8 @@ packages:
       whatwg-url: 13.0.0
     dev: false
 
-  /mongodb@6.5.0:
-    resolution: {integrity: sha512-Fozq68InT+JKABGLqctgtb8P56pRrJFkbhW0ux+x1mdHeyinor8oNzJqwLjV/t5X5nJGfTlluxfyMnOXNggIUA==}
+  /mongodb@6.6.2:
+    resolution: {integrity: sha512-ZF9Ugo2JCG/GfR7DEb4ypfyJJyiKbg5qBYKRintebj8+DNS33CyGMkWbrS9lara+u+h+yEOGSRiLhFO/g1s1aw==}
     engines: {node: '>=16.20.1'}
     peerDependencies:
       '@aws-sdk/credential-providers': ^3.188.0
@@ -2885,17 +2885,17 @@ packages:
         optional: true
     dependencies:
       '@mongodb-js/saslprep': 1.1.5
-      bson: 6.6.0
+      bson: 6.7.0
       mongodb-connection-string-url: 3.0.0
     dev: false
 
-  /mongoose@8.3.5:
-    resolution: {integrity: sha512-2zqeAjHjCqT1o5HeUCvkE9tUHsXwemnwEZ2SKnUxsaP8p1a+UcSQSNbnSuOzUVePMwLETrsvLIRdFLjsNfCgWA==}
+  /mongoose@8.4.0:
+    resolution: {integrity: sha512-fgqRMwVEP1qgRYfh+tUe2YBBFnPO35FIg2lfFH+w9IhRGg1/ataWGIqvf/MjwM29cZ60D5vSnqtN2b8Qp0sOZA==}
     engines: {node: '>=16.20.1'}
     dependencies:
-      bson: 6.6.0
+      bson: 6.7.0
       kareem: 2.6.3
-      mongodb: 6.5.0
+      mongodb: 6.6.2
       mpath: 0.9.0
       mquery: 5.0.0
       ms: 2.1.3
