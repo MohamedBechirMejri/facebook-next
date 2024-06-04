@@ -59,8 +59,8 @@ devDependencies:
     specifier: ^9.0.6
     version: 9.0.6
   '@types/node':
-    specifier: 20.14.0
-    version: 20.14.0
+    specifier: 20.14.1
+    version: 20.14.1
   '@types/react':
     specifier: 18.3.3
     version: 18.3.3
@@ -619,7 +619,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.10
-      '@types/node': 20.14.0
+      '@types/node': 20.14.1
     dev: false
 
   /@grpc/proto-loader@0.7.10:
@@ -918,11 +918,11 @@ packages:
   /@types/jsonwebtoken@9.0.6:
     resolution: {integrity: sha512-/5hndP5dCjloafCXns6SZyESp3Ldq7YjH3zwzwczYnjxIT0Fqzk5ROSYVGfFyczIue7IUEj8hkvLbPoLQ18vQw==}
     dependencies:
-      '@types/node': 20.14.0
+      '@types/node': 20.14.1
     dev: true
 
-  /@types/node@20.14.0:
-    resolution: {integrity: sha512-5cHBxFGJx6L4s56Bubp4fglrEpmyJypsqI6RgzMfBHWUJQGWAAi8cWcgetEbZXHYXo9C2Fa4EEds/uSyS4cxmA==}
+  /@types/node@20.14.1:
+    resolution: {integrity: sha512-T2MzSGEu+ysB/FkWfqmhV3PLyQlowdptmmgD20C6QxsS8Fmv5SjpZ1ayXaEC0S21/h5UJ9iA6W/5vSNU5l00OA==}
     dependencies:
       undici-types: 5.26.5
 
@@ -3318,7 +3318,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.14.0
+      '@types/node': 20.14.1
       long: 5.2.3
     dev: false
 
