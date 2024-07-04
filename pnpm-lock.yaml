@@ -18,8 +18,8 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
       emoji-picker-react:
-        specifier: ^4.11.0
-        version: 4.11.0(react@18.3.1)
+        specifier: ^4.11.1
+        version: 4.11.1(react@18.3.1)
       firebase:
         specifier: ^10.12.3
         version: 10.12.3
@@ -858,8 +858,8 @@ packages:
   electron-to-chromium@1.4.690:
     resolution: {integrity: sha512-+2OAGjUx68xElQhydpcbqH50hE8Vs2K6TkAeLhICYfndb67CVH0UsZaijmRUE3rHlIxU1u0jxwhgVe6fK3YANA==}
 
-  emoji-picker-react@4.11.0:
-    resolution: {integrity: sha512-3SWHj2BN+b+dIIkCVnKS9KcCD0SjoQw2tL2u7U+i5kZeRt74hsltY9vjwR+STrxAMOK6rsYTmjniz7/yRi9t+g==}
+  emoji-picker-react@4.11.1:
+    resolution: {integrity: sha512-e3vhGcZyyNu7GqJaXzgoVxtASXs97duAP/vh7aL88dHJcW72DjuwYMjipzNBCjPFxXwUiQas483SKCAxPwwaUQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>=16'
@@ -1044,8 +1044,8 @@ packages:
   firebase@10.12.3:
     resolution: {integrity: sha512-dO2cQ8eP6RnM2wcGzbxnoljjjMBf1suUrHYFftjSpbPn/8bEx959cwTRDHqBx3MwSzNsg6zZV/wiWydJPhUKgw==}
 
-  flairup@0.0.39:
-    resolution: {integrity: sha512-UVPkzZmZeBWBx1+Ovo++kYKk9Wi32Jxt+c7HsxnEY80ExwFV54w+NyquFziqMLS0BnGVE43yGD4OvIwaAm/WiQ==}
+  flairup@1.0.0:
+    resolution: {integrity: sha512-IKlE+pNvL2R+kVL1kEhUYqRxVqeFnjiIvHWDMLFXNaqyUdFXQM2wte44EfMYJNHkW16X991t2Zg8apKkhv7OBA==}
 
   flat-cache@3.0.4:
     resolution: {integrity: sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==}
@@ -3074,9 +3074,9 @@ snapshots:
 
   electron-to-chromium@1.4.690: {}
 
-  emoji-picker-react@4.11.0(react@18.3.1):
+  emoji-picker-react@4.11.1(react@18.3.1):
     dependencies:
-      flairup: 0.0.39
+      flairup: 1.0.0
       react: 18.3.1
 
   emoji-regex@8.0.0: {}
@@ -3452,7 +3452,7 @@ snapshots:
     transitivePeerDependencies:
       - '@react-native-async-storage/async-storage'
 
-  flairup@0.0.39: {}
+  flairup@1.0.0: {}
 
   flat-cache@3.0.4:
     dependencies:
