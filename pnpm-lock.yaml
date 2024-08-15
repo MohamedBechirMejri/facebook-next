@@ -61,8 +61,8 @@ importers:
         specifier: ^9.0.6
         version: 9.0.6
       '@types/node':
-        specifier: 22.2.0
-        version: 22.2.0
+        specifier: 22.3.0
+        version: 22.3.0
       '@types/react':
         specifier: 18.3.3
         version: 18.3.3
@@ -506,8 +506,8 @@ packages:
   '@types/jsonwebtoken@9.0.6':
     resolution: {integrity: sha512-/5hndP5dCjloafCXns6SZyESp3Ldq7YjH3zwzwczYnjxIT0Fqzk5ROSYVGfFyczIue7IUEj8hkvLbPoLQ18vQw==}
 
-  '@types/node@22.2.0':
-    resolution: {integrity: sha512-bm6EG6/pCpkxDf/0gDNDdtDILMOHgaQBVOJGdwsqClnxA3xL6jtMv76rLBc006RVMWbmaf0xbmom4Z/5o2nRkQ==}
+  '@types/node@22.3.0':
+    resolution: {integrity: sha512-nrWpWVaDZuaVc5X84xJ0vNrLvomM205oQyLsRt7OHNZbSHslcWsvgFR7O7hire2ZonjLrWBbedmotmIlJDVd6g==}
 
   '@types/prop-types@15.7.5':
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -2105,8 +2105,8 @@ packages:
   unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
 
-  undici-types@6.13.0:
-    resolution: {integrity: sha512-xtFJHudx8S2DSoujjMd1WeWvn7KKWFRESZTMeL1RptAYERu29D6jphMjjY+vn96jvN3kVPDNxU/E13VTaXj6jg==}
+  undici-types@6.18.2:
+    resolution: {integrity: sha512-5ruQbENj95yDYJNS3TvcaxPMshV7aizdv/hWYjGIKoANWKjhWNBsr2YEuYZKodQulB1b8l7ILOuDQep3afowQQ==}
 
   undici@5.28.4:
     resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
@@ -2553,7 +2553,7 @@ snapshots:
   '@grpc/grpc-js@1.9.15':
     dependencies:
       '@grpc/proto-loader': 0.7.10
-      '@types/node': 22.2.0
+      '@types/node': 22.3.0
 
   '@grpc/proto-loader@0.7.10':
     dependencies:
@@ -2708,11 +2708,11 @@ snapshots:
 
   '@types/jsonwebtoken@9.0.6':
     dependencies:
-      '@types/node': 22.2.0
+      '@types/node': 22.3.0
 
-  '@types/node@22.2.0':
+  '@types/node@22.3.0':
     dependencies:
-      undici-types: 6.13.0
+      undici-types: 6.18.2
 
   '@types/prop-types@15.7.5': {}
 
@@ -4176,7 +4176,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.2.0
+      '@types/node': 22.3.0
       long: 5.2.3
 
   proxy-from-env@1.1.0: {}
@@ -4527,7 +4527,7 @@ snapshots:
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
 
-  undici-types@6.13.0: {}
+  undici-types@6.18.2: {}
 
   undici@5.28.4:
     dependencies:
