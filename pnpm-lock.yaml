@@ -61,8 +61,8 @@ importers:
         specifier: ^9.0.7
         version: 9.0.7
       '@types/node':
-        specifier: 22.7.7
-        version: 22.7.7
+        specifier: 22.7.8
+        version: 22.7.8
       '@types/react':
         specifier: 18.3.11
         version: 18.3.11
@@ -510,8 +510,8 @@ packages:
   '@types/jsonwebtoken@9.0.7':
     resolution: {integrity: sha512-ugo316mmTYBl2g81zDFnZ7cfxlut3o+/EQdaP7J8QN2kY6lJ22hmQYCK5EHcJHbrW+dkCGSCPgbG8JtYj6qSrg==}
 
-  '@types/node@22.7.7':
-    resolution: {integrity: sha512-SRxCrrg9CL/y54aiMCG3edPKdprgMVGDXjA3gB8UmmBW5TcXzRUYAh8EWzTnSJFAd1rgImPELza+A3bJ+qxz8Q==}
+  '@types/node@22.7.8':
+    resolution: {integrity: sha512-a922jJy31vqR5sk+kAdIENJjHblqcZ4RmERviFsER4WJcEONqxKcjNOlk0q7OUfrF5sddT+vng070cdfMlrPLg==}
 
   '@types/prop-types@15.7.5':
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -2618,7 +2618,7 @@ snapshots:
   '@grpc/grpc-js@1.9.15':
     dependencies:
       '@grpc/proto-loader': 0.7.10
-      '@types/node': 22.7.7
+      '@types/node': 22.7.8
 
   '@grpc/proto-loader@0.7.10':
     dependencies:
@@ -2775,9 +2775,9 @@ snapshots:
 
   '@types/jsonwebtoken@9.0.7':
     dependencies:
-      '@types/node': 22.7.7
+      '@types/node': 22.7.8
 
-  '@types/node@22.7.7':
+  '@types/node@22.7.8':
     dependencies:
       undici-types: 6.19.6
 
@@ -4318,7 +4318,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.7.7
+      '@types/node': 22.7.8
       long: 5.2.3
 
   proxy-from-env@1.1.0: {}
