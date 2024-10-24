@@ -29,7 +29,7 @@
     "@faker-js/faker": "^9.0.3",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "22.7.8",
-    "@types/react": "18.3.11",
+    "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@types/uniqid": "^5.3.4",
     "autoprefixer": "^10.4.20",
