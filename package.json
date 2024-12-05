@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "axios": "^1.7.8",
+    "axios": "^1.7.9",
     "cookies-next": "^5.0.2",
     "date-fns": "^4.1.0",
     "emoji-picker-react": "^4.12.0",
