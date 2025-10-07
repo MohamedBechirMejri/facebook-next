@@ -16,7 +16,7 @@
     "firebase": "^12.3.0",
     "giphy-api": "^2.0.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.19.0",
+    "mongoose": "^8.19.1",
     "next": "^15.5.4",
     "next-connect": "^1.0.0",
     "react": "18.3.1",
