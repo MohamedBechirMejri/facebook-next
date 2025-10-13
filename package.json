@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.14",
     "axios": "^1.12.2",
     "cookies-next": "^6.1.0",
     "date-fns": "^4.1.0",
