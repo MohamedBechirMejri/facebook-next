@@ -1,11 +1,16 @@
 import axios from "axios";
 import type { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
-import { L49 } from "react-isloading";
+import dynamic from "next/dynamic";
 import Header from "~/components/Header";
 import Post from "~/components/Post/Post";
 import getUser from "~/lib/Auth/getUser";
 import type PostType from "~/types/PostType";
+
+const L49 = dynamic(
+	() => import("react-isloading").then((mod) => mod.L49),
+	{ ssr: false },
+);
 
 const Home = ({ user }: { user: any }) => {
 	user = user.user;
