@@ -18,7 +18,7 @@
     "giphy-api": "^2.0.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.1",
-    "next": "^15.5.4",
+    "next": "^16.0.0",
     "next-connect": "^1.0.0",
     "react": "19.2.0",
     "react-colorful": "^5.6.1",
